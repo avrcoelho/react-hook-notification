@@ -1,4 +1,4 @@
-import { globalStyles } from "./assets/styles/global";
+import { globalStyles } from './presentation/assets/styles/global';
 
 export const App = (): JSX.Element => {
   globalStyles();
