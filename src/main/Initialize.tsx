@@ -3,10 +3,19 @@ import ReactDOM from 'react-dom';
 
 export class Initialize {
   private static instance: Initialize;
+
+  private hasComponent = false;
+
   private Component: () => JSX.Element | null;
 
   private constructor() {
     this.Component = () => null;
+  }
+
+  private createElement() {
+    const element = document.createElement('div');
+    element.setAttribute('id', 'rhn-container');
+    document.body.appendChild(element);
   }
 
   static getInstance(): Initialize {
@@ -16,17 +25,21 @@ export class Initialize {
     return Initialize.instance;
   }
 
-  setComponent(component: () => JSX.Element) {
-    this.Component = this.Component || component;
-    return this;
+  private setComponent(component: () => JSX.Element) {
+    this.Component = component;
   }
 
-  render() {
-    ReactDOM.render(
-      <StrictMode>
-        <this.Component />
-      </StrictMode>,
-      document.getElementById('rhn-container'),
-    );
+  render(component: () => JSX.Element) {
+    if (!this.hasComponent) {
+      this.hasComponent = true;
+      this.setComponent(component);
+      this.createElement();
+      ReactDOM.render(
+        <StrictMode>
+          <this.Component />
+        </StrictMode>,
+        document.getElementById('rhn-container'),
+      );
+    }
   }
 }
