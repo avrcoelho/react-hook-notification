@@ -1,8 +1,8 @@
 import { Dispatch, SetStateAction } from 'react';
 import { Subject } from 'rxjs';
 
-export class Notification {
-  private static instance: Notification;
+export class NotificationStore {
+  private static instance: NotificationStore;
 
   private notifications: string[];
 
@@ -13,11 +13,11 @@ export class Notification {
     this.subject = new Subject();
   }
 
-  static getInstance(): Notification {
-    if (!Notification.instance) {
-      Notification.instance = new Notification();
+  static getInstance(): NotificationStore {
+    if (!NotificationStore.instance) {
+      NotificationStore.instance = new NotificationStore();
     }
-    return Notification.instance;
+    return NotificationStore.instance;
   }
 
   subscribe(setState: Dispatch<SetStateAction<string[]>>) {
