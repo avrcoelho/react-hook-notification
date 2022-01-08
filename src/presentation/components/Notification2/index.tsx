@@ -5,7 +5,7 @@ import { NotificationStore } from '../../store/NotificationStore';
 
 const notificationStore = NotificationStore.getInstance();
 
-export const NotificationComponent = (): JSX.Element => {
+export const NotificationComponent2 = (): JSX.Element => {
   const [notifications, setNotifications] = useState(notificationStore.get());
 
   useLayoutEffect(() => {
