@@ -5,7 +5,7 @@ import { Initialize } from '../Initialize';
 const spiedRender = jest.spyOn(ReactDOM, 'render');
 
 describe('Initialize', () => {
-  const Component = () => <h1>Test</h1>;
+  const Component = () => <div id="rhn-element">Test</div>;
 
   beforeEach(() => {
     spiedRender.mockClear();

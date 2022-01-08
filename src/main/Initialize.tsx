@@ -29,10 +29,15 @@ export class Initialize {
     this.Component = component;
   }
 
+  private removeElementIfExists(): void {
+    document.getElementById('rhn-container')?.remove();
+  }
+
   render(component: () => JSX.Element) {
     if (!this.hasComponent) {
       this.hasComponent = true;
       this.setComponent(component);
+      this.removeElementIfExists();
       this.createElement();
       ReactDOM.render(
         <StrictMode>
