@@ -12,7 +12,7 @@ export class Initialize {
     this.Component = () => null;
   }
 
-  private createElement() {
+  private createElement(): void {
     const element = document.createElement('div');
     element.setAttribute('id', 'rhn-container');
     document.body.appendChild(element);
@@ -25,7 +25,7 @@ export class Initialize {
     return Initialize.instance;
   }
 
-  private setComponent(component: () => JSX.Element) {
+  private setComponent(component: () => JSX.Element): void {
     this.Component = component;
   }
 
@@ -33,7 +33,7 @@ export class Initialize {
     document.getElementById('rhn-container')?.remove();
   }
 
-  render(component: () => JSX.Element) {
+  render(component: () => JSX.Element): void {
     if (!this.hasComponent) {
       this.hasComponent = true;
       this.setComponent(component);

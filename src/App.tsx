@@ -1,5 +1,5 @@
 import { globalStyles } from './presentation/assets/styles/global';
-import './main/';
+import './main';
 import { NotificationComponent } from './presentation/components/Notification';
 import { NotificationComponent2 } from './presentation/components/Notification2';
 

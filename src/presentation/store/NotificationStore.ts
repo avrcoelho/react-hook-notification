@@ -6,7 +6,7 @@ export class NotificationStore {
 
   private notifications: string[];
 
-  private subject: Subject<any>;
+  private subject: Subject<string[]>;
 
   private constructor() {
     this.notifications = [];
@@ -20,24 +20,24 @@ export class NotificationStore {
     return NotificationStore.instance;
   }
 
-  subscribe(setState: Dispatch<SetStateAction<string[]>>) {
+  subscribe(setState: Dispatch<SetStateAction<string[]>>): void {
     this.subject.subscribe(setState);
     this.subject.next(this.notifications);
   }
 
-  add(value: string) {
+  add(value: string): void {
     this.notifications = [...this.notifications, value];
     this.subject.next(this.notifications);
   }
 
-  remove(value: string) {
+  remove(value: string): void {
     this.notifications = this.notifications.filter(
       notification => notification !== value,
     );
     this.subject.next(this.notifications);
   }
 
-  get() {
+  get(): string[] {
     return this.notifications;
   }
 }

@@ -1,5 +1,3 @@
-// import { Container } from './styles';
-
 import { useLayoutEffect, useState } from 'react';
 import { NotificationStore } from '../../store/NotificationStore';
 
@@ -10,14 +8,16 @@ export const NotificationComponent = (): JSX.Element => {
 
   useLayoutEffect(() => {
     notificationStore.subscribe(setNotifications);
-  }, []);
-
-  console.log(notifications);
+  }, [notifications]);
 
   return (
     <div>
-      <button onClick={() => notificationStore.add('test')}>add</button>
-      <button onClick={() => notificationStore.remove('test')}>remove</button>
+      <button type="button" onClick={() => notificationStore.add('test')}>
+        add
+      </button>
+      <button type="button" onClick={() => notificationStore.remove('test')}>
+        remove
+      </button>
     </div>
   );
 };
