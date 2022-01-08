@@ -22,10 +22,11 @@ export class NotificationStore {
 
   subscribe(setState: Dispatch<SetStateAction<string[]>>) {
     this.subject.subscribe(setState);
+    this.subject.next(this.notifications);
   }
 
   add(value: string) {
-    this.notifications.push(value);
+    this.notifications = [...this.notifications, value];
     this.subject.next(this.notifications);
   }
 
