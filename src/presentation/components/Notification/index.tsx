@@ -1,14 +1,4 @@
-import {
-  NotificationDelay,
-  NotificationPosition,
-  NotificationTheme,
-  NotificationTypes,
-  NotificationTransition,
-  NotificationHasButtonClose,
-  NotificationHasProgressBar,
-  NotificationHasCloseOnClick,
-  NotificationProps,
-} from '@/presentation/types/Notification';
+import { NotificationProps } from '@/presentation/types/Notification';
 import { NotificationDefaultProps } from '@/presentation/constantes/NotificationDefaulrProps';
 
 export const Notification = ({
@@ -20,4 +10,6 @@ export const Notification = ({
   hasProgressBar = NotificationDefaultProps.hasProgressBar,
   hasButtonClose = NotificationDefaultProps.hasButtonClose,
   hasCloseOnClick = NotificationDefaultProps.hasCloseOnClick,
-}: NotificationProps): JSX.Element => {};
+}: NotificationProps): JSX.Element => {
+  return <div />;
+};

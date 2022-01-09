@@ -1,7 +1,5 @@
 import { globalStyles } from './presentation/assets/styles/global';
 import './main';
-import { NotificationComponent } from './presentation/components/Notification';
-import { NotificationComponent2 } from './presentation/components/Notification2';
 
 export const App = (): JSX.Element => {
   globalStyles();
@@ -21,9 +19,6 @@ export const App = (): JSX.Element => {
           Learn React
         </a>
       </header>
-
-      <NotificationComponent />
-      <NotificationComponent2 />
     </div>
   );
 };
