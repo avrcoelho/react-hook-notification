@@ -1,19 +1,19 @@
 export type NotificationTypes =
+  | 'default'
   | 'success'
   | 'error'
   | 'warning'
-  | 'info'
-  | 'default';
+  | 'info';
 
 export type NotificationPosition =
-  | 'top-left'
   | 'top-right'
+  | 'top-left'
   | 'top-center'
-  | 'bottom-left'
   | 'bottom-right'
+  | 'bottom-left'
   | 'bottom-center';
 
-export type NotificationTheme = 'light' | 'dark' | 'colored';
+export type NotificationTheme = 'colored' | 'light' | 'dark';
 
 export type NotificationTransition = 'bounce' | 'flip' | 'slide' | 'zoom';
 
