@@ -81,6 +81,9 @@
     "testMatch": [
       "<rootDir>/src/**/__tests__/**/*.spec.{ts,tsx}"
     ],
+    "moduleNameMapper": {
+      "^@/(.*)": "<rootDir>/src/$1"
+    },
     "coverageThreshold": {
       "global": {
         "branches": 0,

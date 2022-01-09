@@ -2,7 +2,7 @@ import {
   NotificationPosition,
   NotificationTheme,
   NotificationTransition,
-} from '@/presentation/types/NotificationTypes';
+} from '@/presentation/types/Notification';
 
 export const NotificationDefaultProps = {
   position: 'top-right' as NotificationPosition,

@@ -1,23 +1,23 @@
-import { useLayoutEffect, useState } from 'react';
-import { NotificationStore } from '../../store/NotificationStore';
+import {
+  NotificationDelay,
+  NotificationPosition,
+  NotificationTheme,
+  NotificationTypes,
+  NotificationTransition,
+  NotificationHasButtonClose,
+  NotificationHasProgressBar,
+  NotificationHasCloseOnClick,
+  NotificationProps,
+} from '@/presentation/types/Notification';
+import { NotificationDefaultProps } from '@/presentation/constantes/NotificationDefaulrProps';
 
-const notificationStore = NotificationStore.getInstance();
-
-export const NotificationComponent = (): JSX.Element => {
-  const [notifications, setNotifications] = useState(notificationStore.get());
-
-  useLayoutEffect(() => {
-    notificationStore.subscribe(setNotifications);
-  }, [notifications]);
-
-  return (
-    <div>
-      <button type="button" onClick={() => notificationStore.add('test')}>
-        add
-      </button>
-      <button type="button" onClick={() => notificationStore.remove('test')}>
-        remove
-      </button>
-    </div>
-  );
-};
+export const Notification = ({
+  type,
+  position = NotificationDefaultProps.position,
+  theme = NotificationDefaultProps.theme,
+  transition = NotificationDefaultProps.transition,
+  delay = NotificationDefaultProps.delay,
+  hasProgressBar = NotificationDefaultProps.hasProgressBar,
+  hasButtonClose = NotificationDefaultProps.hasButtonClose,
+  hasCloseOnClick = NotificationDefaultProps.hasCloseOnClick,
+}: NotificationProps): JSX.Element => {};
