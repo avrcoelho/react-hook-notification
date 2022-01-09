@@ -15,12 +15,12 @@ export type NotificationPosition =
 
 export type NotificationTheme = 'light' | 'dark' | 'colored';
 
-export type NotificationDelay = number;
-
 export type NotificationTransition = 'bounce' | 'flip' | 'slide' | 'zoom';
 
-export type NotificationProgressBar = boolean;
+export type NotificationDelay = number;
 
-export type NotificationShowButtonClose = boolean;
+export type NotificationHasProgressBar = boolean;
 
-export type NotificationCloseOnClick = boolean;
+export type NotificationHasButtonClose = boolean;
+
+export type NotificationHasCloseOnClick = boolean;
