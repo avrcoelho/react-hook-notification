@@ -8,26 +8,26 @@ const { styled } = createStitches({
 
 export const Container = styled('div', {
   position: 'absolute',
-  top: '1.6rem',
-  right: '1.6rem',
-  padding: '2rem 1.6rem',
+  top: '16px',
+  right: '16px',
+  padding: '20px 16px',
   backgroundColor: '#ccc',
-  borderRadius: '0.4rem',
+  borderRadius: '4px',
   display: 'flex',
   flexDirection: 'column',
-  width: '30rem',
+  width: '320px',
 
   '@bp1': {
-    width: 'calc(100% - 3.2rem)',
+    width: 'calc(100% - 32px)',
     margin: 'auto',
   },
 });
 
 export const Title = styled('strong', {
   color: 'white',
-  fontSize: '1.5rem',
-  lineHeight: '1.8rem',
-  marginBottom: '0.8rem',
+  fontSize: '15px',
+  lineHeight: '18px',
+  marginBottom: '8px',
   whiteSpace: 'nowrap',
   overflow: 'hidden',
   textOverflow: 'ellipsis',
@@ -35,8 +35,8 @@ export const Title = styled('strong', {
 
 export const Text = styled('span', {
   color: 'white',
-  fontSize: '1.5rem',
-  lineHeight: '2rem',
+  fontSize: '15px',
+  lineHeight: '20px',
   textOverflow: 'ellipsis',
   overflow: 'hidden',
   display: '-webkit-box',
