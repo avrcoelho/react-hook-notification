@@ -19,11 +19,11 @@ export type NotificationTransition = 'bounce' | 'flip' | 'slide' | 'zoom';
 
 export type NotificationDelay = number;
 
-export type NotificationHasProgressBar = boolean;
+export type NotificationshowProgressBar = boolean;
 
-export type NotificationHasButtonClose = boolean;
+export type NotificationshowButtonClose = boolean;
 
-export type NotificationHasCloseOnClick = boolean;
+export type NotificationcloseOnClick = boolean;
 
 export interface NotificationProps {
   /**
@@ -49,13 +49,13 @@ export interface NotificationProps {
   /**
    * Has progress bar in the notification
    */
-  hasProgressBar?: NotificationHasProgressBar;
+  showProgressBar?: NotificationshowProgressBar;
   /**
    * Has button close in the notification
    */
-  hasButtonClose?: NotificationHasButtonClose;
+  showButtonClose?: NotificationshowButtonClose;
   /**
    * Has close on click in the notification
    */
-  hasCloseOnClick?: NotificationHasCloseOnClick;
+  closeOnClick?: NotificationcloseOnClick;
 }

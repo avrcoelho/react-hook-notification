@@ -9,7 +9,7 @@ export const NotificationDefaultProps = {
   theme: 'colored' as NotificationTheme,
   transition: 'bounce' as NotificationTransition,
   delay: 5000,
-  hasProgressBar: true,
-  hasButtonClose: true,
-  hasCloseOnClick: true,
+  showProgressBar: true,
+  showButtonClose: true,
+  closeOnClick: true,
 };

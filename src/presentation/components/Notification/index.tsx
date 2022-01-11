@@ -9,9 +9,9 @@ export const Notification = ({
   theme = NotificationDefaultProps.theme,
   transition = NotificationDefaultProps.transition,
   delay = NotificationDefaultProps.delay,
-  hasProgressBar = NotificationDefaultProps.hasProgressBar,
-  hasButtonClose = NotificationDefaultProps.hasButtonClose,
-  hasCloseOnClick = NotificationDefaultProps.hasCloseOnClick,
+  showProgressBar = NotificationDefaultProps.showProgressBar,
+  showButtonClose = NotificationDefaultProps.showButtonClose,
+  closeOnClick = NotificationDefaultProps.closeOnClick,
 }: NotificationProps): JSX.Element => {
   return <Container />;
 };
