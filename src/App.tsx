@@ -1,6 +1,6 @@
 import { globalStyles } from './presentation/assets/styles/global';
-import './main';
 import { Notification } from './presentation/components/Notification';
+import './main';
 
 export const App = (): JSX.Element => {
   globalStyles();
