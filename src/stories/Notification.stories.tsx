@@ -1,7 +1,7 @@
 import { ComponentStory, ComponentMeta } from '@storybook/react';
 
 import { Notification } from '@/presentation/components/Notification';
-import { NotificationDefaultProps } from '@/presentation/constantes/NotificationDefaulrProps';
+import { NotificationDefaultProps } from '@/presentation/constantes/NotificationDefaultProps';
 import { NotificationProps } from '@/presentation/types/Notification';
 
 export default {

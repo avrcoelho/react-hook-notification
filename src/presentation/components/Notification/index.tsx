@@ -1,5 +1,7 @@
 import { NotificationProps } from '@/presentation/types/Notification';
-import { NotificationDefaultProps } from '@/presentation/constantes/NotificationDefaulrProps';
+import { NotificationDefaultProps } from '@/presentation/constantes/NotificationDefaultProps';
+
+import { Container } from './styles';
 
 export const Notification = ({
   type,
@@ -11,5 +13,5 @@ export const Notification = ({
   hasButtonClose = NotificationDefaultProps.hasButtonClose,
   hasCloseOnClick = NotificationDefaultProps.hasCloseOnClick,
 }: NotificationProps): JSX.Element => {
-  return <div />;
+  return <Container />;
 };
