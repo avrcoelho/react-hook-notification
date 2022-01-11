@@ -6,10 +6,10 @@ export class Initialize {
 
   private hasComponent = false;
 
-  private Component: () => JSX.Element | null;
+  private Component: null | (() => JSX.Element);
 
   private constructor() {
-    this.Component = () => null;
+    this.Component = null;
   }
 
   private createElement(): void {
@@ -40,9 +40,7 @@ export class Initialize {
       this.removeElementIfExists();
       this.createElement();
       ReactDOM.render(
-        <StrictMode>
-          <this.Component />
-        </StrictMode>,
+        <StrictMode>{this.Component && <this.Component />}</StrictMode>,
         document.getElementById('rhn-container'),
       );
     }
