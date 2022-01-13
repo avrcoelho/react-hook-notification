@@ -79,7 +79,7 @@ export const Title = styled('strong', {
 });
 
 export const Text = styled('span', {
-  fontSize: '15px',
+  fontSize: '14px',
   lineHeight: '20px',
   textOverflow: 'ellipsis',
   overflow: 'hidden',
