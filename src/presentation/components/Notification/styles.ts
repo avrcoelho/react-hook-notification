@@ -17,7 +17,7 @@ const themeDark = {
 };
 
 export const Container = styled('div', {
-  position: 'absolute',
+  position: 'fixed',
   top: '16px',
   right: '16px',
   padding: '20px 16px',
