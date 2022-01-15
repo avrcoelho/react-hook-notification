@@ -41,9 +41,11 @@ export const Notification = ({
         </IconContainer>
       )}
 
-      <ButtonClose type="button" theme={theme}>
-        <FiX type={type} size={15} color={colorsIconButtonClose[theme]} />
-      </ButtonClose>
+      {showButtonClose && (
+        <ButtonClose type="button" theme={theme}>
+          <FiX type={type} size={15} color={colorsIconButtonClose[theme]} />
+        </ButtonClose>
+      )}
 
       <TextContainer withIcon={withIcon ? 'true' : 'false'}>
         <Title>Notification title is here Notification title is here</Title>
