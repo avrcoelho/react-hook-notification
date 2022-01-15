@@ -5,5 +5,5 @@ import './main';
 export const App = (): JSX.Element => {
   globalStyles();
 
-  return <Notification type="default" theme="dark" />;
+  return <Notification type="error" theme="dark" />;
 };

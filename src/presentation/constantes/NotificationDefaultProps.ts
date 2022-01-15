@@ -12,4 +12,5 @@ export const NotificationDefaultProps = {
   showProgressBar: true,
   showButtonClose: true,
   closeOnClick: true,
+  showIcon: true,
 };

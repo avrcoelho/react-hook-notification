@@ -24,8 +24,7 @@ export const Container = styled('div', {
   backgroundColor: '#ccc',
   borderRadius: '5px',
   display: 'flex',
-  flexDirection: 'column',
-  width: '320px',
+  width: '350px',
   boxShadow: '0 1px 10px 0 rgb(0 0 0 / 10%), 0 2px 15px 0 rgb(0 0 0 / 5%)',
 
   '@bp1': {
@@ -65,6 +64,29 @@ export const Container = styled('div', {
       'warning-dark': themeDark,
       'success-dark': themeDark,
       'error-dark': themeDark,
+    },
+  },
+});
+
+export const IconContainer = styled('div', {
+  width: '23px',
+  height: '23px',
+  flexShrink: 0,
+});
+
+export const TextContainer = styled('div', {
+  display: 'flex',
+  flexDirection: 'column',
+
+  variants: {
+    withIcon: {
+      true: {
+        paddingLeft: '12px',
+        width: 'calc(100% - 35px)',
+      },
+      false: {
+        width: '100%',
+      },
     },
   },
 });
