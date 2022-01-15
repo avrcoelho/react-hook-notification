@@ -1,6 +1,12 @@
+import { FiX } from 'react-icons/fi';
+
 import { NotificationProps } from '@/presentation/types/Notification';
-import { NotificationDefaultProps } from '@/presentation/constantes/NotificationDefaultProps';
+import { NotificationDefaultProps } from '@/presentation/constants/NotificationDefaultProps';
 import { ContainerTheme, IconTheme } from '@/presentation/types/ContainerTheme';
+import {
+  colorsIcon,
+  colorsIconButtonClose,
+} from '@/presentation/constants/colorsIcon';
 import { Icon } from '../Icon';
 
 import {
@@ -9,7 +15,7 @@ import {
   TextContainer,
   Title,
   Text,
-  colorsIcon,
+  ButtonClose,
 } from './styles';
 
 export const Notification = ({
@@ -28,12 +34,16 @@ export const Notification = ({
   const colorTheme = `${type}-${theme}` as IconTheme;
 
   return (
-    <Container theme={themeSelected}>
+    <Container theme={themeSelected} role={type}>
       {withIcon && (
         <IconContainer>
           <Icon type={type} size={20} color={colorsIcon[colorTheme]} />
         </IconContainer>
       )}
+
+      <ButtonClose type="button" theme={theme}>
+        <FiX type={type} size={15} color={colorsIconButtonClose[theme]} />
+      </ButtonClose>
 
       <TextContainer withIcon={withIcon ? 'true' : 'false'}>
         <Title>Notification title is here Notification title is here</Title>

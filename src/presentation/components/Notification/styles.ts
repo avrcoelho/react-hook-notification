@@ -1,5 +1,4 @@
 import { createStitches } from '@stitches/react';
-import { Colors } from '../../constantes/Colors';
 
 const { styled } = createStitches({
   media: {
@@ -21,7 +20,7 @@ export const Container = styled('div', {
   position: 'fixed',
   top: '16px',
   right: '16px',
-  padding: '20px 16px',
+  padding: '12px 12px',
   backgroundColor: '#ccc',
   borderRadius: '5px',
   display: 'flex',
@@ -78,12 +77,13 @@ export const IconContainer = styled('div', {
 export const TextContainer = styled('div', {
   display: 'flex',
   flexDirection: 'column',
+  position: 'relative',
 
   variants: {
     withIcon: {
       true: {
-        paddingLeft: '12px',
-        width: 'calc(100% - 35px)',
+        paddingLeft: '8px',
+        width: 'calc(100% - 31px)',
       },
       false: {
         width: '100%',
@@ -111,17 +111,40 @@ export const Text = styled('span', {
   WebkitBoxOrient: 'vertical',
 });
 
-export const colorsIcon = {
-  'info-colored': Colors.White,
-  'warning-colored': Colors.White,
-  'success-colored': Colors.White,
-  'error-colored': Colors.White,
-  'info-light': Colors.Blue,
-  'warning-light': Colors.Yellow,
-  'success-light': Colors.Green,
-  'error-light': Colors.Red,
-  'info-dark': Colors.Blue,
-  'warning-dark': Colors.Yellow,
-  'success-dark': Colors.Green,
-  'error-dark': Colors.Red,
-};
+export const ButtonClose = styled('button', {
+  width: '16px',
+  height: '16px',
+  fontSize: 0,
+  outline: 'none',
+  border: 'none',
+  cursor: 'pointer',
+  right: 0,
+  top: 0,
+  position: 'absolute',
+  padding: 0,
+  opacity: 0.7,
+  display: 'flex',
+  alignItems: 'center',
+  justifyContent: 'center',
+  borderBottomLeftRadius: '4px',
+  borderTopRightRadius: '4px',
+  transition: '0.2s opacity',
+
+  '&:hover': {
+    opacity: 1,
+  },
+
+  variants: {
+    theme: {
+      colored: {
+        backgroundColor: 'var(--rhn-color-light)',
+      },
+      light: {
+        backgroundColor: 'var(--rhn-color-dark)',
+      },
+      dark: {
+        backgroundColor: 'var(--rhn-color-light)',
+      },
+    },
+  },
+});

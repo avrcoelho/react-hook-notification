@@ -1,5 +1,5 @@
 import { globalCss } from '@stitches/react';
-import { Colors } from '@/presentation/constantes/Colors';
+import { Colors } from '@/presentation/constants/Colors';
 import './inter.css';
 
 export const globalStyles = globalCss({
