@@ -20,7 +20,6 @@ export const Icon = ({ type, ...iconProps }: IconProps): JSX.Element => {
     default: () => null,
     success: FiCheckCircle,
   };
-
   const SelectedIcon = Icons[type];
 
   return <SelectedIcon {...iconProps} />;

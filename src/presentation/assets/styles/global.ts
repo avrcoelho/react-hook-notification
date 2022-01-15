@@ -1,15 +1,16 @@
 import { globalCss } from '@stitches/react';
+import { Colors } from '@/presentation/constantes/Colors';
 import './inter.css';
 
 export const globalStyles = globalCss({
   ':root': {
-    '--rhn-color-light': '#fff',
-    '--rhn-text-color-light': '#757575',
-    '--rhn-color-error': '#e74c3c',
-    '--rhn-color-success': '#07bc0c',
-    '--rhn-color-info': '#3498db',
-    '--rhn-color-warning': '#f1c40f',
-    '--rhn-color-dark': '#121212',
+    '--rhn-color-light': Colors.White,
+    '--rhn-text-color-light': Colors.Grey,
+    '--rhn-color-error': Colors.Red,
+    '--rhn-color-success': Colors.Green,
+    '--rhn-color-info': Colors.Blue,
+    '--rhn-color-warning': Colors.Yellow,
+    '--rhn-color-dark': Colors.Black,
   },
   '#rhn-container *, #root > *': {
     boxSizing: 'border-box',
