@@ -1,4 +1,5 @@
 import { createStitches } from '@stitches/react';
+import { motion } from 'framer-motion';
 
 const { styled } = createStitches({
   media: {
@@ -16,7 +17,7 @@ const themeDark = {
   backgroundColor: 'var(--rhn-color-dark)',
 };
 
-export const Container = styled('div', {
+export const Container = styled(motion.div, {
   position: 'fixed',
   top: '16px',
   right: '16px',

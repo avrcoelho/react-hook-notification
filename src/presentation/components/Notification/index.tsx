@@ -1,4 +1,5 @@
 import { FiX } from 'react-icons/fi';
+import { AnimatePresence, useCycle } from 'framer-motion';
 
 import { NotificationProps } from '@/presentation/types/Notification';
 import { NotificationDefaultProps } from '@/presentation/constants/NotificationDefaultProps';
@@ -8,6 +9,24 @@ import {
   colorsIconButtonClose,
 } from '@/presentation/constants/colorsIcon';
 import { Icon } from '../Icon';
+
+// blur
+// initial={{ opacity: 0 }}
+// animate={{ opacity: 1 }}
+// exit={{ opacity: 0 }}
+// transition={{ type: 'spring', bounce: 0 }}
+
+// bounce
+// initial={{ right: -380 }}
+// animate={{ right: 16 }}
+// exit={{ right: -380 }}
+// transition={{ type: 'spring', bounce: 0.6, duration: 0.4 }}
+
+// slide
+// initial={{ right: -380 }}
+// animate={{ right: 16 }}
+// exit={{ right: -380 }}
+// transition={{ type: 'spring', bounce: 0 }}
 
 import {
   Container,
@@ -33,28 +52,57 @@ export const Notification = ({
   const themeSelected: ContainerTheme = `${type}-${theme}`;
   const colorTheme = `${type}-${theme}` as IconTheme;
 
+  const [isVisible, onCycle] = useCycle(false, true);
+
   return (
-    <Container theme={themeSelected} role={type}>
-      {withIcon && (
-        <IconContainer>
-          <Icon type={type} size={20} color={colorsIcon[colorTheme]} />
-        </IconContainer>
-      )}
+    <>
+      <button type="button" onClick={() => onCycle()}>
+        toggle
+      </button>
+      <AnimatePresence>
+        {isVisible && (
+          <Container
+            theme={themeSelected}
+            role={type}
+            key="child"
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            transition={{ type: 'spring', bounce: 0 }}
+          >
+            {withIcon && (
+              <IconContainer>
+                <Icon type={type} size={20} color={colorsIcon[colorTheme]} />
+              </IconContainer>
+            )}
 
-      {showButtonClose && (
-        <ButtonClose type="button" theme={theme}>
-          <FiX type={type} size={15} color={colorsIconButtonClose[theme]} />
-        </ButtonClose>
-      )}
+            {showButtonClose && (
+              <ButtonClose
+                type="button"
+                theme={theme}
+                onClick={() => onCycle()}
+              >
+                <FiX
+                  type={type}
+                  size={15}
+                  color={colorsIconButtonClose[theme]}
+                />
+              </ButtonClose>
+            )}
 
-      <TextContainer withIcon={withIcon ? 'true' : 'false'}>
-        <Title>Notification title is here Notification title is here</Title>
-        <Text>
-          Notification title is here Notification title is here Notification
-          title is here Notification title is here Notification title is here
-          Notification title is here
-        </Text>
-      </TextContainer>
-    </Container>
+            <TextContainer withIcon={withIcon ? 'true' : 'false'}>
+              <Title>
+                Notification title is here Notification title is here
+              </Title>
+              <Text>
+                Notification title is here Notification title is here
+                Notification title is here Notification title is here
+                Notification title is here Notification title is here
+              </Text>
+            </TextContainer>
+          </Container>
+        )}
+      </AnimatePresence>
+    </>
   );
 };
