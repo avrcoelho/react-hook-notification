@@ -15,7 +15,12 @@ export type NotificationPosition =
 
 export type NotificationTheme = 'colored' | 'light' | 'dark';
 
-export type NotificationTransition = 'bounce' | 'flip' | 'slide' | 'zoom';
+export type NotificationTransition =
+  | 'bounce'
+  | 'flip'
+  | 'slide'
+  | 'zoom'
+  | 'fade';
 
 export type NotificationDelay = number;
 

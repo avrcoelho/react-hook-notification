@@ -28,6 +28,18 @@ import { Icon } from '../Icon';
 // exit={{ right: -380 }}
 // transition={{ type: 'spring', bounce: 0 }}
 
+// fade
+// initial={{ opacity: 0 }}
+// animate={{ opacity: 1 }}
+// exit={{ opacity: 0 }}
+// transition={{ type: 'spring', bounce: 0 }}
+
+// flip
+// initial={{ rotateX: -90, opacity: 0, skewX: -20 }}
+// animate={{ rotateX: 0, opacity: 1, skewX: 0 }}
+// exit={{ rotateX: -90, opacity: 0, skewX: -20 }}
+// transition={{ type: 'spring', bounce: 0.4, duration: 1 }}
+
 import {
   Container,
   IconContainer,
@@ -65,10 +77,10 @@ export const Notification = ({
             theme={themeSelected}
             role={type}
             key="child"
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            exit={{ opacity: 0 }}
-            transition={{ type: 'spring', bounce: 0 }}
+            initial={{ rotateX: -90, opacity: 0, skewX: -20 }}
+            animate={{ rotateX: 0, opacity: 1, skewX: 0 }}
+            exit={{ rotateX: -90, opacity: 0, skewX: -20 }}
+            transition={{ type: 'spring', bounce: 0.4, duration: 1 }}
           >
             {withIcon && (
               <IconContainer>
