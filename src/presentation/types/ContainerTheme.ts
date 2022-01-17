@@ -14,8 +14,3 @@ export type ContainerTheme =
   | 'warning-dark'
   | 'success-dark'
   | 'error-dark';
-
-export type IconTheme = Exclude<
-  ContainerTheme,
-  'default-colored' | 'default-light' | 'default-dark'
->;
