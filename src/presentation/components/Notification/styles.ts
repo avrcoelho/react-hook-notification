@@ -19,8 +19,6 @@ const themeDark = {
 
 export const Container = styled(motion.div, {
   position: 'fixed',
-  top: '16px',
-  right: '16px',
   padding: '12px 12px',
   backgroundColor: '#ccc',
   borderRadius: '5px',
@@ -34,6 +32,36 @@ export const Container = styled(motion.div, {
   },
 
   variants: {
+    position: {
+      'top-right': {
+        top: '16px',
+        right: '16px',
+      },
+      'top-center': {
+        top: '16px',
+        left: 0,
+        right: 0,
+        margin: 'auto',
+      },
+      'top-left': {
+        top: '16px',
+        left: '16px',
+      },
+      'bottom-right': {
+        bottom: '16px',
+        right: '16px',
+      },
+      'bottom-center': {
+        bottom: '16px',
+        left: 0,
+        right: 0,
+        margin: 'auto',
+      },
+      'bottom-left': {
+        bottom: '16px',
+        left: '16px',
+      },
+    },
     theme: {
       'default-colored': {
         backgroundColor: 'var(--rhn-color-light)',

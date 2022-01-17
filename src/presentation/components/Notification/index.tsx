@@ -48,6 +48,7 @@ import {
   Text,
   ButtonClose,
 } from './styles';
+import { animations } from '../../constants/animations';
 
 export const Notification = ({
   type,
@@ -74,12 +75,10 @@ export const Notification = ({
         {isVisible && (
           <Container
             theme={themeSelected}
+            position={position}
             role={type}
             key="child"
-            initial={{ rotateX: -90, opacity: 0, skewX: -20 }}
-            animate={{ rotateX: 0, opacity: 1, skewX: 0 }}
-            exit={{ rotateX: -90, opacity: 0, skewX: -20 }}
-            transition={{ type: 'spring', bounce: 0.4, duration: 1 }}
+            {...animations[transition][position]}
           >
             {withIcon && (
               <IconContainer>
