@@ -7,10 +7,10 @@ export const App = (): JSX.Element => {
 
   return (
     <Notification
-      type="success"
+      type="warning"
       theme="colored"
-      transition="flip"
-      position="bottom-center"
+      transition="bounce"
+      position="bottom-right"
     />
   );
 };

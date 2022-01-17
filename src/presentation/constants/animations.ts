@@ -4,16 +4,23 @@ const fade = {
   exit: { opacity: 0 },
   transition: { type: 'spring', bounce: 0, duration: 1 },
 };
+
+const setAnimationPosition = (): number => {
+  const windowWidth = window.innerWidth;
+  const windowIsLarger = windowWidth > 640;
+  return windowIsLarger ? 380 : windowWidth;
+};
+
 const slideRight = {
-  initial: { right: -380 },
+  initial: { right: -setAnimationPosition() },
   animate: { right: 16 },
-  exit: { right: -380 },
+  exit: { right: -setAnimationPosition() },
   transition: { type: 'spring', bounce: 0 },
 };
 const slideLeft = {
-  initial: { left: -380 },
+  initial: { left: -setAnimationPosition() },
   animate: { left: 16 },
-  exit: { left: -380 },
+  exit: { left: -setAnimationPosition() },
   transition: { type: 'spring', bounce: 0 },
 };
 const slideBottom = {
@@ -28,7 +35,34 @@ const slideTop = {
   exit: { top: -110 },
   transition: { type: 'spring', bounce: 0 },
 };
-const bounceTransation = { type: 'spring', bounce: 0.6, duration: 0.5 };
+
+const bounceTransationIn = { type: 'spring', bounce: 0.5, duration: 0.5 };
+const bounceTransationOut = { type: 'spring', bounce: 0, duration: 0.5 };
+
+const bounceRight = {
+  initial: { right: -setAnimationPosition(), transition: bounceTransationOut },
+  animate: { right: 16, transition: bounceTransationIn },
+  exit: { right: -setAnimationPosition(), transition: bounceTransationOut },
+  transition: { type: 'spring', bounce: 0 },
+};
+const bounceLeft = {
+  initial: { left: -setAnimationPosition(), transition: bounceTransationOut },
+  animate: { left: 16, transition: bounceTransationIn },
+  exit: { left: -setAnimationPosition(), transition: bounceTransationOut },
+  transition: { type: 'spring', bounce: 0 },
+};
+const bounceBottom = {
+  initial: { bottom: -110, transition: bounceTransationOut },
+  animate: { bottom: 16, transition: bounceTransationIn },
+  exit: { bottom: -110, transition: bounceTransationOut },
+  transition: { type: 'spring', bounce: 0 },
+};
+const bounceTop = {
+  initial: { top: -110, transition: bounceTransationOut },
+  animate: { top: 16, transition: bounceTransationIn },
+  exit: { top: -110, transition: bounceTransationOut },
+  transition: { type: 'spring', bounce: 0 },
+};
 
 const flip = {
   initial: {
@@ -61,28 +95,22 @@ const zoom = {
 export const animations = {
   bounce: {
     'top-right': {
-      ...slideRight,
-      transition: bounceTransation,
+      ...bounceRight,
     },
     'top-center': {
-      ...slideTop,
-      transition: bounceTransation,
+      ...bounceTop,
     },
     'top-left': {
-      ...slideLeft,
-      transition: bounceTransation,
+      ...bounceLeft,
     },
     'bottom-right': {
-      ...slideRight,
-      transition: bounceTransation,
+      ...bounceRight,
     },
     'bottom-center': {
-      ...slideBottom,
-      transition: bounceTransation,
+      ...bounceBottom,
     },
     'bottom-left': {
-      ...slideLeft,
-      transition: bounceTransation,
+      ...bounceLeft,
     },
   },
   slide: {

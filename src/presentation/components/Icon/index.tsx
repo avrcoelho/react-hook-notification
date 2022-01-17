@@ -1,10 +1,5 @@
 import { IconBaseProps } from 'react-icons';
-import {
-  FiAlertCircle,
-  FiAlertTriangle,
-  FiInfo,
-  FiCheckCircle,
-} from 'react-icons/fi';
+import { MdCheckCircle, MdWarning, MdInfo, MdError } from 'react-icons/md';
 
 import { NotificationTypes } from '@/presentation/types/Notification';
 
@@ -14,11 +9,11 @@ interface IconProps extends IconBaseProps {
 
 export const Icon = ({ type, ...iconProps }: IconProps): JSX.Element => {
   const Icons = {
-    error: FiAlertCircle,
-    warning: FiAlertTriangle,
-    info: FiInfo,
+    error: MdError,
+    warning: MdWarning,
+    info: MdInfo,
     default: () => null,
-    success: FiCheckCircle,
+    success: MdCheckCircle,
   };
   const SelectedIcon = Icons[type];
 
