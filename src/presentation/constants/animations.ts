@@ -2,7 +2,7 @@ const fade = {
   initial: { opacity: 0 },
   animate: { opacity: 1 },
   exit: { opacity: 0 },
-  transition: { type: 'spring', bounce: 0 },
+  transition: { type: 'spring', bounce: 0, duration: 1 },
 };
 const slideRight = {
   initial: { right: -380 },
@@ -28,13 +28,27 @@ const slideTop = {
   exit: { top: -110 },
   transition: { type: 'spring', bounce: 0 },
 };
-const bounceTransation = { type: 'spring', bounce: 0.6, duration: 0.4 };
+const bounceTransation = { type: 'spring', bounce: 0.6, duration: 0.5 };
 
 const flip = {
-  initial: { rotateX: -90, opacity: 0, skewX: -20 },
-  animate: { rotateX: 0, opacity: 1, skewX: 0 },
-  exit: { rotateX: -90, opacity: 0, skewX: -20 },
-  transition: { type: 'spring', bounce: 0.4, duration: 1 },
+  initial: {
+    rotateX: -90,
+    opacity: 0.2,
+    skewX: -20,
+    transition: { bounce: 0, type: 'spring', duration: 0.6 },
+  },
+  animate: {
+    rotateX: 0,
+    opacity: 1,
+    skewX: 0,
+    transition: { bounce: 0.6, type: 'spring', duration: 1.5 },
+  },
+  exit: {
+    rotateX: -90,
+    opacity: 0.2,
+    skewX: -20,
+    transition: { bounce: 0, type: 'spring', duration: 0.6 },
+  },
 };
 
 const zoom = {

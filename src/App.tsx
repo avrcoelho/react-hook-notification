@@ -9,8 +9,8 @@ export const App = (): JSX.Element => {
     <Notification
       type="success"
       theme="colored"
-      transition="zoom"
-      position="top-right"
+      transition="flip"
+      position="bottom-center"
     />
   );
 };
