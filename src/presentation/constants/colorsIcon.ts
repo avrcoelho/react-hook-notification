@@ -1,18 +1,27 @@
 import { Colors } from './Colors';
 
 export const colorsIcon = {
-  'info-colored': Colors.White,
-  'warning-colored': Colors.White,
-  'success-colored': Colors.White,
-  'error-colored': Colors.White,
-  'info-light': Colors.Blue,
-  'warning-light': Colors.Yellow,
-  'success-light': Colors.Green,
-  'error-light': Colors.Red,
-  'info-dark': Colors.Blue,
-  'warning-dark': Colors.Yellow,
-  'success-dark': Colors.Green,
-  'error-dark': Colors.Red,
+  colored: {
+    info: Colors.White,
+    warning: Colors.White,
+    success: Colors.White,
+    error: Colors.White,
+    default: Colors.White,
+  },
+  light: {
+    info: Colors.Blue,
+    warning: Colors.Yellow,
+    success: Colors.Green,
+    error: Colors.Red,
+    default: Colors.White,
+  },
+  dark: {
+    info: Colors.Blue,
+    warning: Colors.Yellow,
+    success: Colors.Green,
+    error: Colors.Red,
+    default: Colors.White,
+  },
 };
 
 export const colorsIconButtonClose = {

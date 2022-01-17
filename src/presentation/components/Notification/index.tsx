@@ -62,7 +62,6 @@ export const Notification = ({
 }: NotificationProps): JSX.Element => {
   const withIcon = type === 'default' ? false : showIcon;
   const themeSelected: ContainerTheme = `${type}-${theme}`;
-  const colorTheme = `${type}-${theme}` as IconTheme;
 
   const [isVisible, onCycle] = useCycle(false, true);
 
@@ -84,7 +83,7 @@ export const Notification = ({
           >
             {withIcon && (
               <IconContainer>
-                <Icon type={type} size={20} color={colorsIcon[colorTheme]} />
+                <Icon type={type} size={20} color={colorsIcon[theme][type]} />
               </IconContainer>
             )}
 
