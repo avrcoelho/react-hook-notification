@@ -19,6 +19,7 @@ import {
   ButtonClose,
 } from './styles';
 import { animations } from '../../constants/animations';
+import { ProgressBar } from '../ProgressBar';
 
 export const Notification = ({
   type,
@@ -80,6 +81,8 @@ export const Notification = ({
                 Notification title is here Notification title is here
               </Text>
             </TextContainer>
+
+            {showProgressBar && <ProgressBar delay={delay} />}
           </Container>
         )}
       </AnimatePresence>
