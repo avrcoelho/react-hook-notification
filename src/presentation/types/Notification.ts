@@ -34,19 +34,27 @@ export type NotificationShowIcon = boolean;
 
 export interface NotificationProps {
   /**
+   * Notification title - Optional
+   */
+  title?: string;
+  /**
+   * Notification text
+   */
+  text: string;
+  /**
    * Notification type
    */
   type: NotificationTypes;
   /**
-   * Notification position
+   * Notification position (Default: top-left)
    */
   position?: NotificationPosition;
   /**
-   * Notification theme
+   * Notification theme (Default: colored)
    */
   theme?: NotificationTheme;
   /**
-   * Notification delay
+   * Notification delay in MS (Default: 5000)
    */
   delay?: NotificationDelay;
   /**
@@ -69,4 +77,6 @@ export interface NotificationProps {
    * show icon (Default: true)
    */
   showIcon?: NotificationShowIcon;
+  id: string;
+  onRemove(id: string): void;
 }

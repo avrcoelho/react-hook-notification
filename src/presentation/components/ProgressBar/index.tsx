@@ -18,6 +18,7 @@ export const ProgressBar = ({ delay }: ProgressBarProps): JSX.Element => {
         width: `${isMount ? 100 : 0}%`,
         transition: `width ${delay}ms linear`,
       }}
+      aria-label="Progress bar"
     />
   );
 };

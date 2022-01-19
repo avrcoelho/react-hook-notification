@@ -1,5 +1,4 @@
 import { FiX } from 'react-icons/fi';
-import { AnimatePresence, useCycle } from 'framer-motion';
 
 import { NotificationProps } from '@/presentation/types/Notification';
 import { NotificationDefaultProps } from '@/presentation/constants/NotificationDefaultProps';
@@ -23,6 +22,10 @@ import { ProgressBar } from '../ProgressBar';
 
 export const Notification = ({
   type,
+  id,
+  onRemove,
+  title,
+  text,
   position = NotificationDefaultProps.position,
   theme = NotificationDefaultProps.theme,
   transition = NotificationDefaultProps.transition,
@@ -35,57 +38,37 @@ export const Notification = ({
   const withIcon = type === 'default' ? false : showIcon;
   const themeSelected: ContainerTheme = `${type}-${theme}`;
 
-  const [isVisible, onCycle] = useCycle(false, true);
-
   return (
-    <>
-      <button type="button" onClick={() => onCycle()}>
-        toggle
-      </button>
-      <AnimatePresence>
-        {isVisible && (
-          <Container
-            theme={themeSelected}
-            position={position}
-            role={type}
-            key="child"
-            {...animations[transition][position]}
-          >
-            {withIcon && (
-              <IconContainer>
-                <Icon type={type} size={20} color={colorsIcon[theme][type]} />
-              </IconContainer>
-            )}
+    <Container
+      theme={themeSelected}
+      position={position}
+      role={type}
+      onClick={() => closeOnClick && onRemove(id)}
+      {...animations[transition][position]}
+    >
+      {withIcon && (
+        <IconContainer aria-label={type}>
+          <Icon type={type} size={20} color={colorsIcon[theme][type]} />
+        </IconContainer>
+      )}
 
-            {showButtonClose && (
-              <ButtonClose
-                type="button"
-                theme={theme}
-                onClick={() => onCycle()}
-              >
-                <FiX
-                  type={type}
-                  size={15}
-                  color={colorsIconButtonClose[theme]}
-                />
-              </ButtonClose>
-            )}
+      {showButtonClose && (
+        <ButtonClose
+          type="button"
+          theme={theme}
+          onClick={() => onRemove(id)}
+          aria-label="Close notification"
+        >
+          <FiX type={type} size={15} color={colorsIconButtonClose[theme]} />
+        </ButtonClose>
+      )}
 
-            <TextContainer withIcon={withIcon ? 'true' : 'false'}>
-              <Title>
-                Notification title is here Notification title is here
-              </Title>
-              <Text>
-                Notification title is here Notification title is here
-                Notification title is here Notification title is here
-                Notification title is here Notification title is here
-              </Text>
-            </TextContainer>
+      <TextContainer withIcon={withIcon ? 'true' : 'false'}>
+        {title && <Title>{title}</Title>}
+        <Text>{text}</Text>
+      </TextContainer>
 
-            {showProgressBar && <ProgressBar delay={delay} />}
-          </Container>
-        )}
-      </AnimatePresence>
-    </>
+      {showProgressBar && <ProgressBar delay={delay} />}
+    </Container>
   );
 };
