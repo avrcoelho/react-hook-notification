@@ -7,8 +7,11 @@ import {
   colorsIcon,
   colorsIconButtonClose,
 } from '@/presentation/constants/colorsIcon';
+import { animations } from '@/presentation/constants/animations';
+import { NotificationTypes } from '@/presentation/constants/NotificationTypes';
+import { NotificationThemes } from '@/presentation/constants/NotificationThemes';
+import { ProgressBar } from '../ProgressBar';
 import { Icon } from '../Icon';
-
 import {
   Container,
   IconContainer,
@@ -17,8 +20,6 @@ import {
   Text,
   ButtonClose,
 } from './styles';
-import { animations } from '../../constants/animations';
-import { ProgressBar } from '../ProgressBar';
 
 export const Notification = ({
   type,
@@ -35,10 +36,12 @@ export const Notification = ({
   closeOnClick = NotificationDefaultProps.closeOnClick,
   showIcon = NotificationDefaultProps.showIcon,
 }: NotificationProps): JSX.Element => {
-  const withIcon = type === 'default' ? false : showIcon;
+  const withIcon = type === NotificationTypes.Default ? false : showIcon;
   const themeSelected: ContainerTheme = `${type}-${theme}`;
   const buttonColor =
-    theme === 'colored' && type === 'default' ? 'light' : theme;
+    theme === NotificationThemes.Colored && type === NotificationTypes.Default
+      ? NotificationThemes.Light
+      : theme;
 
   return (
     <Container

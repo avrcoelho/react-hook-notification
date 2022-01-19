@@ -1,13 +1,13 @@
 import { useEffect, useState } from 'react';
 
 import { ContainerTheme } from '../../types/ContainerTheme';
-import { NotificationTheme, NotificationTypes } from '../../types/Notification';
+import { NotificationTheme, NotificationType } from '../../types/Notification';
 import { Container } from './styles';
 
 interface ProgressBarProps {
   delay: number;
   theme: NotificationTheme;
-  type: NotificationTypes;
+  type: NotificationType;
 }
 
 export const ProgressBar = ({

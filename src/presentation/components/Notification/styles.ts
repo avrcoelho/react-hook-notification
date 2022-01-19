@@ -1,6 +1,8 @@
 import { styled } from '@stitches/react';
 import { motion } from 'framer-motion';
 
+import { NotificationThemes } from '@/presentation/constants/NotificationThemes';
+
 const themeLight = {
   color: 'var(--rhn-text-color-light)',
   backgroundColor: 'var(--rhn-color-light)',
@@ -129,13 +131,13 @@ export const ButtonClose = styled('button', {
 
   variants: {
     color: {
-      colored: {
+      [NotificationThemes.Colored]: {
         backgroundColor: 'var(--rhn-color-light)',
       },
-      light: {
+      [NotificationThemes.Light]: {
         backgroundColor: 'var(--rhn-text-color-light)',
       },
-      dark: {
+      [NotificationThemes.Dark]: {
         backgroundColor: 'var(--rhn-color-light)',
       },
     },

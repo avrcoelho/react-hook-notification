@@ -1,11 +1,11 @@
 import { render, screen, fireEvent } from '@testing-library/react';
 
-import { NotificationTypes } from '@/presentation/types/Notification';
+import { NotificationTypes } from '@/presentation/constants/NotificationTypes';
 import { Notification } from '..';
 
 const mockOnRemove = jest.fn();
 const props = {
-  type: 'success' as NotificationTypes,
+  type: NotificationTypes.Success,
   id: '124',
   text: 'text test',
   onRemove: mockOnRemove,

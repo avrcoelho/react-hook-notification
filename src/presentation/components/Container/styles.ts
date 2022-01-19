@@ -1,5 +1,7 @@
 import { createStitches } from '@stitches/react';
 
+import { NotificationPositions } from '@/presentation/constants/NotificationPositions';
+
 const { styled } = createStitches({
   media: {
     bp1: '(max-width: 640px)',
@@ -17,31 +19,31 @@ export const Container = styled('div', {
 
   variants: {
     position: {
-      'top-right': {
+      [NotificationPositions.TopRight]: {
         top: '16px',
         right: '16px',
       },
-      'top-center': {
+      [NotificationPositions.TopCenter]: {
         top: '16px',
         left: 0,
         right: 0,
         margin: 'auto',
       },
-      'top-left': {
+      [NotificationPositions.TopLeft]: {
         top: '16px',
         left: '16px',
       },
-      'bottom-right': {
+      [NotificationPositions.BottomRight]: {
         bottom: '16px',
         right: '16px',
       },
-      'bottom-center': {
+      [NotificationPositions.BottomCenter]: {
         bottom: '16px',
         left: 0,
         right: 0,
         margin: 'auto',
       },
-      'bottom-left': {
+      [NotificationPositions.BottomLeft]: {
         bottom: '16px',
         left: '16px',
       },

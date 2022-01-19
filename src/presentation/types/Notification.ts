@@ -1,26 +1,15 @@
-export type NotificationTypes =
-  | 'default'
-  | 'success'
-  | 'error'
-  | 'warning'
-  | 'info';
+import { NotificationPositions } from '../constants/NotificationPositions';
+import { NotificationThemes } from '../constants/NotificationThemes';
+import { NotificationTransitions } from '../constants/NotificationTransitions';
+import { NotificationTypes } from '../constants/NotificationTypes';
 
-export type NotificationPosition =
-  | 'top-right'
-  | 'top-left'
-  | 'top-center'
-  | 'bottom-right'
-  | 'bottom-left'
-  | 'bottom-center';
+export type NotificationType = NotificationTypes;
 
-export type NotificationTheme = 'colored' | 'light' | 'dark';
+export type NotificationPosition = NotificationPositions;
 
-export type NotificationTransition =
-  | 'bounce'
-  | 'flip'
-  | 'slide'
-  | 'zoom'
-  | 'fade';
+export type NotificationTheme = NotificationThemes;
+
+export type NotificationTransition = NotificationTransitions;
 
 export type NotificationDelay = number;
 
@@ -48,11 +37,11 @@ export interface NotificationProps {
   /**
    * Notification position (Default: top-left)
    */
-  position?: NotificationPosition;
+  position?: NotificationPositions;
   /**
    * Notification theme (Default: colored)
    */
-  theme?: NotificationTheme;
+  theme?: NotificationThemes;
   /**
    * Notification delay in MS (Default: 5000)
    */
@@ -60,7 +49,7 @@ export interface NotificationProps {
   /**
    * Notification transition
    */
-  transition?: NotificationTransition;
+  transition?: NotificationTransitions;
   /**
    * Has progress bar in the notification (Default: true)
    */

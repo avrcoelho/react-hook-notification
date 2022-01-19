@@ -3,6 +3,7 @@ import { ComponentStory, ComponentMeta } from '@storybook/react';
 import { Notification } from '@/presentation/components/Notification';
 import { NotificationDefaultProps } from '@/presentation/constants/NotificationDefaultProps';
 import { NotificationProps } from '@/presentation/types/Notification';
+import { NotificationTypes } from '@/presentation/constants/NotificationTypes';
 
 export default {
   title: 'Notification example',
@@ -15,6 +16,6 @@ const Template: ComponentStory<typeof Notification> = (
 
 export const Notificaion = Template.bind({});
 Notificaion.args = {
-  type: 'default',
+  type: NotificationTypes.Default,
   ...NotificationDefaultProps,
 };

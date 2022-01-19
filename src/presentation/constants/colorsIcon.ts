@@ -1,31 +1,33 @@
 import { Colors } from './Colors';
+import { NotificationThemes } from './NotificationThemes';
+import { NotificationTypes } from './NotificationTypes';
 
 export const colorsIcon = {
-  colored: {
-    info: Colors.White,
-    warning: Colors.White,
-    success: Colors.White,
-    error: Colors.White,
-    default: Colors.White,
+  [NotificationThemes.Colored]: {
+    [NotificationTypes.Info]: Colors.White,
+    [NotificationTypes.Warning]: Colors.White,
+    [NotificationTypes.Success]: Colors.White,
+    [NotificationTypes.Error]: Colors.White,
+    [NotificationTypes.Default]: Colors.White,
   },
-  light: {
-    info: Colors.Blue,
-    warning: Colors.Yellow,
-    success: Colors.Green,
-    error: Colors.Red,
-    default: Colors.White,
+  [NotificationThemes.Light]: {
+    [NotificationTypes.Info]: Colors.Blue,
+    [NotificationTypes.Warning]: Colors.Yellow,
+    [NotificationTypes.Success]: Colors.Green,
+    [NotificationTypes.Error]: Colors.Red,
+    [NotificationTypes.Default]: Colors.White,
   },
-  dark: {
-    info: Colors.Blue,
-    warning: Colors.Yellow,
-    success: Colors.Green,
-    error: Colors.Red,
-    default: Colors.White,
+  [NotificationThemes.Dark]: {
+    [NotificationTypes.Info]: Colors.Blue,
+    [NotificationTypes.Warning]: Colors.Yellow,
+    [NotificationTypes.Success]: Colors.Green,
+    [NotificationTypes.Error]: Colors.Red,
+    [NotificationTypes.Default]: Colors.White,
   },
 };
 
 export const colorsIconButtonClose = {
-  colored: Colors.Grey,
-  light: Colors.White,
-  dark: Colors.Black,
+  [NotificationThemes.Colored]: Colors.Grey,
+  [NotificationThemes.Light]: Colors.White,
+  [NotificationThemes.Dark]: Colors.Black,
 };
