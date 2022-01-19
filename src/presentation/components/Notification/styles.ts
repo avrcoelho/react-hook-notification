@@ -1,11 +1,5 @@
-import { createStitches } from '@stitches/react';
+import { styled } from '@stitches/react';
 import { motion } from 'framer-motion';
-
-const { styled } = createStitches({
-  media: {
-    bp1: '(max-width: 640px)',
-  },
-});
 
 const themeLight = {
   color: 'var(--rhn-text-color-light)',
@@ -18,50 +12,20 @@ const themeDark = {
 };
 
 export const Container = styled(motion.div, {
-  position: 'fixed',
   padding: '12px 12px',
   backgroundColor: '#ccc',
   borderRadius: '5px',
   display: 'flex',
-  width: '350px',
+  width: '100%',
+  position: 'relative',
+  boxSizing: 'border-box',
   boxShadow: '0 1px 10px 0 rgb(0 0 0 / 10%), 0 2px 15px 0 rgb(0 0 0 / 5%)',
 
-  '@bp1': {
-    width: 'calc(100% - 32px)',
-    margin: 'auto',
+  '& + div': {
+    marginTop: '12px',
   },
 
   variants: {
-    position: {
-      'top-right': {
-        top: '16px',
-        right: '16px',
-      },
-      'top-center': {
-        top: '16px',
-        left: 0,
-        right: 0,
-        margin: 'auto',
-      },
-      'top-left': {
-        top: '16px',
-        left: '16px',
-      },
-      'bottom-right': {
-        bottom: '16px',
-        right: '16px',
-      },
-      'bottom-center': {
-        bottom: '16px',
-        left: 0,
-        right: 0,
-        margin: 'auto',
-      },
-      'bottom-left': {
-        bottom: '16px',
-        left: '16px',
-      },
-    },
     theme: {
       'default-colored': {
         backgroundColor: 'var(--rhn-color-light)',

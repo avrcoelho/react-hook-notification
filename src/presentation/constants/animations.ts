@@ -13,25 +13,25 @@ const setAnimationPosition = (): number => {
 
 const slideRight = {
   initial: { right: -setAnimationPosition() },
-  animate: { right: 16 },
+  animate: { right: 0 },
   exit: { right: -setAnimationPosition() },
   transition: { type: 'spring', bounce: 0 },
 };
 const slideLeft = {
   initial: { left: -setAnimationPosition() },
-  animate: { left: 16 },
+  animate: { left: 0 },
   exit: { left: -setAnimationPosition() },
   transition: { type: 'spring', bounce: 0 },
 };
 const slideBottom = {
   initial: { bottom: -110 },
-  animate: { bottom: 16 },
+  animate: { bottom: 0 },
   exit: { bottom: -110 },
   transition: { type: 'spring', bounce: 0 },
 };
 const slideTop = {
   initial: { top: -110 },
-  animate: { top: 16 },
+  animate: { top: 0 },
   exit: { top: -110 },
   transition: { type: 'spring', bounce: 0 },
 };
@@ -41,25 +41,25 @@ const bounceTransationOut = { type: 'spring', bounce: 0, duration: 0.5 };
 
 const bounceRight = {
   initial: { right: -setAnimationPosition(), transition: bounceTransationOut },
-  animate: { right: 16, transition: bounceTransationIn },
+  animate: { right: 0, transition: bounceTransationIn },
   exit: { right: -setAnimationPosition(), transition: bounceTransationOut },
   transition: { type: 'spring', bounce: 0 },
 };
 const bounceLeft = {
   initial: { left: -setAnimationPosition(), transition: bounceTransationOut },
-  animate: { left: 16, transition: bounceTransationIn },
+  animate: { left: 0, transition: bounceTransationIn },
   exit: { left: -setAnimationPosition(), transition: bounceTransationOut },
   transition: { type: 'spring', bounce: 0 },
 };
 const bounceBottom = {
   initial: { bottom: -110, transition: bounceTransationOut },
-  animate: { bottom: 16, transition: bounceTransationIn },
+  animate: { bottom: 0, transition: bounceTransationIn },
   exit: { bottom: -110, transition: bounceTransationOut },
   transition: { type: 'spring', bounce: 0 },
 };
 const bounceTop = {
   initial: { top: -110, transition: bounceTransationOut },
-  animate: { top: 16, transition: bounceTransationIn },
+  animate: { top: 0, transition: bounceTransationIn },
   exit: { top: -110, transition: bounceTransationOut },
   transition: { type: 'spring', bounce: 0 },
 };

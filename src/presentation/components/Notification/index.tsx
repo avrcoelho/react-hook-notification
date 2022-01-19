@@ -41,7 +41,6 @@ export const Notification = ({
   return (
     <Container
       theme={themeSelected}
-      position={position}
       role={type}
       onClick={() => closeOnClick && onRemove(id)}
       {...animations[transition][position]}
@@ -68,7 +67,9 @@ export const Notification = ({
         <Text>{text}</Text>
       </TextContainer>
 
-      {showProgressBar && <ProgressBar delay={delay} />}
+      {showProgressBar && (
+        <ProgressBar delay={delay} theme={theme} type={type} />
+      )}
     </Container>
   );
 };

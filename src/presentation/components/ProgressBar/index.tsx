@@ -1,12 +1,22 @@
 import { useEffect, useState } from 'react';
+
+import { ContainerTheme } from '../../types/ContainerTheme';
+import { NotificationTheme, NotificationTypes } from '../../types/Notification';
 import { Container } from './styles';
 
 interface ProgressBarProps {
   delay: number;
+  theme: NotificationTheme;
+  type: NotificationTypes;
 }
 
-export const ProgressBar = ({ delay }: ProgressBarProps): JSX.Element => {
+export const ProgressBar = ({
+  delay,
+  theme,
+  type,
+}: ProgressBarProps): JSX.Element => {
   const [isMount, setIsMoint] = useState(true);
+  const parsedTheme: ContainerTheme = `${type}-${theme}`;
 
   useEffect(() => {
     setIsMoint(false);
@@ -14,6 +24,7 @@ export const ProgressBar = ({ delay }: ProgressBarProps): JSX.Element => {
 
   return (
     <Container
+      theme={parsedTheme}
       style={{
         width: `${isMount ? 100 : 0}%`,
         transition: `width ${delay}ms linear`,

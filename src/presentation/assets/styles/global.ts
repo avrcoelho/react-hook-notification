@@ -17,4 +17,9 @@ export const globalStyles = globalCss({
     outline: 0,
     fontFamily: "'Inter', sans-serif",
   },
+
+  body: {
+    padding: 0,
+    margin: 0,
+  },
 });
