@@ -37,6 +37,8 @@ export const Notification = ({
 }: NotificationProps): JSX.Element => {
   const withIcon = type === 'default' ? false : showIcon;
   const themeSelected: ContainerTheme = `${type}-${theme}`;
+  const buttonColor =
+    theme === 'colored' && type === 'default' ? 'light' : theme;
 
   return (
     <Container
@@ -54,11 +56,15 @@ export const Notification = ({
       {showButtonClose && (
         <ButtonClose
           type="button"
-          theme={theme}
+          color={buttonColor}
           onClick={() => onRemove(id)}
           aria-label="Close notification"
         >
-          <FiX type={type} size={15} color={colorsIconButtonClose[theme]} />
+          <FiX
+            type={type}
+            size={15}
+            color={colorsIconButtonClose[buttonColor]}
+          />
         </ButtonClose>
       )}
 

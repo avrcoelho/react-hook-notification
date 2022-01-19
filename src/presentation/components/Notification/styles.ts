@@ -128,12 +128,12 @@ export const ButtonClose = styled('button', {
   },
 
   variants: {
-    theme: {
+    color: {
       colored: {
         backgroundColor: 'var(--rhn-color-light)',
       },
       light: {
-        backgroundColor: 'var(--rhn-color-dark)',
+        backgroundColor: 'var(--rhn-text-color-light)',
       },
       dark: {
         backgroundColor: 'var(--rhn-color-light)',

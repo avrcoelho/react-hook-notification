@@ -10,7 +10,7 @@ export const Container = (): JSX.Element => {
   return (
     <ContainerElement position="top-center">
       <Notification
-        type="default"
+        type="info"
         position="top-center"
         text="123"
         onRemove={onRemove}
