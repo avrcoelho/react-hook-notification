@@ -1,12 +1,16 @@
 import { Dispatch, SetStateAction } from 'react';
 import { Subject } from 'rxjs';
 
+import { NotificationProps } from '../types/Notification';
+
+type NotificationData = Omit<NotificationProps, 'onRemove'>;
+
 export class NotificationStore {
   private static instance: NotificationStore;
 
-  private notifications: string[];
+  private notifications: NotificationData[];
 
-  private subject: Subject<string[]>;
+  private subject: Subject<NotificationData[]>;
 
   private constructor() {
     this.notifications = [];
@@ -20,24 +24,24 @@ export class NotificationStore {
     return NotificationStore.instance;
   }
 
-  subscribe(setState: Dispatch<SetStateAction<string[]>>): void {
+  subscribe(setState: Dispatch<SetStateAction<NotificationData[]>>): void {
     this.subject.subscribe(setState);
     this.subject.next(this.notifications);
   }
 
-  add(value: string): void {
+  add(value: NotificationData): void {
     this.notifications = [...this.notifications, value];
     this.subject.next(this.notifications);
   }
 
-  remove(value: string): void {
+  remove(id: string): void {
     this.notifications = this.notifications.filter(
-      notification => notification !== value,
+      notification => notification.id !== id,
     );
     this.subject.next(this.notifications);
   }
 
-  get(): string[] {
+  get(): NotificationData[] {
     return this.notifications;
   }
 }
