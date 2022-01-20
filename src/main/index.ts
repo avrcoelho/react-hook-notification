@@ -79,7 +79,7 @@ export const useNotification: UseNotificationHook = hookParams => {
         ...hookParams,
         ...notificationParams,
         id,
-        type: NotificationTypes.Warning,
+        type: NotificationTypes.Default,
       };
       notificationStore.add(notification);
     },
