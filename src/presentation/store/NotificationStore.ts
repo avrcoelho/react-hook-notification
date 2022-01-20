@@ -3,7 +3,7 @@ import { Subject } from 'rxjs';
 
 import { NotificationProps } from '../types/Notification';
 
-type NotificationData = Omit<NotificationProps, 'onRemove'>;
+export type NotificationData = Omit<NotificationProps, 'onRemove'>;
 
 export class NotificationStore {
   private static instance: NotificationStore;

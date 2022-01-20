@@ -1,3 +1,4 @@
+import { memo } from 'react';
 import { FiX } from 'react-icons/fi';
 
 import { NotificationProps } from '@/presentation/types/Notification';
@@ -21,7 +22,7 @@ import {
   ButtonClose,
 } from './styles';
 
-export const Notification = ({
+const Component = ({
   type,
   id,
   onRemove,
@@ -46,6 +47,7 @@ export const Notification = ({
   return (
     <Container
       theme={themeSelected}
+      key={id}
       role={type}
       onClick={() => closeOnClick && onRemove(id)}
       {...animations[transition][position]}
@@ -82,3 +84,5 @@ export const Notification = ({
     </Container>
   );
 };
+
+export const Notification = memo(Component);
