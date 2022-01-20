@@ -13,6 +13,7 @@ import { NotificationTypes } from '@/presentation/constants/NotificationTypes';
 import { NotificationThemes } from '@/presentation/constants/NotificationThemes';
 import { ProgressBar } from '../ProgressBar';
 import { Icon } from '../Icon';
+import { useController } from './useController';
 import {
   Container,
   IconContainer,
@@ -36,6 +37,7 @@ const Component = ({
   showButtonClose = NotificationDefaultProps.showButtonClose,
   closeOnClick = NotificationDefaultProps.closeOnClick,
   showIcon = NotificationDefaultProps.showIcon,
+  autoClose = NotificationDefaultProps.autoClose,
 }: NotificationProps): JSX.Element => {
   const withIcon = type === NotificationTypes.Default ? false : showIcon;
   const themeSelected: ContainerTheme = `${type}-${theme}`;
@@ -43,6 +45,9 @@ const Component = ({
     theme === NotificationThemes.Colored && type === NotificationTypes.Default
       ? NotificationThemes.Light
       : theme;
+  const withProgressBar = showProgressBar && autoClose;
+
+  useController({ id, onRemove, delay, autoClose });
 
   return (
     <Container
@@ -78,7 +83,7 @@ const Component = ({
         <Text>{text}</Text>
       </TextContainer>
 
-      {showProgressBar && (
+      {withProgressBar && (
         <ProgressBar delay={delay} theme={theme} type={type} />
       )}
     </Container>

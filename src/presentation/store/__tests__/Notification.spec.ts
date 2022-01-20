@@ -1,11 +1,11 @@
-import { uuid } from 'uuidv4';
+import { v4 as uuidv4 } from 'uuid';
 
 import { NotificationTypes } from '../../constants/NotificationTypes';
 import { NotificationStore } from '../NotificationStore';
 
 describe('NotificationStore', () => {
   const notificationData = {
-    id: uuid(),
+    id: uuidv4(),
     type: NotificationTypes.Success,
     text: 'test',
   };

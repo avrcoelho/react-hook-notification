@@ -1,7 +1,7 @@
 import { useEffect, useLayoutEffect, useState } from 'react';
 import { renderHook } from '@testing-library/react-hooks';
 import { render } from '@testing-library/react';
-import { uuid } from 'uuidv4';
+import { v4 as uuidv4 } from 'uuid';
 
 import { NotificationStore } from '@/presentation/store/NotificationStore';
 import { NotificationTypes } from '@/presentation/constants/NotificationTypes';
@@ -15,7 +15,7 @@ const notificationBaseData = {
   text: 'text test',
 };
 
-const idTopRight = uuid();
+const idTopRight = uuidv4();
 export const Component = (): JSX.Element => {
   const [, setNotifications] = useState(notificationStore.get());
 
@@ -35,27 +35,27 @@ export const Component = (): JSX.Element => {
     });
     notificationStore.add({
       ...notificationBaseData,
-      id: uuid(),
+      id: uuidv4(),
       position: NotificationPositions.TopLeft,
     });
     notificationStore.add({
       ...notificationBaseData,
-      id: uuid(),
+      id: uuidv4(),
       position: NotificationPositions.TopCenter,
     });
     notificationStore.add({
       ...notificationBaseData,
-      id: uuid(),
+      id: uuidv4(),
       position: NotificationPositions.BottomRight,
     });
     notificationStore.add({
       ...notificationBaseData,
-      id: uuid(),
+      id: uuidv4(),
       position: NotificationPositions.BottomLeft,
     });
     notificationStore.add({
       ...notificationBaseData,
-      id: uuid(),
+      id: uuidv4(),
       position: NotificationPositions.BottomCenter,
     });
   }, []);
@@ -63,7 +63,7 @@ export const Component = (): JSX.Element => {
   return <div />;
 };
 
-describe('Container controller hook', () => {
+describe('Notifications controller hook', () => {
   beforeAll(() => {
     render(<Component />);
   });

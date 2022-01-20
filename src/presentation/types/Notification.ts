@@ -21,6 +21,8 @@ export type NotificationCloseOnClick = boolean;
 
 export type NotificationShowIcon = boolean;
 
+export type NotificationAutoClose = boolean;
+
 export interface NotificationProps {
   /**
    * Notification title - Optional
@@ -66,6 +68,11 @@ export interface NotificationProps {
    * show icon (Default: true)
    */
   showIcon?: NotificationShowIcon;
+  /**
+   * Auto close notification (Default: true)
+   */
+  autoClose?: NotificationAutoClose;
+
   id: string;
   onRemove(id: string): void;
 }

@@ -1,7 +1,7 @@
 import { useCallback } from 'react';
-import { uuid } from 'uuidv4';
+import { v4 as uuidv4 } from 'uuid';
 
-import { Container } from '@/presentation/components/Container';
+import { Notifications } from '@/presentation/components/Notifications';
 import { NotificationStore } from '@/presentation/store/NotificationStore';
 import { NotificationTypes } from '@/presentation/constants/NotificationTypes';
 import { Initialize } from './Initialize';
@@ -11,14 +11,14 @@ import {
 } from './types/notificationHook';
 
 const initialize = Initialize.getInstance();
-initialize.render(Container);
+initialize.render(Notifications);
 
 const notificationStore = NotificationStore.getInstance();
 
 export const useNotification: UseNotificationHook = hookParams => {
   const info = useCallback(
     (notificationParams: NotificationParams) => {
-      const id = uuid();
+      const id = uuidv4();
       const notification = {
         ...hookParams,
         ...notificationParams,
@@ -32,7 +32,7 @@ export const useNotification: UseNotificationHook = hookParams => {
 
   const success = useCallback(
     (notificationParams: NotificationParams) => {
-      const id = uuid();
+      const id = uuidv4();
       const notification = {
         ...hookParams,
         ...notificationParams,
@@ -46,7 +46,7 @@ export const useNotification: UseNotificationHook = hookParams => {
 
   const error = useCallback(
     (notificationParams: NotificationParams) => {
-      const id = uuid();
+      const id = uuidv4();
       const notification = {
         ...hookParams,
         ...notificationParams,
@@ -60,7 +60,7 @@ export const useNotification: UseNotificationHook = hookParams => {
 
   const warning = useCallback(
     (notificationParams: NotificationParams) => {
-      const id = uuid();
+      const id = uuidv4();
       const notification = {
         ...hookParams,
         ...notificationParams,
@@ -74,7 +74,7 @@ export const useNotification: UseNotificationHook = hookParams => {
 
   const defaultNotification = useCallback(
     (notificationParams: NotificationParams) => {
-      const id = uuid();
+      const id = uuidv4();
       const notification = {
         ...hookParams,
         ...notificationParams,

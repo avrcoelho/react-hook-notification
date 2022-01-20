@@ -22,6 +22,7 @@ export const Container = styled(motion.div, {
   position: 'relative',
   boxSizing: 'border-box',
   boxShadow: '0 1px 10px 0 rgb(0 0 0 / 10%), 0 2px 15px 0 rgb(0 0 0 / 5%)',
+  cursor: 'default',
 
   '& + div': {
     marginTop: '12px',

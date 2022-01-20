@@ -36,8 +36,6 @@ export const useController: UseControllerHook = () => {
   }, []);
 
   const onRemove = useCallback((id: string): void => {
-    console.log(id);
-
     notificationStore.remove(id);
   }, []);
 

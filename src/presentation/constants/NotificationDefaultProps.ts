@@ -11,4 +11,5 @@ export const NotificationDefaultProps = {
   showButtonClose: true,
   closeOnClick: true,
   showIcon: true,
+  autoClose: true,
 };
