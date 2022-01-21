@@ -3,6 +3,15 @@ import { render, screen, fireEvent } from '@testing-library/react';
 import { NotificationTypes } from '@/presentation/constants/NotificationTypes';
 import { Notification } from '..';
 
+let mockWithIcon = true;
+let mockWithProgressBar = true;
+jest.mock('../useController', () => ({
+  useController: () => ({
+    withIcon: mockWithIcon,
+    withProgressBar: mockWithProgressBar,
+  }),
+}));
+
 const mockOnRemove = jest.fn();
 const props = {
   type: NotificationTypes.Success,
@@ -35,9 +44,7 @@ describe('Notification component', () => {
   });
 
   it('should not be able to render icon', () => {
-    Object.assign(props, {
-      showIcon: false,
-    });
+    mockWithIcon = false;
     render(<Notification {...props} />);
 
     expect(screen.queryByLabelText(props.type)).toBeFalsy();
@@ -59,9 +66,7 @@ describe('Notification component', () => {
   });
 
   it('should not be able to render progress bar', () => {
-    Object.assign(props, {
-      showProgressBar: false,
-    });
+    mockWithProgressBar = false;
     render(<Notification {...props} />);
 
     expect(screen.queryByLabelText('Progress bar')).toBeFalsy();
