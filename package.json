@@ -99,6 +99,13 @@
     },
     "collectCoverageFrom": [
       "<rootDir>/src/**/*.{ts,tsx}"
+    ],
+    "coveragePathIgnorePatterns": [
+      "<rootDir>/src/App.tsx",
+      "<rootDir>/src/index.tsx",
+      "<rootDir>/src/reportWebVitals.ts",
+      "<rootDir>/src/presentation/assets",
+      "<rootDir>/src/stories"
     ]
   }
 }
