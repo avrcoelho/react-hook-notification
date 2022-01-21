@@ -31,8 +31,6 @@ export const useController: UseControllerHook = () => {
 
   useLayoutEffect(() => {
     notificationStore.subscribe(setNotifications);
-
-    return () => notificationStore.unsubscribe();
   }, []);
 
   const onRemove = useCallback((id: string): void => {

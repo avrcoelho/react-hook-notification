@@ -1,6 +1,4 @@
-import { useEffect, useLayoutEffect, useState } from 'react';
 import { renderHook } from '@testing-library/react-hooks';
-import { render } from '@testing-library/react';
 import { v4 as uuidv4 } from 'uuid';
 
 import { NotificationStore } from '@/presentation/store/NotificationStore';
@@ -16,18 +14,9 @@ const notificationBaseData = {
 };
 
 const idTopRight = uuidv4();
-export const Component = (): JSX.Element => {
-  const [, setNotifications] = useState(notificationStore.get());
 
-  useLayoutEffect(() => {
-    notificationStore.subscribe(setNotifications);
-
-    return () => {
-      notificationStore.unsubscribe();
-    };
-  }, []);
-
-  useEffect(() => {
+describe('Notifications controller hook', () => {
+  beforeAll(() => {
     notificationStore.add({
       ...notificationBaseData,
       id: idTopRight,
@@ -58,14 +47,6 @@ export const Component = (): JSX.Element => {
       id: uuidv4(),
       position: NotificationPositions.BottomCenter,
     });
-  }, []);
-
-  return <div />;
-};
-
-describe('Notifications controller hook', () => {
-  beforeAll(() => {
-    render(<Component />);
   });
 
   it('should be able to get notifications top-right', () => {
