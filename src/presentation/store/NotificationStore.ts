@@ -44,8 +44,4 @@ export class NotificationStore {
   get(): NotificationData[] {
     return this.notifications;
   }
-
-  unsubscribe(): void {
-    this.subject.unsubscribe();
-  }
 }
