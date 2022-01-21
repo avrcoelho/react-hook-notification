@@ -1,5 +1,4 @@
 import { createStitches } from '@stitches/react';
-import { motion } from 'framer-motion';
 
 import { NotificationPositions } from '@/presentation/constants/NotificationPositions';
 
@@ -9,7 +8,7 @@ const { styled } = createStitches({
   },
 });
 
-export const Container = styled(motion.div, {
+export const Container = styled('div', {
   width: '350px',
   position: 'fixed',
 

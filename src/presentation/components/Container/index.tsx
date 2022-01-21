@@ -1,14 +1,13 @@
 import { memo } from 'react';
 import { AnimatePresence } from 'framer-motion';
 
-import { animations } from '@/presentation/constants/animations';
 import {
   NotificationPosition,
   NotificationProps,
 } from '@/presentation/types/Notification';
 import { Notification } from '../Notification';
+import { useController } from './useController';
 import { Container as ContainerElement } from './styles';
-import { NotificationTransitions } from '../../constants/NotificationTransitions';
 
 interface ContainerProps {
   isVisible: boolean;
@@ -22,27 +21,22 @@ const Component = ({
   notifications,
   position,
   onRemove,
-}: ContainerProps): JSX.Element => {
-  return (
-    <AnimatePresence>
-      {isVisible && (
-        <ContainerElement
-          position={position}
-          {...animations[NotificationTransitions.Fade][position]}
-        >
-          <AnimatePresence>
-            {notifications.map(notification => (
-              <Notification
-                key={notification.id}
-                {...notification}
-                onRemove={onRemove}
-              />
-            ))}
-          </AnimatePresence>
-        </ContainerElement>
-      )}
-    </AnimatePresence>
-  );
+}: ContainerProps): JSX.Element | null => {
+  const { show } = useController({ isVisible });
+
+  return show ? (
+    <ContainerElement position={position}>
+      <AnimatePresence>
+        {notifications.map(notification => (
+          <Notification
+            key={notification.id}
+            {...notification}
+            onRemove={onRemove}
+          />
+        ))}
+      </AnimatePresence>
+    </ContainerElement>
+  ) : null;
 };
 
 export const Container = memo(Component);
