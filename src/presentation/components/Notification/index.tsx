@@ -3,14 +3,11 @@ import { FiX } from 'react-icons/fi';
 
 import { NotificationProps } from '@/presentation/types/Notification';
 import { NotificationDefaultProps } from '@/presentation/constants/NotificationDefaultProps';
-import { ContainerTheme } from '@/presentation/types/ContainerTheme';
 import {
   colorsIcon,
   colorsIconButtonClose,
 } from '@/presentation/constants/colorsIcon';
 import { animations } from '@/presentation/constants/animations';
-import { NotificationTypes } from '@/presentation/constants/NotificationTypes';
-import { NotificationThemes } from '@/presentation/constants/NotificationThemes';
 import { ProgressBar } from '../ProgressBar';
 import { Icon } from '../Icon';
 import { useController } from './useController';
@@ -39,15 +36,17 @@ const Component = ({
   showIcon = NotificationDefaultProps.showIcon,
   autoClose = NotificationDefaultProps.autoClose,
 }: NotificationProps): JSX.Element => {
-  const withIcon = type === NotificationTypes.Default ? false : showIcon;
-  const themeSelected: ContainerTheme = `${type}-${theme}`;
-  const buttonColor =
-    theme === NotificationThemes.Colored && type === NotificationTypes.Default
-      ? NotificationThemes.Light
-      : theme;
-  const withProgressBar = showProgressBar && autoClose;
-
-  useController({ id, onRemove, delay, autoClose });
+  const { buttonColor, themeSelected, withIcon, withProgressBar } =
+    useController({
+      id,
+      onRemove,
+      delay,
+      autoClose,
+      type,
+      theme,
+      showIcon,
+      showProgressBar,
+    });
 
   return (
     <Container

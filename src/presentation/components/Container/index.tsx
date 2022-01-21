@@ -1,7 +1,6 @@
 import { memo } from 'react';
 import { AnimatePresence } from 'framer-motion';
 
-import { NotificationPositions } from '@/presentation/constants/NotificationPositions';
 import { animations } from '@/presentation/constants/animations';
 import {
   NotificationPosition,
@@ -9,6 +8,7 @@ import {
 } from '@/presentation/types/Notification';
 import { Notification } from '../Notification';
 import { Container as ContainerElement } from './styles';
+import { NotificationTransitions } from '../../constants/NotificationTransitions';
 
 interface ContainerProps {
   isVisible: boolean;
@@ -28,9 +28,7 @@ const Component = ({
       {isVisible && (
         <ContainerElement
           position={position}
-          {...animations[notifications[0].transition || 'fade'][
-            NotificationPositions.TopRight
-          ]}
+          {...animations[NotificationTransitions.Fade][position]}
         >
           <AnimatePresence>
             {notifications.map(notification => (
