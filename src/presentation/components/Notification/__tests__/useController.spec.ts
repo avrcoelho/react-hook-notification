@@ -47,7 +47,7 @@ describe('Notification controller hook', () => {
 
   it('should be bale to close by autoClose', () => {
     params.autoClose = true;
-    const { result } = renderHook(() => useController(params));
+    renderHook(() => useController(params));
 
     jest.advanceTimersByTime(params.delay);
 
