@@ -1,9 +1,9 @@
 import { renderHook } from '@testing-library/react-hooks';
 import { v4 as uuidv4 } from 'uuid';
 
-import { NotificationStore } from '@/presentation/store/NotificationStore';
-import { NotificationTypes } from '@/presentation/constants/NotificationTypes';
-import { NotificationPositions } from '@/presentation/constants/NotificationPositions';
+import { NotificationStore } from '../../../store/NotificationStore';
+import { NotificationTypes } from '../../../constants/NotificationTypes';
+import { NotificationPositions } from '../../../constants/NotificationPositions';
 import { useController } from '../useController';
 
 const notificationStore = NotificationStore.getInstance();

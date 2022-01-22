@@ -1,9 +1,9 @@
 import { useCallback } from 'react';
 import { v4 as uuidv4 } from 'uuid';
 
-import { Notifications } from '@/presentation/components/Notifications';
-import { NotificationStore } from '@/presentation/store/NotificationStore';
-import { NotificationTypes } from '@/presentation/constants/NotificationTypes';
+import { Notifications } from '../presentation/components/Notifications';
+import { NotificationStore } from '../presentation/store/NotificationStore';
+import { NotificationTypes } from '../presentation/constants/NotificationTypes';
 import { Initialize } from './Initialize';
 import {
   NotificationParams,
@@ -27,7 +27,7 @@ export const useNotification: UseNotificationHook = (hookParams = {}) => {
       };
       notificationStore.add(notification);
     },
-    [hookParams],
+    [hookParams]
   );
 
   const success = useCallback(
@@ -41,7 +41,7 @@ export const useNotification: UseNotificationHook = (hookParams = {}) => {
       };
       notificationStore.add(notification);
     },
-    [hookParams],
+    [hookParams]
   );
 
   const error = useCallback(
@@ -55,7 +55,7 @@ export const useNotification: UseNotificationHook = (hookParams = {}) => {
       };
       notificationStore.add(notification);
     },
-    [hookParams],
+    [hookParams]
   );
 
   const warning = useCallback(
@@ -69,7 +69,7 @@ export const useNotification: UseNotificationHook = (hookParams = {}) => {
       };
       notificationStore.add(notification);
     },
-    [hookParams],
+    [hookParams]
   );
 
   const defaultNotification = useCallback(
@@ -83,7 +83,7 @@ export const useNotification: UseNotificationHook = (hookParams = {}) => {
       };
       notificationStore.add(notification);
     },
-    [hookParams],
+    [hookParams]
   );
 
   return {

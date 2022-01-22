@@ -1,7 +1,7 @@
 import { renderHook } from '@testing-library/react-hooks';
 
-import { NotificationThemes } from '@/presentation/constants/NotificationThemes';
-import { NotificationTypes } from '@/presentation/constants/NotificationTypes';
+import { NotificationThemes } from '../../../constants/NotificationThemes';
+import { NotificationTypes } from '../../../constants/NotificationTypes';
 
 import { useController } from '../useController';
 

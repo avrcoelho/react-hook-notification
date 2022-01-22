@@ -1,7 +1,8 @@
+import React from 'react';
 import { screen, render } from '@testing-library/react';
 
-import { NotificationPositions } from '@/presentation/constants/NotificationPositions';
-import { NotificationTypes } from '@/presentation/constants/NotificationTypes';
+import { NotificationPositions } from '../../../constants/NotificationPositions';
+import { NotificationTypes } from '../../../constants/NotificationTypes';
 import { Container } from '..';
 
 let mockShow = true;

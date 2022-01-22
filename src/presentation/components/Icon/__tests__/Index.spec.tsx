@@ -1,6 +1,7 @@
+import React from 'react';
 import { render, screen } from '@testing-library/react';
 
-import { NotificationTypes } from '@/presentation/constants/NotificationTypes';
+import { NotificationTypes } from '../../../constants/NotificationTypes';
 import { Icon } from '..';
 
 describe('Icon', () => {

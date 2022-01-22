@@ -1,7 +1,7 @@
 import { styled } from '@stitches/react';
 import { motion } from 'framer-motion';
 
-import { NotificationThemes } from '@/presentation/constants/NotificationThemes';
+import { NotificationThemes } from '../../constants/NotificationThemes';
 
 const themeLight = {
   color: 'var(--rhn-text-color-light)',

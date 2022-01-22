@@ -1,12 +1,9 @@
 import { useEffect, useLayoutEffect, useRef } from 'react';
 
-import {
-  NotificationTheme,
-  NotificationType,
-} from '@/presentation/types/Notification';
-import { NotificationTypes } from '@/presentation/constants/NotificationTypes';
-import { NotificationThemes } from '@/presentation/constants/NotificationThemes';
-import { ContainerTheme } from '@/presentation/types/ContainerTheme';
+import { NotificationTheme, NotificationType } from '../../types/Notification';
+import { NotificationTypes } from '../../constants/NotificationTypes';
+import { NotificationThemes } from '../../constants/NotificationThemes';
+import { ContainerTheme } from '../../types/ContainerTheme';
 
 type UseControllerHookParams = {
   id: string;

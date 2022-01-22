@@ -1,11 +1,12 @@
 /* eslint-disable react/destructuring-assignment */
+import React from 'react';
 import { ComponentStory, ComponentMeta } from '@storybook/react';
 
-import { Notification } from '@/presentation/components/Notification';
-import { NotificationDefaultProps } from '@/presentation/constants/NotificationDefaultProps';
-import { NotificationProps } from '@/presentation/types/Notification';
-import { NotificationTypes } from '@/presentation/constants/NotificationTypes';
-import { useNotification } from '../main';
+import { Notification } from '../src/presentation/components/Notification';
+import { NotificationDefaultProps } from '../src/presentation/constants/NotificationDefaultProps';
+import { NotificationProps } from '../src/presentation/types/Notification';
+import { NotificationTypes } from '../src/presentation/constants/NotificationTypes';
+import { useNotification } from '../src';
 
 export default {
   title: 'Notification example',
@@ -13,7 +14,7 @@ export default {
 } as ComponentMeta<typeof Notification>;
 
 const Template: ComponentStory<typeof Notification> = (
-  args: NotificationProps,
+  args: NotificationProps
 ) => {
   const notification = useNotification();
 

@@ -1,4 +1,4 @@
-import { NotificationProps } from '@/presentation/types/Notification';
+import { NotificationProps } from '../../presentation/types/Notification';
 
 export type UseNotificationParams = Omit<
   NotificationProps,

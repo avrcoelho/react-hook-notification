@@ -1,4 +1,4 @@
-import { StrictMode } from 'react';
+import React, { StrictMode } from 'react';
 import ReactDOM from 'react-dom';
 
 export class Initialize {
@@ -41,7 +41,7 @@ export class Initialize {
       this.createElement();
       ReactDOM.render(
         <StrictMode>{this.Component && <this.Component />}</StrictMode>,
-        document.getElementById('rhn-container'),
+        document.getElementById('rhn-container')
       );
     }
   }

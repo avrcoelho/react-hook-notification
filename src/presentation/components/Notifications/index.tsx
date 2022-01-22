@@ -1,5 +1,7 @@
-import { NotificationPositions } from '@/presentation/constants/NotificationPositions';
-import { globalStyles } from '@/presentation/assets/styles/global';
+import React from 'react';
+
+import { NotificationPositions } from '../../constants/NotificationPositions';
+import { globalStyles } from '../../assets/styles/global';
 import { useController } from './useController';
 import { Container } from '../Container';
 

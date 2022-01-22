@@ -36,7 +36,7 @@ export class NotificationStore {
 
   remove(id: string): void {
     this.notifications = this.notifications.filter(
-      notification => notification.id !== id,
+      (notification) => notification.id !== id
     );
     this.subject.next(this.notifications);
   }

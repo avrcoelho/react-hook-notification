@@ -1,95 +1,87 @@
 {
-  "name": "react-hook-notification",
   "version": "0.1.0",
-  "private": true,
+  "license": "MIT",
+  "main": "dist/index.js",
+  "typings": "dist/index.d.ts",
+  "files": [
+    "dist",
+    "src"
+  ],
+  "engines": {
+    "node": ">=10"
+  },
   "scripts": {
-    "start": "react-app-rewired start",
-    "build": "react-app-rewired build",
-    "test": "react-app-rewired test --coverage --watchAll",
-    "eject": "react-app-rewired eject",
-    "storybook": "start-storybook -p 6006 -s public",
-    "build-storybook": "build-storybook -s public"
+    "start": "tsdx watch",
+    "build": "tsdx build",
+    "test": "tsdx test --passWithNoTests --coverage --watchAll",
+    "lint": "tsdx lint",
+    "prepare": "tsdx build",
+    "size": "size-limit",
+    "analyze": "size-limit --why",
+    "storybook": "start-storybook -p 6006",
+    "build-storybook": "build-storybook"
   },
-  "eslintConfig": {
-    "extends": [
-      "react-app",
-      "react-app/jest"
-    ],
-    "overrides": [
-      {
-        "files": [
-          "**/*.stories.*"
-        ],
-        "rules": {
-          "import/no-anonymous-default-export": "off"
-        }
-      }
-    ]
+  "peerDependencies": {
+    "react": ">=16"
   },
-  "browserslist": {
-    "production": [
-      ">0.2%",
-      "not dead",
-      "not op_mini all"
-    ],
-    "development": [
-      "last 1 chrome version",
-      "last 1 firefox version",
-      "last 1 safari version"
-    ]
+  "husky": {
+    "hooks": {
+      "pre-commit": "tsdx lint"
+    }
+  },
+  "prettier": {
+    "printWidth": 80,
+    "semi": true,
+    "singleQuote": true,
+    "trailingComma": "es5"
+  },
+  "name": "react-hook-notification",
+  "author": "avrcoelho",
+  "module": "dist/react-hook-notification.esm.js",
+  "size-limit": [
+    {
+      "path": "dist/react-hook-notification.cjs.production.min.js",
+      "limit": "10 KB"
+    },
+    {
+      "path": "dist/react-hook-notification.esm.js",
+      "limit": "10 KB"
+    }
+  ],
+  "devDependencies": {
+    "@babel/core": "^7.16.10",
+    "@size-limit/preset-small-lib": "^7.0.5",
+    "@storybook/addon-essentials": "^6.4.14",
+    "@storybook/addon-info": "^5.3.21",
+    "@storybook/addon-links": "^6.4.14",
+    "@storybook/addons": "^6.4.14",
+    "@storybook/react": "^6.4.14",
+    "@testing-library/react": "^12.1.2",
+    "@testing-library/react-hooks": "^7.0.2",
+    "@types/react": "^17.0.38",
+    "@types/react-dom": "^17.0.11",
+    "@types/uuid": "^8.3.4",
+    "babel-loader": "^8.2.3",
+    "husky": "^7.0.4",
+    "react": "^17.0.2",
+    "react-dom": "^17.0.2",
+    "react-is": "^17.0.2",
+    "size-limit": "^7.0.5",
+    "tsdx": "^0.14.1",
+    "tslib": "^2.3.1",
+    "typescript": "^4.5.5"
   },
   "dependencies": {
     "@stitches/react": "^1.2.6",
-    "framer-motion": "^5.6.0",
-    "react": "^17.0.2",
-    "react-dom": "^17.0.2",
+    "framer-motion": "^6.2.1",
     "react-icons": "^4.3.1",
-    "react-scripts": "5.0.0",
-    "rxjs": "^7.5.1",
-    "uuid": "^8.3.2",
-    "web-vitals": "^2.1.0"
-  },
-  "devDependencies": {
-    "@storybook/addon-actions": "^6.4.9",
-    "@storybook/addon-essentials": "^6.4.9",
-    "@storybook/addon-links": "^6.4.9",
-    "@storybook/builder-webpack5": "^6.4.9",
-    "@storybook/manager-webpack5": "^6.4.9",
-    "@storybook/node-logger": "^6.4.9",
-    "@storybook/preset-create-react-app": "^4.0.0",
-    "@storybook/react": "^6.4.9",
-    "@testing-library/jest-dom": "^5.14.1",
-    "@testing-library/react": "^12.0.0",
-    "@testing-library/react-hooks": "^7.0.2",
-    "@testing-library/user-event": "^13.2.1",
-    "@types/jest": "^27.0.1",
-    "@types/node": "^16.7.13",
-    "@types/react": "^17.0.20",
-    "@types/react-dom": "^17.0.9",
-    "@types/uuid": "^8.3.4",
-    "@typescript-eslint/eslint-plugin": "^5.8.1",
-    "@typescript-eslint/parser": "^5.8.1",
-    "eslint": "^8.6.0",
-    "eslint-config-airbnb": "^19.0.4",
-    "eslint-config-prettier": "^8.3.0",
-    "eslint-import-resolver-typescript": "^2.5.0",
-    "eslint-plugin-import": "^2.25.3",
-    "eslint-plugin-jsx-a11y": "^6.5.1",
-    "eslint-plugin-prettier": "^4.0.0",
-    "eslint-plugin-react": "^7.28.0",
-    "eslint-plugin-react-hooks": "^4.3.0",
-    "prettier": "^2.5.1",
-    "react-app-rewired": "^2.1.11",
-    "typescript": "^4.4.2",
-    "webpack": "^5.65.0"
+    "rxjs": "^7.5.2",
+    "uuid": "^8.3.2"
   },
   "jest": {
     "testMatch": [
       "<rootDir>/src/**/__tests__/**/*.spec.{ts,tsx}"
     ],
-    "moduleNameMapper": {
-      "^@/(.*)": "<rootDir>/src/$1"
-    },
     "coverageThreshold": {
       "global": {
         "branches": 0,
@@ -101,11 +93,11 @@
       "<rootDir>/src/**/*.{ts,tsx}"
     ],
     "coveragePathIgnorePatterns": [
-      "<rootDir>/src/App.tsx",
-      "<rootDir>/src/index.tsx",
-      "<rootDir>/src/reportWebVitals.ts",
-      "<rootDir>/src/presentation/assets",
-      "<rootDir>/src/stories"
-    ]
+      "<rootDir>/src/index.ts",
+      "<rootDir>/src/presentation/assets"
+    ],
+    "moduleNameMapper": {
+      "\\.(css|png|jpe?g)$": "<rootDir>/mocks/emptyFileMock.js"
+    }
   }
 }

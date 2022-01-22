@@ -1,7 +1,8 @@
+import React from 'react';
 import { render } from '@testing-library/react';
 
-import { NotificationThemes } from '@/presentation/constants/NotificationThemes';
-import { NotificationTypes } from '@/presentation/constants/NotificationTypes';
+import { NotificationThemes } from '../../../constants/NotificationThemes';
+import { NotificationTypes } from '../../../constants/NotificationTypes';
 import { ProgressBar } from '..';
 
 describe('ProgressBar', () => {
@@ -12,7 +13,7 @@ describe('ProgressBar', () => {
           delay={5000}
           theme={NotificationThemes.Colored}
           type={NotificationTypes.Success}
-        />,
+        />
       );
     });
   });

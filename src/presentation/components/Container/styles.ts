@@ -1,6 +1,6 @@
 import { createStitches } from '@stitches/react';
 
-import { NotificationPositions } from '@/presentation/constants/NotificationPositions';
+import { NotificationPositions } from '../../constants/NotificationPositions';
 
 const { styled } = createStitches({
   media: {

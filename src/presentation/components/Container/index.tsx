@@ -1,10 +1,10 @@
-import { memo } from 'react';
+import React, { memo } from 'react';
 import { AnimatePresence } from 'framer-motion';
 
 import {
   NotificationPosition,
   NotificationProps,
-} from '@/presentation/types/Notification';
+} from '../../types/Notification';
 import { Notification } from '../Notification';
 import { useController } from './useController';
 import { Container as ContainerElement } from './styles';
@@ -27,7 +27,7 @@ const Component = ({
   return show ? (
     <ContainerElement position={position}>
       <AnimatePresence>
-        {notifications.map(notification => (
+        {notifications.map((notification) => (
           <Notification
             key={notification.id}
             {...notification}

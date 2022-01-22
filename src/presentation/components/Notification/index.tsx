@@ -1,13 +1,10 @@
-import { memo } from 'react';
+import React, { memo } from 'react';
 import { FiX } from 'react-icons/fi';
 
-import { NotificationProps } from '@/presentation/types/Notification';
-import { NotificationDefaultProps } from '@/presentation/constants/NotificationDefaultProps';
-import {
-  colorsIcon,
-  colorsIconButtonClose,
-} from '@/presentation/constants/colorsIcon';
-import { animations } from '@/presentation/constants/animations';
+import { NotificationProps } from '../../types/Notification';
+import { NotificationDefaultProps } from '../../constants/NotificationDefaultProps';
+import { colorsIcon, colorsIconButtonClose } from '../../constants/colorsIcon';
+import { animations } from '../../constants/animations';
 import { ProgressBar } from '../ProgressBar';
 import { Icon } from '../Icon';
 import { useController } from './useController';

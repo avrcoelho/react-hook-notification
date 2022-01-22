@@ -1,15 +1,15 @@
 import { renderHook, act } from '@testing-library/react-hooks';
 
-import { NotificationStore } from '@/presentation/store/NotificationStore';
+import { NotificationStore } from '../../presentation/store/NotificationStore';
 import { useNotification } from '..';
 
-jest.mock('@/presentation/components/Notifications', () => ({
+jest.mock('../../presentation/components/Notifications', () => ({
   Notification: () => 'div',
 }));
 
 const spiedNotificationStoreAdd = jest.spyOn(
   NotificationStore.getInstance(),
-  'add',
+  'add'
 );
 
 describe('useNotification hook', () => {

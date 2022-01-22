@@ -1,7 +1,8 @@
+import React from 'react';
 import { IconBaseProps } from 'react-icons';
 import { MdCheckCircle, MdWarning, MdInfo, MdError } from 'react-icons/md';
 
-import { NotificationType } from '@/presentation/types/Notification';
+import { NotificationType } from '../../types/Notification';
 
 interface IconProps extends IconBaseProps {
   type: NotificationType;

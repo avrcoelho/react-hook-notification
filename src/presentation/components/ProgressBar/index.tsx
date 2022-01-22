@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react';
+import React, { useEffect, useState } from 'react';
 
 import { ContainerTheme } from '../../types/ContainerTheme';
 import { NotificationTheme, NotificationType } from '../../types/Notification';

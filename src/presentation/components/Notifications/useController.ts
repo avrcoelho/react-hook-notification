@@ -1,8 +1,8 @@
 import { useCallback, useLayoutEffect, useState } from 'react';
 
-import { NotificationStore } from '@/presentation/store/NotificationStore';
-import { NotificationProps } from '@/presentation/types/Notification';
-import { NotificationPositions } from '@/presentation/constants/NotificationPositions';
+import { NotificationStore } from '../../store/NotificationStore';
+import { NotificationProps } from '../../types/Notification';
+import { NotificationPositions } from '../../constants/NotificationPositions';
 
 const notificationStore = NotificationStore.getInstance();
 
@@ -26,7 +26,7 @@ type UseControllerHook = () => {
 
 export const useController: UseControllerHook = () => {
   const [notifications, setNotifications] = useState<NotificationData[]>(
-    notificationStore.get(),
+    notificationStore.get()
   );
 
   useLayoutEffect(() => {
@@ -38,23 +38,24 @@ export const useController: UseControllerHook = () => {
   }, []);
 
   const notificationsTopRight = notifications.filter(
-    notification => notification.position === NotificationPositions.TopRight,
+    (notification) => notification.position === NotificationPositions.TopRight
   );
   const notificationsTopLeft = notifications.filter(
-    notification => notification.position === NotificationPositions.TopLeft,
+    (notification) => notification.position === NotificationPositions.TopLeft
   );
   const notificationsTopCenter = notifications.filter(
-    notification => notification.position === NotificationPositions.TopCenter,
+    (notification) => notification.position === NotificationPositions.TopCenter
   );
   const notificationsBottomRight = notifications.filter(
-    notification => notification.position === NotificationPositions.BottomRight,
+    (notification) =>
+      notification.position === NotificationPositions.BottomRight
   );
   const notificationsBottomLeft = notifications.filter(
-    notification => notification.position === NotificationPositions.BottomLeft,
+    (notification) => notification.position === NotificationPositions.BottomLeft
   );
   const notificationsBottomCenter = notifications.filter(
-    notification =>
-      notification.position === NotificationPositions.BottomCenter,
+    (notification) =>
+      notification.position === NotificationPositions.BottomCenter
   );
 
   return {
