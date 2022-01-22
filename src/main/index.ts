@@ -1,15 +1,15 @@
-import { useCallback } from 'react';
-import { v4 as uuidv4 } from 'uuid';
+import { useCallback } from "react";
+import { v4 as uuidv4 } from "uuid";
 
-import { Notifications } from '../presentation/components/Notifications';
-import { NotificationStore } from '../presentation/store/NotificationStore';
-import { NotificationTypes } from '../presentation/constants/NotificationTypes';
-import { Initialize } from './Initialize';
+import { Notifications } from "../presentation/components/Notifications";
+import { NotificationStore } from "../presentation/store/NotificationStore";
+import { NotificationTypes } from "../presentation/constants/NotificationTypes";
+import { Initialize } from "./Initialize";
 import {
   NotificationParams,
   UseNotificationHook,
-} from './types/notificationHook';
-import { NotificationPositions } from '../presentation/constants/NotificationPositions';
+} from "./types/notificationHook";
+import { NotificationPositions } from "../presentation/constants/NotificationPositions";
 
 const initialize = Initialize.getInstance();
 initialize.render(Notifications);
