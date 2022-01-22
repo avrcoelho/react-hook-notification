@@ -1,17 +1,17 @@
-import React, { memo } from 'react';
-import { AnimatePresence } from 'framer-motion';
+import React, { memo } from "react";
+import { AnimatePresence } from "framer-motion";
 
 import {
   NotificationPosition,
   NotificationProps,
-} from '../../types/Notification';
-import { Notification } from '../Notification';
-import { useController } from './useController';
-import { Container as ContainerElement } from './styles';
+} from "../../types/Notification";
+import { Notification } from "../Notification";
+import { useController } from "./useController";
+import { Container as ContainerElement } from "./styles";
 
 interface ContainerProps {
   isVisible: boolean;
-  notifications: Omit<NotificationProps, 'onRemove'>[];
+  notifications: Omit<NotificationProps, "onRemove">[];
   position: NotificationPosition;
   onRemove(id: string): void;
 }

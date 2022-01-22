@@ -1,13 +1,13 @@
-import React, { memo } from 'react';
-import { FiX } from 'react-icons/fi';
+import React, { memo } from "react";
+import { FiX } from "react-icons/fi";
 
-import { NotificationProps } from '../../types/Notification';
-import { NotificationDefaultProps } from '../../constants/NotificationDefaultProps';
-import { colorsIcon, colorsIconButtonClose } from '../../constants/colorsIcon';
-import { animations } from '../../constants/animations';
-import { ProgressBar } from '../ProgressBar';
-import { Icon } from '../Icon';
-import { useController } from './useController';
+import { NotificationProps } from "../../types/Notification";
+import { NotificationDefaultProps } from "../../constants/NotificationDefaultProps";
+import { colorsIcon, colorsIconButtonClose } from "../../constants/colorsIcon";
+import { animations } from "../../constants/animations";
+import { ProgressBar } from "../ProgressBar";
+import { Icon } from "../Icon";
+import { useController } from "./useController";
 import {
   Container,
   IconContainer,
@@ -15,7 +15,7 @@ import {
   Title,
   Text,
   ButtonClose,
-} from './styles';
+} from "./styles";
 
 const Component = ({
   type,
@@ -74,7 +74,7 @@ const Component = ({
         </ButtonClose>
       )}
 
-      <TextContainer withIcon={withIcon ? 'true' : 'false'}>
+      <TextContainer withIcon={withIcon ? "true" : "false"}>
         {title && <Title>{title}</Title>}
         <Text>{text}</Text>
       </TextContainer>

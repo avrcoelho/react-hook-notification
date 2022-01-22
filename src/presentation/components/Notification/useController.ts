@@ -1,9 +1,9 @@
-import { useEffect, useLayoutEffect, useRef } from 'react';
+import { useEffect, useLayoutEffect, useRef } from "react";
 
-import { NotificationTheme, NotificationType } from '../../types/Notification';
-import { NotificationTypes } from '../../constants/NotificationTypes';
-import { NotificationThemes } from '../../constants/NotificationThemes';
-import { ContainerTheme } from '../../types/ContainerTheme';
+import { NotificationTheme, NotificationType } from "../../types/Notification";
+import { NotificationTypes } from "../../constants/NotificationTypes";
+import { NotificationThemes } from "../../constants/NotificationThemes";
+import { ContainerTheme } from "../../types/ContainerTheme";
 
 type UseControllerHookParams = {
   id: string;
@@ -58,7 +58,7 @@ export const useController: UseControllerHook = ({
   }, [autoClose, delay, id]);
 
   const withIcon = type === NotificationTypes.Default ? false : showIcon;
-  const themeSelected: ContainerTheme = `${type}-${theme}`;
+  const themeSelected = `${type}-${theme}` as ContainerTheme;
   const buttonColor =
     theme === NotificationThemes.Colored && type === NotificationTypes.Default
       ? NotificationThemes.Light
