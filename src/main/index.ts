@@ -15,7 +15,7 @@ initialize.render(Notifications);
 
 const notificationStore = NotificationStore.getInstance();
 
-export const useNotification: UseNotificationHook = hookParams => {
+export const useNotification: UseNotificationHook = (hookParams = {}) => {
   const info = useCallback(
     (notificationParams: NotificationParams) => {
       const id = uuidv4();

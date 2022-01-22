@@ -10,7 +10,7 @@ export type NotificationParams = Omit<
   'onRemove' | 'type' | 'id'
 >;
 
-export type UseNotificationHook = (hookParams: UseNotificationParams) => {
+export type UseNotificationHook = (hookParams?: UseNotificationParams) => {
   default(notificationParams: NotificationParams): void;
   success(notificationParams: NotificationParams): void;
   error(notificationParams: NotificationParams): void;

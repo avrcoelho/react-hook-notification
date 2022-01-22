@@ -15,7 +15,7 @@ export default {
 const Template: ComponentStory<typeof Notification> = (
   args: NotificationProps,
 ) => {
-  const notification = useNotification({});
+  const notification = useNotification();
 
   return (
     <button type="button" onClick={() => notification[args.type](args)}>
