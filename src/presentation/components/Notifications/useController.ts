@@ -1,12 +1,12 @@
-import { useCallback, useLayoutEffect, useState } from 'react';
+import { useCallback, useLayoutEffect, useState } from "react";
 
-import { NotificationStore } from '../../store/NotificationStore';
-import { NotificationProps } from '../../types/Notification';
-import { NotificationPositions } from '../../constants/NotificationPositions';
+import { NotificationStore } from "../../store/NotificationStore";
+import { NotificationProps } from "../../types/Notification";
+import { NotificationPositions } from "../../constants/NotificationPositions";
 
 const notificationStore = NotificationStore.getInstance();
 
-type NotificationData = Omit<NotificationProps, 'onRemove'>;
+type NotificationData = Omit<NotificationProps, "onRemove">;
 
 type UseControllerHook = () => {
   onRemove(id: string): void;
