@@ -1,6 +1,5 @@
 import { globalCss } from '@stitches/react';
 import { Colors } from '../../constants/Colors';
-import './inter.css';
 
 export const globalStyles = globalCss({
   ':root': {
@@ -15,7 +14,8 @@ export const globalStyles = globalCss({
   '#rhn-container *, #root > *': {
     boxSizing: 'border-box',
     outline: 0,
-    fontFamily: "'Inter', sans-serif",
+    fontFamily:
+      '-apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;',
   },
 
   body: {

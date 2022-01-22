@@ -9,13 +9,16 @@ import {
   NotificationParams,
   UseNotificationHook,
 } from './types/notificationHook';
+import { NotificationPositions } from '../presentation/constants/NotificationPositions';
 
 const initialize = Initialize.getInstance();
 initialize.render(Notifications);
 
 const notificationStore = NotificationStore.getInstance();
 
-export const useNotification: UseNotificationHook = (hookParams = {}) => {
+export const useNotification: UseNotificationHook = (
+  hookParams = { position: NotificationPositions.TopRight }
+) => {
   const info = useCallback(
     (notificationParams: NotificationParams) => {
       const id = uuidv4();

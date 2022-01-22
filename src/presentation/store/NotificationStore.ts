@@ -1,5 +1,4 @@
 import { Dispatch, SetStateAction } from 'react';
-import { Subject } from 'rxjs';
 
 import { NotificationProps } from '../types/Notification';
 
@@ -10,11 +9,10 @@ export class NotificationStore {
 
   private notifications: NotificationData[];
 
-  private subject: Subject<NotificationData[]>;
+  private setState: Dispatch<SetStateAction<NotificationData[]>> | undefined;
 
   private constructor() {
     this.notifications = [];
-    this.subject = new Subject();
   }
 
   static getInstance(): NotificationStore {
@@ -25,20 +23,19 @@ export class NotificationStore {
   }
 
   subscribe(setState: Dispatch<SetStateAction<NotificationData[]>>): void {
-    this.subject.subscribe(setState);
-    this.subject.next(this.notifications);
+    this.setState = setState;
   }
 
   add(value: NotificationData): void {
     this.notifications = [...this.notifications, value];
-    this.subject.next(this.notifications);
+    this.setState?.(this.notifications);
   }
 
   remove(id: string): void {
     this.notifications = this.notifications.filter(
       (notification) => notification.id !== id
     );
-    this.subject.next(this.notifications);
+    this.setState?.(this.notifications);
   }
 
   get(): NotificationData[] {
