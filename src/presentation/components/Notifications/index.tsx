@@ -1,4 +1,4 @@
-import React, { memo } from "react";
+import React from "react";
 
 import { NotificationPositions } from "../../constants/NotificationPositions";
 import { globalStyles } from "../../assets/styles/global";
@@ -7,7 +7,7 @@ import { Container } from "../Container";
 
 globalStyles();
 
-const Component = (): JSX.Element => {
+export const Notifications = (): JSX.Element => {
   const {
     notificationsTopRight,
     notificationsTopLeft,
@@ -65,5 +65,3 @@ const Component = (): JSX.Element => {
     </>
   );
 };
-
-export const Notifications = memo(Component);
