@@ -1,13 +1,13 @@
-import React from 'react';
+import React, { memo } from "react";
 
-import { NotificationPositions } from '../../constants/NotificationPositions';
-import { globalStyles } from '../../assets/styles/global';
-import { useController } from './useController';
-import { Container } from '../Container';
+import { NotificationPositions } from "../../constants/NotificationPositions";
+import { globalStyles } from "../../assets/styles/global";
+import { useController } from "./useController";
+import { Container } from "../Container";
 
 globalStyles();
 
-export const Notifications = (): JSX.Element => {
+const Component = (): JSX.Element => {
   const {
     notificationsTopRight,
     notificationsTopLeft,
@@ -65,3 +65,5 @@ export const Notifications = (): JSX.Element => {
     </>
   );
 };
+
+export const Notifications = memo(Component);

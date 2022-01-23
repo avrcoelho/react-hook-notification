@@ -1,5 +1,5 @@
-import React, { StrictMode } from 'react';
-import ReactDOM from 'react-dom';
+import React, { StrictMode } from "react";
+import ReactDOM from "react-dom";
 
 export class Initialize {
   private static instance: Initialize;
@@ -13,8 +13,8 @@ export class Initialize {
   }
 
   private createElement(): void {
-    const element = document.createElement('div');
-    element.setAttribute('id', 'rhn-container');
+    const element = document.createElement("div");
+    element.setAttribute("id", "rhn-container");
     document.body.appendChild(element);
   }
 
@@ -30,18 +30,19 @@ export class Initialize {
   }
 
   private removeElementIfExists(): void {
-    document.getElementById('rhn-container')?.remove();
+    document.getElementById("rhn-container")?.remove();
   }
 
-  render(component: () => JSX.Element): void {
+  async render(component: () => JSX.Element): Promise<void> {
     if (!this.hasComponent) {
       this.hasComponent = true;
+      await new Promise((resulve) => setTimeout(resulve, 1000));
       this.setComponent(component);
       this.removeElementIfExists();
       this.createElement();
       ReactDOM.render(
         <StrictMode>{this.Component && <this.Component />}</StrictMode>,
-        document.getElementById('rhn-container')
+        document.getElementById("rhn-container")
       );
     }
   }
