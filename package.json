@@ -11,7 +11,7 @@
     "node": ">=10"
   },
   "scripts": {
-    "build": "tsc -p .",
+    "build": "tsc",
     "test": "jest --config=jest.config.js",
     "storybook": "start-storybook -p 6006",
     "build-storybook": "build-storybook"
