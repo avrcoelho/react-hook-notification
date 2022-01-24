@@ -1,5 +1,5 @@
 {
-  "version": "1.0.0",
+  "version": "1.0.1",
   "license": "MIT",
   "main": "dist/index.js",
   "typings": "dist/index.d.ts",
@@ -7,9 +7,23 @@
     "dist",
     "src"
   ],
-  "engines": {
-    "node": ">=10"
+  "keywords": [
+    "react",
+    "reactjs",
+    "notification",
+    "hook",
+    "toast",
+    "alert"
+  ],
+  "author": "André Coelho",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/avrcoelho/react-hook-notification.git"
   },
+  "bugs": {
+    "url": "https://github.com/avrcoelho/react-hook-notification/issues"
+  },
+  "homepage": "https://reverent-lalande-5e2160.netlify.app/",
   "scripts": {
     "build": "tsc",
     "test": "jest --config=jest.config.js",
@@ -21,7 +35,6 @@
     "react-dom": ">=16"
   },
   "name": "react-hook-notification",
-  "author": "avrcoelho",
   "devDependencies": {
     "@babel/preset-env": "^7.16.11",
     "@babel/preset-react": "^7.16.7",
