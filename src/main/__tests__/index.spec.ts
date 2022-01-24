@@ -9,7 +9,7 @@ jest.mock('../../presentation/components/Notifications', () => ({
 
 const spiedNotificationStoreAdd = jest.spyOn(
   NotificationStore.getInstance(),
-  'add'
+  'add',
 );
 
 describe('useNotification hook', () => {

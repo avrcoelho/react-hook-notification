@@ -1,7 +1,7 @@
 import React from 'react';
 import { render, screen, fireEvent } from '@testing-library/react';
 
-import { NotificationTypes } from '../../../constants/NotificationTypes';
+import { NotificationType } from '../../../types/Notification';
 import { Notification } from '..';
 
 let mockWithIcon = true;
@@ -15,7 +15,7 @@ jest.mock('../useController', () => ({
 
 const mockOnRemove = jest.fn();
 const props = {
-  type: NotificationTypes.Success,
+  type: 'success' as NotificationType,
   id: '124',
   text: 'text test',
   onRemove: mockOnRemove,

@@ -1,12 +1,12 @@
 import { v4 as uuidv4 } from 'uuid';
 
-import { NotificationTypes } from '../../constants/NotificationTypes';
+import { NotificationType } from '../../types/Notification';
 import { NotificationStore } from '../NotificationStore';
 
 describe('NotificationStore', () => {
   const notificationData = {
     id: uuidv4(),
-    type: NotificationTypes.Success,
+    type: 'success' as NotificationType,
     text: 'test',
   };
   it('should be able to add notification', () => {

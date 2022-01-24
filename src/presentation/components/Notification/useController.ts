@@ -1,9 +1,7 @@
-import { useEffect, useLayoutEffect, useRef } from "react";
+import { useEffect, useLayoutEffect, useRef } from 'react';
 
-import { NotificationTheme, NotificationType } from "../../types/Notification";
-import { NotificationTypes } from "../../constants/NotificationTypes";
-import { NotificationThemes } from "../../constants/NotificationThemes";
-import { ContainerTheme } from "../../types/ContainerTheme";
+import { NotificationTheme, NotificationType } from '../../types/Notification';
+import { ContainerTheme } from '../../types/ContainerTheme';
 
 type UseControllerHookParams = {
   id: string;
@@ -57,12 +55,10 @@ export const useController: UseControllerHook = ({
     return () => clearInterval(timer);
   }, [autoClose, delay, id]);
 
-  const withIcon = type === NotificationTypes.Default ? false : showIcon;
+  const withIcon = type === 'default' ? false : showIcon;
   const themeSelected = `${type}-${theme}` as ContainerTheme;
   const buttonColor =
-    theme === NotificationThemes.Colored && type === NotificationTypes.Default
-      ? NotificationThemes.Light
-      : theme;
+    theme === 'colored' && type === 'default' ? 'light' : theme;
   const withProgressBar = showProgressBar && autoClose;
 
   return {

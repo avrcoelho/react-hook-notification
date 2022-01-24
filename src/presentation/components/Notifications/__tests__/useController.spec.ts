@@ -2,14 +2,13 @@ import { renderHook } from '@testing-library/react-hooks';
 import { v4 as uuidv4 } from 'uuid';
 
 import { NotificationStore } from '../../../store/NotificationStore';
-import { NotificationTypes } from '../../../constants/NotificationTypes';
-import { NotificationPositions } from '../../../constants/NotificationPositions';
+import { NotificationType } from '../../../types/Notification';
 import { useController } from '../useController';
 
 const notificationStore = NotificationStore.getInstance();
 
 const notificationBaseData = {
-  type: NotificationTypes.Default,
+  type: 'default' as NotificationType,
   text: 'text test',
 };
 
@@ -20,32 +19,32 @@ describe('Notifications controller hook', () => {
     notificationStore.add({
       ...notificationBaseData,
       id: idTopRight,
-      position: NotificationPositions.TopRight,
+      position: 'top-right',
     });
     notificationStore.add({
       ...notificationBaseData,
       id: uuidv4(),
-      position: NotificationPositions.TopLeft,
+      position: 'top-left',
     });
     notificationStore.add({
       ...notificationBaseData,
       id: uuidv4(),
-      position: NotificationPositions.TopCenter,
+      position: 'top-center',
     });
     notificationStore.add({
       ...notificationBaseData,
       id: uuidv4(),
-      position: NotificationPositions.BottomRight,
+      position: 'bottom-right',
     });
     notificationStore.add({
       ...notificationBaseData,
       id: uuidv4(),
-      position: NotificationPositions.BottomLeft,
+      position: 'bottom-left',
     });
     notificationStore.add({
       ...notificationBaseData,
       id: uuidv4(),
-      position: NotificationPositions.BottomCenter,
+      position: 'bottom-center',
     });
   });
 

@@ -1,8 +1,9 @@
 import { renderHook } from '@testing-library/react-hooks';
 
-import { NotificationThemes } from '../../../constants/NotificationThemes';
-import { NotificationTypes } from '../../../constants/NotificationTypes';
-
+import {
+  NotificationTheme,
+  NotificationType,
+} from '../../../types/Notification';
 import { useController } from '../useController';
 
 jest.useFakeTimers();
@@ -15,8 +16,8 @@ describe('Notification controller hook', () => {
     delay: 5000,
     autoClose: false,
     showIcon: true,
-    theme: NotificationThemes.Colored,
-    type: NotificationTypes.Success,
+    theme: 'colored' as NotificationTheme,
+    type: 'success' as NotificationType,
     showProgressBar: true,
   };
   it('should be able to with icon', () => {
@@ -26,7 +27,7 @@ describe('Notification controller hook', () => {
   });
 
   it('should not be able to with icon when type is Default', () => {
-    params.type = NotificationTypes.Default;
+    params.type = 'default';
     const { result } = renderHook(() => useController(params));
 
     expect(result.current.withIcon).toBeFalsy();
@@ -35,11 +36,11 @@ describe('Notification controller hook', () => {
   it('should be able to button color light', () => {
     const { result } = renderHook(() => useController(params));
 
-    expect(result.current.buttonColor).toBe(NotificationThemes.Light);
+    expect(result.current.buttonColor).toBe('light');
   });
 
   it('should be able to button color by theme', () => {
-    params.type = NotificationTypes.Error;
+    params.type = 'error';
     const { result } = renderHook(() => useController(params));
 
     expect(result.current.buttonColor).toBe(params.theme);

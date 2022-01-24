@@ -1,8 +1,10 @@
 import React from 'react';
 import { screen, render } from '@testing-library/react';
 
-import { NotificationPositions } from '../../../constants/NotificationPositions';
-import { NotificationTypes } from '../../../constants/NotificationTypes';
+import {
+  NotificationPosition,
+  NotificationType,
+} from '../../../types/Notification';
 import { Container } from '..';
 
 let mockShow = true;
@@ -17,13 +19,13 @@ describe('Container component', () => {
     notifications: [
       {
         id: 'id-test',
-        type: NotificationTypes.Error,
+        type: 'error' as NotificationType,
         text: 'text test',
       },
     ],
     isVisible: true,
     onRemove: jest.fn(),
-    position: NotificationPositions.TopRight,
+    position: 'top-right' as NotificationPosition,
   };
   it('should be able to render notification', () => {
     render(<Container {...props} />);

@@ -13,3 +13,7 @@ yarn.lock
 .git
 .babelrc
 jest.config.js
+.editorconfig
+.eslintignore
+.eslintrc.json
+prettier.config.js

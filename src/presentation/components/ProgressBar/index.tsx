@@ -19,7 +19,9 @@ export const ProgressBar = ({
   const parsedTheme: ContainerTheme = `${type}-${theme}`;
 
   useEffect(() => {
-    setIsMoint(false);
+    setTimeout(() => {
+      setIsMoint(false);
+    }, 100);
   }, []);
 
   return (
@@ -27,7 +29,7 @@ export const ProgressBar = ({
       theme={parsedTheme}
       style={{
         width: `${isMount ? 100 : 0}%`,
-        transition: `width ${delay}ms linear`,
+        transition: `width ${delay - 100}ms linear`,
       }}
       aria-label="Progress bar"
     />

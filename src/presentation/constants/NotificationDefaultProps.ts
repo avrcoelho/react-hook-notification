@@ -1,11 +1,14 @@
-import { NotificationPositions } from './NotificationPositions';
-import { NotificationThemes } from './NotificationThemes';
-import { NotificationTransitions } from './NotificationTransitions';
+import {
+  NotificationPosition,
+  NotificationTheme,
+  NotificationTransition,
+} from '../types/Notification';
 
 export const NotificationDefaultProps = {
-  position: NotificationPositions.TopRight,
-  theme: NotificationThemes.Colored,
-  transition: NotificationTransitions.Bounce,
+  title: '',
+  position: 'top-right' as NotificationPosition,
+  theme: 'colored' as NotificationTheme,
+  transition: 'bounce' as NotificationTransition,
   delay: 5000,
   showProgressBar: true,
   showButtonClose: true,

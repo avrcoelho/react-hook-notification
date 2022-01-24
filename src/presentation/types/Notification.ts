@@ -1,26 +1,26 @@
 export type NotificationType =
-  | "success"
-  | "error"
-  | "info"
-  | "warning"
-  | "default";
+  | 'success'
+  | 'error'
+  | 'info'
+  | 'warning'
+  | 'default';
 
 export type NotificationPosition =
-  | "top-right"
-  | "top-left"
-  | "top-center"
-  | "bottom-right"
-  | "bottom-left"
-  | "bottom-center";
+  | 'top-right'
+  | 'top-left'
+  | 'top-center'
+  | 'bottom-right'
+  | 'bottom-left'
+  | 'bottom-center';
 
-export type NotificationTheme = "colored" | "dark" | "light";
+export type NotificationTheme = 'colored' | 'dark' | 'light';
 
 export type NotificationTransition =
-  | "bounce"
-  | "flip"
-  | "fade"
-  | "zoom"
-  | "slide";
+  | 'bounce'
+  | 'flip'
+  | 'fade'
+  | 'zoom'
+  | 'slide';
 
 export type NotificationDelay = number;
 

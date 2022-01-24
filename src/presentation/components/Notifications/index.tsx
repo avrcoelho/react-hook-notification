@@ -1,9 +1,8 @@
-import React from "react";
+import React from 'react';
 
-import { NotificationPositions } from "../../constants/NotificationPositions";
-import { globalStyles } from "../../assets/styles/global";
-import { useController } from "./useController";
-import { Container } from "../Container";
+import { globalStyles } from '../../assets/styles/global';
+import { useController } from './useController';
+import { Container } from '../Container';
 
 globalStyles();
 
@@ -28,37 +27,37 @@ export const Notifications = (): JSX.Element => {
     <>
       <Container
         notifications={notificationsTopRight}
-        position={NotificationPositions.TopRight}
+        position="top-right"
         isVisible={hasNotificationsTopRight}
         onRemove={onRemove}
       />
       <Container
         notifications={notificationsTopCenter}
-        position={NotificationPositions.TopCenter}
+        position="top-center"
         isVisible={hasNotificationsTopCenter}
         onRemove={onRemove}
       />
       <Container
         notifications={notificationsTopLeft}
-        position={NotificationPositions.TopLeft}
+        position="top-left"
         isVisible={hasNotificationsTopLeft}
         onRemove={onRemove}
       />
       <Container
         notifications={notificationsBottomRight}
-        position={NotificationPositions.BottomRight}
+        position="bottom-right"
         isVisible={hasNotificationsBottomRight}
         onRemove={onRemove}
       />
       <Container
         notifications={notificationsBottomCenter}
-        position={NotificationPositions.BottomCenter}
+        position="bottom-center"
         isVisible={hasNotificationsBottomCenter}
         onRemove={onRemove}
       />
       <Container
         notifications={notificationsBottomLeft}
-        position={NotificationPositions.BottomLeft}
+        position="bottom-left"
         isVisible={hasNotificationsBottomLeft}
         onRemove={onRemove}
       />

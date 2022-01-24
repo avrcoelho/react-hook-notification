@@ -1,5 +1,3 @@
-import { NotificationPositions } from './NotificationPositions';
-
 const fade = {
   initial: { opacity: 0 },
   animate: { opacity: 1 },
@@ -96,55 +94,55 @@ const zoom = {
 
 export const animations = {
   bounce: {
-    [NotificationPositions.TopRight]: {
+    'top-right': {
       ...bounceRight,
     },
-    [NotificationPositions.TopCenter]: {
+    'top-center': {
       ...bounceTop,
     },
-    [NotificationPositions.TopLeft]: {
+    'top-left': {
       ...bounceLeft,
     },
-    [NotificationPositions.BottomRight]: {
+    'bottom-right': {
       ...bounceRight,
     },
-    [NotificationPositions.BottomCenter]: {
+    'bottom-center': {
       ...bounceBottom,
     },
-    [NotificationPositions.BottomLeft]: {
+    'bottom-left': {
       ...bounceLeft,
     },
   },
   slide: {
-    [NotificationPositions.TopRight]: slideRight,
-    [NotificationPositions.TopCenter]: slideTop,
-    [NotificationPositions.TopLeft]: slideLeft,
-    [NotificationPositions.BottomRight]: slideRight,
-    [NotificationPositions.BottomCenter]: slideBottom,
-    [NotificationPositions.BottomLeft]: slideLeft,
+    'top-right': slideRight,
+    'top-center': slideTop,
+    'top-left': slideLeft,
+    'bottom-right': slideRight,
+    'bottom-center': slideBottom,
+    'bottom-left': slideLeft,
   },
   fade: {
-    [NotificationPositions.TopRight]: fade,
-    [NotificationPositions.TopCenter]: fade,
-    [NotificationPositions.TopLeft]: fade,
-    [NotificationPositions.BottomRight]: fade,
-    [NotificationPositions.BottomCenter]: fade,
-    [NotificationPositions.BottomLeft]: fade,
+    'top-right': fade,
+    'top-center': fade,
+    'top-left': fade,
+    'bottom-right': fade,
+    'bottom-center': fade,
+    'bottom-left': fade,
   },
   flip: {
-    [NotificationPositions.TopRight]: flip,
-    [NotificationPositions.TopCenter]: flip,
-    [NotificationPositions.TopLeft]: flip,
-    [NotificationPositions.BottomRight]: flip,
-    [NotificationPositions.BottomCenter]: flip,
-    [NotificationPositions.BottomLeft]: flip,
+    'top-right': flip,
+    'top-center': flip,
+    'top-left': flip,
+    'bottom-right': flip,
+    'bottom-center': flip,
+    'bottom-left': flip,
   },
   zoom: {
-    [NotificationPositions.TopRight]: zoom,
-    [NotificationPositions.TopCenter]: zoom,
-    [NotificationPositions.TopLeft]: zoom,
-    [NotificationPositions.BottomRight]: zoom,
-    [NotificationPositions.BottomCenter]: zoom,
-    [NotificationPositions.BottomLeft]: zoom,
+    'top-right': zoom,
+    'top-center': zoom,
+    'top-left': zoom,
+    'bottom-right': zoom,
+    'bottom-center': zoom,
+    'bottom-left': zoom,
   },
 };
