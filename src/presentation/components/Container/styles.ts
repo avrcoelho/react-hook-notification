@@ -9,6 +9,7 @@ const { styled } = createStitches({
 export const Container = styled('div', {
   width: '350px',
   position: 'fixed',
+  zIndex: 9999999,
 
   '@bp1': {
     width: 'calc(100% - 32px)',

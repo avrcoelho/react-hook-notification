@@ -8,7 +8,6 @@ export const Container = styled('div', {
   left: 0,
   right: 0,
   borderBottomLeftRadius: '5px',
-  borderBottomRightRadius: '5px',
 
   variants: {
     theme: {
