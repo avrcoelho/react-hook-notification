@@ -17,3 +17,4 @@ jest.config.js
 .eslintignore
 .eslintrc.json
 prettier.config.js
+storybook-static
