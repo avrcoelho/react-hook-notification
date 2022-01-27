@@ -32,21 +32,27 @@ const Component = ({
   closeOnClick = NotificationDefaultProps.closeOnClick,
   showIcon = NotificationDefaultProps.showIcon,
   autoClose = NotificationDefaultProps.autoClose,
+  pauseOnHover = NotificationDefaultProps.pauseOnHover,
 }: NotificationProps): JSX.Element => {
-  const { buttonColor, themeSelected, withIcon, withProgressBar } =
-    useController({
-      id,
-      onRemove,
-      delay,
-      autoClose,
-      type,
-      theme,
-      showIcon,
-      showProgressBar,
-    });
+  const {
+    buttonColor,
+    themeSelected,
+    withIcon,
+    withProgressBar,
+    setElementRef,
+    isPaused,
+  } = useController({
+    autoClose,
+    type,
+    theme,
+    showIcon,
+    showProgressBar,
+    pauseOnHover,
+  });
 
   return (
     <Container
+      ref={setElementRef}
       theme={themeSelected}
       key={id}
       role={type}
@@ -79,9 +85,16 @@ const Component = ({
         <Text>{text}</Text>
       </TextContainer>
 
-      {withProgressBar && (
-        <ProgressBar delay={delay} theme={theme} type={type} />
-      )}
+      <ProgressBar
+        delay={delay}
+        theme={theme}
+        type={type}
+        isPaused={isPaused}
+        id={id}
+        onRemove={onRemove}
+        show={withProgressBar}
+        autoClose={autoClose}
+      />
     </Container>
   );
 };

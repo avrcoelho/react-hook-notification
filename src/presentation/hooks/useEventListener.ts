@@ -6,7 +6,7 @@ type UseEventListenerOptions = {
 
 type EventType = keyof GlobalEventHandlersEventMap;
 
-type UseEventListenerHookResponse<ElementType> =
+export type UseEventListenerHookResponse<ElementType> =
   MutableRefObject<ElementType | null>;
 
 const DEFAULT_OPTIONS: UseEventListenerOptions = {

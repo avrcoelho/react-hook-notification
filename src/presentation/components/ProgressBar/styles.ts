@@ -1,13 +1,20 @@
-import { styled } from '@stitches/react';
+import { styled, keyframes } from '@stitches/react';
+
+const widthAnimation = keyframes({
+  '0%': { width: '100%' },
+  '100%': { width: '0%' },
+});
 
 export const Container = styled('div', {
   height: '4px',
+  width: '0%',
   backgroundColor: '#fff',
   position: 'absolute',
   bottom: 0,
   left: 0,
   right: 0,
   borderBottomLeftRadius: '5px',
+  animation: `${widthAnimation} linear`,
 
   variants: {
     theme: {
@@ -55,6 +62,24 @@ export const Container = styled('div', {
       },
       'error-dark': {
         backgroundColor: 'var(--rhn-color-error)',
+      },
+    },
+
+    animationState: {
+      paused: {
+        animationPlayState: 'paused',
+      },
+      running: {
+        animationPlayState: 'running',
+      },
+    },
+
+    show: {
+      true: {
+        visibility: 'visible',
+      },
+      false: {
+        visibility: 'hidden',
       },
     },
   },

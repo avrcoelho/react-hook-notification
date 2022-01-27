@@ -59,6 +59,7 @@ export default function Component() {
 | closeOnClick    | boolean                                                                             | no       | true      | Notification closes on click                               |
 | showIcon        | boolean                                                                             | no       | true      | Notification show or hide icon                             |
 | autoClose       | boolean                                                                             | no       | true      | Automatic closing of the notification after the delay ends |
+| pauseOnHover    | boolean                                                                             | no       | true      | Auto close pause on hover                                  |
 
 ## LICENSE
 

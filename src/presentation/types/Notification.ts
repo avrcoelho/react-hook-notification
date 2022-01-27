@@ -34,6 +34,8 @@ export type NotificationShowIcon = boolean;
 
 export type NotificationAutoClose = boolean;
 
+export type NotificationPauseOnHover = boolean;
+
 export interface NotificationProps {
   /**
    * Notification title - Optional
@@ -83,6 +85,10 @@ export interface NotificationProps {
    * Auto close notification (Default: true)
    */
   autoClose?: NotificationAutoClose;
+  /**
+   * Notification puase auto close on hover (Default: true)
+   */
+  pauseOnHover?: NotificationPauseOnHover;
 
   id: string;
   onRemove(id: string): void;

@@ -5,7 +5,7 @@ import { NotificationType } from '../../../types/Notification';
 import { Notification } from '..';
 
 let mockWithIcon = true;
-let mockWithProgressBar = true;
+const mockWithProgressBar = true;
 jest.mock('../useController', () => ({
   useController: () => ({
     withIcon: mockWithIcon,
@@ -58,19 +58,6 @@ describe('Notification component', () => {
     render(<Notification {...props} />);
 
     expect(screen.queryByLabelText(props.type)).toBeFalsy();
-  });
-
-  it('should be able to render progress bar', () => {
-    render(<Notification {...props} />);
-
-    expect(screen.getByLabelText('Progress bar')).toBeTruthy();
-  });
-
-  it('should not be able to render progress bar', () => {
-    mockWithProgressBar = false;
-    render(<Notification {...props} />);
-
-    expect(screen.queryByLabelText('Progress bar')).toBeFalsy();
   });
 
   it('should be able to render title', () => {

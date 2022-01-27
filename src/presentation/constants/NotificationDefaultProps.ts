@@ -15,4 +15,5 @@ export const NotificationDefaultProps = {
   closeOnClick: true,
   showIcon: true,
   autoClose: true,
+  pauseOnHover: true,
 };

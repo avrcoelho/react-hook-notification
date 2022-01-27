@@ -1,18 +1,46 @@
 import React from 'react';
-import { render, act, screen } from '@testing-library/react';
+import { render, fireEvent, screen } from '@testing-library/react';
 
 import { ProgressBar } from '..';
 
-jest.useFakeTimers();
-
 describe('ProgressBar', () => {
-  it('should ba able to render component', async () => {
-    render(<ProgressBar delay={5000} theme="colored" type="success" />);
+  it('should be able to call onremove after finish animation', async () => {
+    const mockOnRemove = jest.fn();
+    render(
+      <ProgressBar
+        delay={5000}
+        theme="colored"
+        type="success"
+        id="test-id"
+        onRemove={mockOnRemove}
+        autoClose
+        isPaused={false}
+        show
+      />,
+    );
 
-    act(() => {
-      jest.advanceTimersByTime(100);
-    });
+    fireEvent.animationEnd(screen.getByLabelText('Progress bar'));
 
-    expect(screen.getByLabelText('Progress bar')).toBeTruthy();
+    expect(mockOnRemove).toBeCalled();
+  });
+
+  it('should not be able to call onremove after finish animation', async () => {
+    const mockOnRemove = jest.fn();
+    render(
+      <ProgressBar
+        delay={5000}
+        theme="colored"
+        type="success"
+        id="test-id"
+        onRemove={mockOnRemove}
+        autoClose={false}
+        isPaused
+        show={false}
+      />,
+    );
+
+    fireEvent.animationEnd(screen.getByLabelText('Progress bar'));
+
+    expect(mockOnRemove).not.toBeCalled();
   });
 });

@@ -1,17 +1,17 @@
-import { useEffect, useLayoutEffect, useRef } from 'react';
+import { useCallback } from 'react';
 
 import { NotificationTheme, NotificationType } from '../../types/Notification';
 import { ContainerTheme } from '../../types/ContainerTheme';
+import { useToggle } from '../../hooks/useToggle';
+import { useEventListener } from '../../hooks/useEventListener';
 
 type UseControllerHookParams = {
-  id: string;
-  delay: number;
   autoClose: boolean;
   showProgressBar: boolean;
   type: NotificationType;
   theme: NotificationTheme;
   showIcon: boolean;
-  onRemove(id: string): void;
+  pauseOnHover: boolean;
 };
 
 type UseControllerHook = (params: UseControllerHookParams) => {
@@ -19,41 +19,44 @@ type UseControllerHook = (params: UseControllerHookParams) => {
   withProgressBar: boolean;
   buttonColor: NotificationTheme;
   themeSelected: ContainerTheme;
+  setElementRef(elementRef: HTMLDivElement): void;
+  isPaused: boolean;
 };
 
-const DELAY = 1000;
-
 export const useController: UseControllerHook = ({
-  id,
-  onRemove,
-  delay,
   autoClose,
   showIcon,
   theme,
   type,
   showProgressBar,
+  pauseOnHover,
 }) => {
-  const delayDecrement = useRef(0);
-  const onRemoveRef = useRef(onRemove);
+  const [isPaused, toggleIsPaused] = useToggle(false);
+  const eventListenerOptions = {
+    disabled: !pauseOnHover || !autoClose,
+  };
+  const elementEnterRef = useEventListener<HTMLDivElement>(
+    'mouseenter',
+    () => {
+      toggleIsPaused();
+    },
+    eventListenerOptions,
+  );
+  const elementLeaveRef = useEventListener<HTMLDivElement>(
+    'mouseleave',
+    () => {
+      toggleIsPaused();
+    },
+    eventListenerOptions,
+  );
 
-  useLayoutEffect(() => {
-    onRemoveRef.current = onRemove;
-    delayDecrement.current = delay / DELAY;
-  });
-
-  useEffect(() => {
-    if (!autoClose) {
-      return () => null;
-    }
-    const timer = setInterval(() => {
-      delayDecrement.current -= 1;
-      if (delayDecrement.current === 0) {
-        onRemoveRef.current(id);
-      }
-    }, DELAY);
-
-    return () => clearInterval(timer);
-  }, [autoClose, delay, id]);
+  const setElementRef = useCallback(
+    (elementRef: HTMLDivElement) => {
+      elementEnterRef.current = elementRef;
+      elementLeaveRef.current = elementRef;
+    },
+    [elementEnterRef, elementLeaveRef],
+  );
 
   const withIcon = type === 'default' ? false : showIcon;
   const themeSelected = `${type}-${theme}` as ContainerTheme;
@@ -67,5 +70,7 @@ export const useController: UseControllerHook = ({
     withProgressBar,
     themeSelected,
     buttonColor,
+    setElementRef,
+    isPaused,
   };
 };

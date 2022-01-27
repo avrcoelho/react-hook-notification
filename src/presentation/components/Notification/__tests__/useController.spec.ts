@@ -6,19 +6,28 @@ import {
 } from '../../../types/Notification';
 import { useController } from '../useController';
 
-jest.useFakeTimers();
+let mockedIsActive = 0;
+jest.mock('../../../hooks/useEventListener', () => ({
+  useEventListener: (_, fn = jest.fn()) => {
+    if (mockedIsActive < 2) {
+      mockedIsActive += 1;
+      fn();
+    }
+
+    return {
+      current: '',
+    };
+  },
+}));
 
 describe('Notification controller hook', () => {
-  const mockOnRemove = jest.fn();
   const params = {
-    id: 'test-id',
-    onRemove: mockOnRemove,
-    delay: 5000,
     autoClose: false,
     showIcon: true,
     theme: 'colored' as NotificationTheme,
     type: 'success' as NotificationType,
     showProgressBar: true,
+    pauseOnHover: true,
   };
   it('should be able to with icon', () => {
     const { result } = renderHook(() => useController(params));
@@ -46,12 +55,12 @@ describe('Notification controller hook', () => {
     expect(result.current.buttonColor).toBe(params.theme);
   });
 
-  it('should be bale to close by autoClose', () => {
-    params.autoClose = true;
-    renderHook(() => useController(params));
+  it('should be able to toggle paused animation', () => {
+    params.type = 'error';
+    const { result } = renderHook(() => useController(params));
 
-    jest.advanceTimersByTime(params.delay);
+    result.current.setElementRef({} as any);
 
-    expect(mockOnRemove).toBeCalledWith(params.id);
+    expect(result.current.buttonColor).toBe(params.theme);
   });
 });
