@@ -32,6 +32,7 @@ const Component = ({
             key={notification.id}
             {...notification}
             onRemove={onRemove}
+            amount={notifications.length}
           />
         ))}
       </AnimatePresence>

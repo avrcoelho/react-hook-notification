@@ -32,5 +32,6 @@ Notificaion.args = {
 };
 Notificaion.argTypes = {
   id: { table: { disable: true } },
+  amount: { table: { disable: true } },
   onRemove: { table: { disable: true } },
 };

@@ -23,6 +23,7 @@ const Component = ({
   onRemove,
   title,
   text,
+  amount,
   position = NotificationDefaultProps.position,
   theme = NotificationDefaultProps.theme,
   transition = NotificationDefaultProps.transition,
@@ -57,7 +58,7 @@ const Component = ({
       key={id}
       role={type}
       onClick={() => closeOnClick && onRemove(id)}
-      {...animations[transition][position]}
+      {...animations(amount)[transition][position]}
     >
       {withIcon && (
         <IconContainer aria-label={type}>

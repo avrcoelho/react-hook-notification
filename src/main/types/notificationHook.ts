@@ -2,7 +2,7 @@ import { NotificationProps } from '../../presentation/types/Notification';
 
 export type UseNotificationParams = Omit<
   NotificationProps,
-  'title' | 'text' | 'type' | 'id' | 'onRemove'
+  'title' | 'text' | 'type' | 'id' | 'onRemove' | 'amount'
 >;
 
 export type NotificationParams = Omit<

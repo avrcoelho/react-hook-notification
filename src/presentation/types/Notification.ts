@@ -91,5 +91,6 @@ export interface NotificationProps {
   pauseOnHover?: NotificationPauseOnHover;
 
   id: string;
+  amount: number;
   onRemove(id: string): void;
 }

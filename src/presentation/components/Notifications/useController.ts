@@ -45,15 +45,15 @@ export const useController: UseControllerHook = () => {
   const notificationsTopCenter = notifications.filter(
     notification => notification.position === 'top-center',
   );
-  const notificationsBottomRight = notifications.filter(
-    notification => notification.position === 'bottom-right',
-  );
-  const notificationsBottomLeft = notifications.filter(
-    notification => notification.position === 'bottom-left',
-  );
-  const notificationsBottomCenter = notifications.filter(
-    notification => notification.position === 'bottom-center',
-  );
+  const notificationsBottomRight = notifications
+    .filter(notification => notification.position === 'bottom-right')
+    .reverse();
+  const notificationsBottomLeft = notifications
+    .filter(notification => notification.position === 'bottom-left')
+    .reverse();
+  const notificationsBottomCenter = notifications
+    .filter(notification => notification.position === 'bottom-center')
+    .reverse();
 
   return {
     notificationsTopRight,

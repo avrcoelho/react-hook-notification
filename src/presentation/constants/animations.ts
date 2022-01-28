@@ -23,18 +23,18 @@ const slideLeft = {
   exit: { left: -setAnimationPosition() },
   transition: { type: 'spring', bounce: 0 },
 };
-const slideBottom = {
+const slideBottom = (index: number): Record<string, unknown> => ({
   initial: { bottom: -110 },
   animate: { bottom: 0 },
-  exit: { bottom: -110 },
+  exit: { bottom: -110 * index },
   transition: { type: 'spring', bounce: 0 },
-};
-const slideTop = {
-  initial: { top: -110 },
+});
+const slideTop = (index: number): Record<string, unknown> => ({
+  initial: { top: -110 * index },
   animate: { top: 0 },
-  exit: { top: -110 },
+  exit: { top: -110 * index },
   transition: { type: 'spring', bounce: 0 },
-};
+});
 
 const bounceTransationIn = { type: 'spring', bounce: 0.5, duration: 0.5 };
 const bounceTransationOut = { type: 'spring', bounce: 0, duration: 0.5 };
@@ -51,18 +51,18 @@ const bounceLeft = {
   exit: { left: -setAnimationPosition(), transition: bounceTransationOut },
   transition: { type: 'spring', bounce: 0 },
 };
-const bounceBottom = {
-  initial: { bottom: -110, transition: bounceTransationOut },
+const bounceBottom = (index: number): Record<string, unknown> => ({
+  initial: { bottom: -110 * index, transition: bounceTransationOut },
   animate: { bottom: 0, transition: bounceTransationIn },
-  exit: { bottom: -110, transition: bounceTransationOut },
+  exit: { bottom: -110 * index, transition: bounceTransationOut },
   transition: { type: 'spring', bounce: 0 },
-};
-const bounceTop = {
-  initial: { top: -110, transition: bounceTransationOut },
+});
+const bounceTop = (index: number): Record<string, unknown> => ({
+  initial: { top: -110 * index, transition: bounceTransationOut },
   animate: { top: 0, transition: bounceTransationIn },
-  exit: { top: -110, transition: bounceTransationOut },
+  exit: { top: -110 * index, transition: bounceTransationOut },
   transition: { type: 'spring', bounce: 0 },
-};
+});
 
 const flip = {
   initial: {
@@ -92,33 +92,21 @@ const zoom = {
   transition: { type: 'spring', bounce: 0 },
 };
 
-export const animations = {
+export const animations = (index: number): Record<string, any> => ({
   bounce: {
-    'top-right': {
-      ...bounceRight,
-    },
-    'top-center': {
-      ...bounceTop,
-    },
-    'top-left': {
-      ...bounceLeft,
-    },
-    'bottom-right': {
-      ...bounceRight,
-    },
-    'bottom-center': {
-      ...bounceBottom,
-    },
-    'bottom-left': {
-      ...bounceLeft,
-    },
+    'top-right': bounceRight,
+    'top-center': bounceTop(index),
+    'top-left': bounceLeft,
+    'bottom-right': bounceRight,
+    'bottom-center': bounceBottom(index),
+    'bottom-left': bounceLeft,
   },
   slide: {
     'top-right': slideRight,
-    'top-center': slideTop,
+    'top-center': slideTop(index),
     'top-left': slideLeft,
     'bottom-right': slideRight,
-    'bottom-center': slideBottom,
+    'bottom-center': slideBottom(index),
     'bottom-left': slideLeft,
   },
   fade: {
@@ -145,4 +133,4 @@ export const animations = {
     'bottom-center': zoom,
     'bottom-left': zoom,
   },
-};
+});
