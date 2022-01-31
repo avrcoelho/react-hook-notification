@@ -14,6 +14,7 @@ export const useController: UseControllerHook = ({ isVisible }) => {
   const [show, setShow] = useState(showRef.current);
 
   useEffect(() => {
+    clearTimeout(TIMER);
     if (isVisible) {
       showRef.current = true;
       setShow(true);

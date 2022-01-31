@@ -1,4 +1,4 @@
-import { useCallback, useEffect } from 'react';
+import { useCallback } from 'react';
 import { v4 as uuidv4 } from 'uuid';
 
 import { Notifications } from '../presentation/components/Notifications';
@@ -11,15 +11,12 @@ import {
 import { NotificationType } from '../presentation/types/Notification';
 
 const notificationStore = NotificationStore.getInstance();
+const initialize = Initialize.getInstance();
+initialize.render(Notifications);
 
 export const useNotification: UseNotificationHook = (
   hookParams = { position: 'top-right' },
 ) => {
-  useEffect(() => {
-    const initialize = Initialize.getInstance();
-    initialize.render(Notifications);
-  }, []);
-
   const info = useCallback(
     (notificationParams: NotificationParams) => {
       const id = uuidv4();
