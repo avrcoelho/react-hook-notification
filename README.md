@@ -63,6 +63,7 @@ export default function Component() {
 
 ## LICENSE
 
-This project is licensed under the [MIT License](https://opensource.org/licenses/MIT).
+[![License](https://img.shields.io/badge/License-MIT-yellow?style=flat&logoColor=f00&link=https://opensource.org/licenses/MIT)](https://opensource.org/licenses/MIT)
+
 
 Development by: [André Coelho](https://andrecoelho.dev)
