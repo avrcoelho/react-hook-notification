@@ -33,12 +33,9 @@ export class Initialize {
     document.getElementById('rhn-container')?.remove();
   }
 
-  async render(component: () => JSX.Element): Promise<void> {
+  render(component: () => JSX.Element): void {
     if (!this.hasComponent) {
       this.hasComponent = true;
-      await new Promise(resulve => {
-        setTimeout(resulve, 1000);
-      });
       this.setComponent(component);
       this.removeElementIfExists();
       this.createElement();
