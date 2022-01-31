@@ -24,7 +24,7 @@ const slideLeft = {
   transition: { type: 'spring', bounce: 0 },
 };
 const slideBottom = (index: number): Record<string, unknown> => ({
-  initial: { bottom: -110 },
+  initial: { bottom: -110 * index },
   animate: { bottom: 0 },
   exit: { bottom: -110 * index },
   transition: { type: 'spring', bounce: 0 },
