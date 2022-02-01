@@ -10,6 +10,13 @@ import {
 } from './types/notificationHook';
 import { NotificationType } from '../presentation/types/Notification';
 
+export {
+  NotificationPosition,
+  NotificationTheme,
+  NotificationType,
+  NotificationTransition,
+} from '../presentation/types/Notification';
+
 const notificationStore = NotificationStore.getInstance();
 const initialize = Initialize.getInstance();
 initialize.render(Notifications);

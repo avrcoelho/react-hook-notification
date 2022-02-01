@@ -5,7 +5,7 @@ import { ComponentStory, ComponentMeta } from '@storybook/react';
 import { Notification } from '../src/presentation/components/Notification';
 import { NotificationDefaultProps } from '../src/presentation/constants/NotificationDefaultProps';
 import { NotificationProps } from '../src/presentation/types/Notification';
-import { useNotification } from '../src';
+import { useNotification } from '../src/main';
 
 export default {
   title: 'Notification example',
