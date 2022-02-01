@@ -7,7 +7,7 @@ export type UseNotificationParams = Omit<
 
 export type NotificationParams = Omit<
   NotificationProps,
-  'onRemove' | 'type' | 'id'
+  'onRemove' | 'type' | 'id' | 'amount'
 >;
 
 export type UseNotificationHook = (hookParams?: UseNotificationParams) => {

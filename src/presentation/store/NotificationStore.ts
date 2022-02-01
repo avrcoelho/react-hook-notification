@@ -2,7 +2,7 @@ import { Dispatch, SetStateAction } from 'react';
 
 import { NotificationProps } from '../types/Notification';
 
-export type NotificationData = Omit<NotificationProps, 'onRemove'>;
+export type NotificationData = Omit<NotificationProps, 'onRemove' | 'amount'>;
 
 export class NotificationStore {
   private static instance: NotificationStore;
