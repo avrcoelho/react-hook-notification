@@ -5,7 +5,7 @@ import { NotificationProps } from '../../types/Notification';
 
 const notificationStore = NotificationStore.getInstance();
 
-type NotificationData = Omit<NotificationProps, 'onRemove'>;
+type NotificationData = Omit<NotificationProps, 'onRemove' | 'amount'>;
 
 type UseControllerHook = () => {
   onRemove(id: string): void;

@@ -11,7 +11,7 @@ import { Container as ContainerElement } from './styles';
 
 interface ContainerProps {
   isVisible: boolean;
-  notifications: Omit<NotificationProps, 'onRemove'>[];
+  notifications: Omit<NotificationProps, 'onRemove' | 'amount'>[];
   position: NotificationPosition;
   onRemove(id: string): void;
 }
