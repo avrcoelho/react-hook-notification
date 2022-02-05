@@ -16,6 +16,7 @@ import { animations } from '../../constants/animations';
 import { ContainerTheme } from '../../types/ContainerTheme';
 import { useToggle } from '../../hooks/useToggle';
 import { useEventListener } from '../../hooks/useEventListener';
+import { useIsMounted } from '../../hooks/useIsMounted';
 
 type UseControllerHookParams = {
   autoClose: boolean;
@@ -104,6 +105,15 @@ export const useController: UseControllerHook = ({
   const [hasDrag, setHasDrag] = useState(false);
   const clickIsAllowed = closeOnClick && !hasDrag;
 
+  const isMount = useIsMounted();
+  const disableDrag = useCallback((): void => {
+    setTimeout(() => {
+      if (isMount) {
+        setHasDrag(false);
+      }
+    }, 0);
+  }, [isMount]);
+
   const onDragEnd = useCallback(
     (_: MouseEvent | TouchEvent | PointerEvent, info: PanInfo) => {
       const maxLeft = info.offset.x < -245;
@@ -112,11 +122,9 @@ export const useController: UseControllerHook = ({
         setOnRemovedOnDragEnd(true);
         onRemove(id);
       }
-      setTimeout(() => {
-        setHasDrag(false);
-      }, 0);
+      disableDrag();
     },
-    [id, onRemove],
+    [disableDrag, id, onRemove],
   );
 
   const onDragStart = useCallback(() => {

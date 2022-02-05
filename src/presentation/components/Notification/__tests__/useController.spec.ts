@@ -122,11 +122,17 @@ describe('Notification controller hook', () => {
         x: 300,
       },
     } as any;
-    const { result } = renderHook(() => useController(params));
+    const { result, waitForValueToChange } = renderHook(() =>
+      useController(params),
+    );
 
+    act(() => {
+      result.current.onDragStart();
+    });
     act(() => {
       result.current.onDragEnd({} as any, onDragEndInfoParam);
     });
+    await waitForValueToChange(() => result.current.clickIsAllowed);
 
     expect(mockOnRemove).toBeCalled();
   });
