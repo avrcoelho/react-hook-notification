@@ -60,6 +60,7 @@ export default function Component() {
 | showIcon        | boolean                                                                             | no       | true      | Notification show or hide icon                             |
 | autoClose       | boolean                                                                             | no       | true      | Automatic closing of the notification after the delay ends |
 | pauseOnHover    | boolean                                                                             | no       | true      | Auto close pause on hover                                  |
+| draggable       | boolean                                                                             | no       | true      | Enable or disable drag                                     |
 
 ## LICENSE
 

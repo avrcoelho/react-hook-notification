@@ -88,11 +88,11 @@ export interface NotificationProps {
    */
   autoClose?: NotificationAutoClose;
   /**
-   * Notification puase auto close on hover (Default: true)
+   * Notification pause auto close on hover (Default: true)
    */
   pauseOnHover?: NotificationPauseOnHover;
   /**
-   * Notification is draggable (Default: true)
+   * Enable or disable drag (Default: true)
    */
   draggable?: NotificationDraggable;
 
