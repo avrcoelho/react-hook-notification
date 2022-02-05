@@ -4,7 +4,6 @@ import { FiX } from 'react-icons/fi';
 import { NotificationProps } from '../../types/Notification';
 import { NotificationDefaultProps } from '../../constants/NotificationDefaultProps';
 import { colorsIcon, colorsIconButtonClose } from '../../constants/colorsIcon';
-import { animations } from '../../constants/animations';
 import { ProgressBar } from '../ProgressBar';
 import { Icon } from '../Icon';
 import { useController } from './useController';
@@ -34,6 +33,7 @@ const Component = ({
   showIcon = NotificationDefaultProps.showIcon,
   autoClose = NotificationDefaultProps.autoClose,
   pauseOnHover = NotificationDefaultProps.pauseOnHover,
+  draggable = NotificationDefaultProps.draggable,
 }: NotificationProps): JSX.Element => {
   const {
     buttonColor,
@@ -42,6 +42,12 @@ const Component = ({
     withProgressBar,
     setElementRef,
     isPaused,
+    x,
+    opacity,
+    containerAnimations,
+    clickIsAllowed,
+    onDragEnd,
+    onDragStart,
   } = useController({
     autoClose,
     type,
@@ -49,6 +55,12 @@ const Component = ({
     showIcon,
     showProgressBar,
     pauseOnHover,
+    id,
+    onRemove,
+    amount,
+    position,
+    transition,
+    closeOnClick,
   });
 
   return (
@@ -57,8 +69,13 @@ const Component = ({
       theme={themeSelected}
       key={id}
       role={type}
-      onClick={() => closeOnClick && onRemove(id)}
-      {...animations(amount)[transition][position]}
+      onClick={() => clickIsAllowed && onRemove(id)}
+      drag={draggable ? 'x' : false}
+      dragSnapToOrigin
+      onDragEnd={onDragEnd}
+      onDragStart={onDragStart}
+      style={{ x, opacity }}
+      {...containerAnimations}
     >
       {withIcon && (
         <IconContainer aria-label={type}>

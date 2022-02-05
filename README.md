@@ -65,5 +65,4 @@ export default function Component() {
 
 [![License](https://img.shields.io/badge/License-MIT-yellow?style=flat&logoColor=f00&link=https://opensource.org/licenses/MIT)](https://opensource.org/licenses/MIT)
 
-
-Development by: [André Coelho](https://andrecoelho.dev)
+Developed by: [André Coelho](https://andrecoelho.dev)

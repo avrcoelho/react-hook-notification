@@ -1,6 +1,18 @@
-import { useCallback } from 'react';
+import { useCallback, useState } from 'react';
+import {
+  MotionValue,
+  PanInfo,
+  useMotionValue,
+  useTransform,
+} from 'framer-motion';
 
-import { NotificationTheme, NotificationType } from '../../types/Notification';
+import {
+  NotificationPosition,
+  NotificationTheme,
+  NotificationTransition,
+  NotificationType,
+} from '../../types/Notification';
+import { animations } from '../../constants/animations';
 import { ContainerTheme } from '../../types/ContainerTheme';
 import { useToggle } from '../../hooks/useToggle';
 import { useEventListener } from '../../hooks/useEventListener';
@@ -12,6 +24,12 @@ type UseControllerHookParams = {
   theme: NotificationTheme;
   showIcon: boolean;
   pauseOnHover: boolean;
+  closeOnClick: boolean;
+  id: string;
+  amount: number;
+  transition: NotificationTransition;
+  position: NotificationPosition;
+  onRemove(id: string): void;
 };
 
 type UseControllerHook = (params: UseControllerHookParams) => {
@@ -19,8 +37,15 @@ type UseControllerHook = (params: UseControllerHookParams) => {
   withProgressBar: boolean;
   buttonColor: NotificationTheme;
   themeSelected: ContainerTheme;
-  setElementRef(elementRef: HTMLDivElement): void;
   isPaused: boolean;
+  opacity: MotionValue<number>;
+  x: MotionValue<number>;
+  removedOnDragEnd: boolean;
+  containerAnimations: Record<string, unknown>;
+  clickIsAllowed: boolean;
+  setElementRef(elementRef: HTMLDivElement): void;
+  onDragEnd(event: MouseEvent | TouchEvent | PointerEvent, info: PanInfo): void;
+  onDragStart(): void;
 };
 
 export const useController: UseControllerHook = ({
@@ -30,6 +55,12 @@ export const useController: UseControllerHook = ({
   type,
   showProgressBar,
   pauseOnHover,
+  id,
+  onRemove,
+  amount,
+  transition,
+  position,
+  closeOnClick,
 }) => {
   const [isPaused, toggleIsPaused] = useToggle(false);
   const eventListenerOptions = {
@@ -64,6 +95,38 @@ export const useController: UseControllerHook = ({
     theme === 'colored' && type === 'default' ? 'light' : theme;
   const withProgressBar = showProgressBar && autoClose;
 
+  const x = useMotionValue(0);
+  const input = [-250, 0, 250];
+  const output = [0, 1, 0];
+  const opacity = useTransform(x, input, output);
+
+  const [removedOnDragEnd, setOnRemovedOnDragEnd] = useState(false);
+  const [hasDrag, setHasDrag] = useState(false);
+  const clickIsAllowed = closeOnClick && !hasDrag;
+
+  const onDragEnd = useCallback(
+    (_: MouseEvent | TouchEvent | PointerEvent, info: PanInfo) => {
+      const maxLeft = info.offset.x < -245;
+      const maxRight = info.offset.x > 245;
+      if (maxLeft || maxRight) {
+        setOnRemovedOnDragEnd(true);
+        onRemove(id);
+      }
+      setTimeout(() => {
+        setHasDrag(false);
+      }, 0);
+    },
+    [id, onRemove],
+  );
+
+  const onDragStart = useCallback(() => {
+    setHasDrag(true);
+  }, []);
+
+  const containerAnimations = removedOnDragEnd
+    ? {}
+    : animations(amount)[transition][position];
+
   return {
     showProgressBar,
     withIcon,
@@ -72,5 +135,12 @@ export const useController: UseControllerHook = ({
     buttonColor,
     setElementRef,
     isPaused,
+    x,
+    opacity,
+    onDragEnd,
+    removedOnDragEnd,
+    containerAnimations,
+    onDragStart,
+    clickIsAllowed,
   };
 };

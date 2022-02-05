@@ -16,4 +16,5 @@ export const NotificationDefaultProps = {
   showIcon: true,
   autoClose: true,
   pauseOnHover: true,
+  draggable: true,
 };

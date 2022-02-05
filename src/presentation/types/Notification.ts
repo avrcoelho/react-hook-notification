@@ -36,6 +36,8 @@ export type NotificationAutoClose = boolean;
 
 export type NotificationPauseOnHover = boolean;
 
+export type NotificationDraggable = boolean;
+
 export interface NotificationProps {
   /**
    * Notification title - Optional
@@ -66,15 +68,15 @@ export interface NotificationProps {
    */
   transition?: NotificationTransition;
   /**
-   * Has progress bar in the notification (Default: true)
+   * Show progress bar in the notification (Default: true)
    */
   showProgressBar?: NotificationShowProgressBar;
   /**
-   * Has button close in the notification (Default: true)
+   * Show button close in the notification (Default: true)
    */
   showButtonClose?: NotificationShowButtonClose;
   /**
-   * Has close on click in the notification (Default: true)
+   * Close on click in the notification (Default: true)
    */
   closeOnClick?: NotificationCloseOnClick;
   /**
@@ -89,6 +91,10 @@ export interface NotificationProps {
    * Notification puase auto close on hover (Default: true)
    */
   pauseOnHover?: NotificationPauseOnHover;
+  /**
+   * Notification is draggable (Default: true)
+   */
+  draggable?: NotificationDraggable;
 
   id: string;
   amount: number;

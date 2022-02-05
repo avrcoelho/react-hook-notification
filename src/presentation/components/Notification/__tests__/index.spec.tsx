@@ -10,6 +10,9 @@ jest.mock('../useController', () => ({
   useController: () => ({
     withIcon: mockWithIcon,
     withProgressBar: mockWithProgressBar,
+    onDragEnd: jest.fn(),
+    onDragStart: jest.fn(),
+    clickIsAllowed: true,
   }),
 }));
 
@@ -18,7 +21,9 @@ const props = {
   type: 'success' as NotificationType,
   id: '124',
   text: 'text test',
+  amount: 1,
   onRemove: mockOnRemove,
+  draggable: true,
 };
 describe('Notification component', () => {
   it('should be able to render remove on click Notification', () => {
@@ -63,6 +68,7 @@ describe('Notification component', () => {
   it('should be able to render title', () => {
     Object.assign(props, {
       title: 'title test',
+      draggable: false,
     });
     render(<Notification {...props} />);
 
