@@ -97,7 +97,7 @@ export const useController: UseControllerHook = ({
   const withProgressBar = showProgressBar && autoClose;
 
   const x = useMotionValue(0);
-  const input = [-250, 0, 250];
+  const input = [-280, 0, 280];
   const output = [0, 1, 0];
   const opacity = useTransform(x, input, output);
 
@@ -116,8 +116,8 @@ export const useController: UseControllerHook = ({
 
   const onDragEnd = useCallback(
     (_: MouseEvent | TouchEvent | PointerEvent, info: PanInfo) => {
-      const maxLeft = info.offset.x < -245;
-      const maxRight = info.offset.x > 245;
+      const maxLeft = info.offset.x < -280;
+      const maxRight = info.offset.x > 280;
       if (maxLeft || maxRight) {
         setOnRemovedOnDragEnd(true);
         onRemove(id);
