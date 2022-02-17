@@ -78,7 +78,7 @@ const Component = ({
       {...containerAnimations}
     >
       {withIcon && (
-        <IconContainer>
+        <IconContainer aria-label={`Icon ${type}`}>
           <Icon type={type} size={20} color={colorsIcon[theme][type]} />
         </IconContainer>
       )}

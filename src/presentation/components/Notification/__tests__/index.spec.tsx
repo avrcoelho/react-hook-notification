@@ -46,7 +46,7 @@ describe('Notification component', () => {
   it('should be able to render icon', () => {
     render(<Notification {...props} />);
 
-    expect(screen.getByLabelText(props.type)).toBeTruthy();
+    expect(screen.getByLabelText(`Icon ${props.type}`)).toBeTruthy();
   });
 
   it('should not be able to render icon', () => {
