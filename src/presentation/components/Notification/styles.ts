@@ -109,7 +109,6 @@ export const ButtonClose = styled('button', {
   width: '16px',
   height: '16px',
   fontSize: 0,
-  outline: 'none',
   border: 'none',
   cursor: 'pointer',
   right: 0,

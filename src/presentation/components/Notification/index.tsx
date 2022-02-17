@@ -68,7 +68,7 @@ const Component = ({
       ref={setElementRef}
       theme={themeSelected}
       key={id}
-      role={type}
+      role="alert"
       onClick={() => clickIsAllowed && onRemove(id)}
       drag={draggable ? 'x' : false}
       dragSnapToOrigin
@@ -78,7 +78,7 @@ const Component = ({
       {...containerAnimations}
     >
       {withIcon && (
-        <IconContainer aria-label={type}>
+        <IconContainer>
           <Icon type={type} size={20} color={colorsIcon[theme][type]} />
         </IconContainer>
       )}
