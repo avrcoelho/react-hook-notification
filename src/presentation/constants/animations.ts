@@ -1,14 +1,10 @@
+import { setAnimationPosition } from '../utils/setAnimationPosition';
+
 const fade = {
   initial: { opacity: 0 },
   animate: { opacity: 1 },
   exit: { opacity: 0 },
   transition: { type: 'spring', bounce: 0, duration: 1 },
-};
-
-const setAnimationPosition = (): number => {
-  const windowWidth = window.innerWidth;
-  const windowIsLarger = windowWidth > 640;
-  return windowIsLarger ? 380 : windowWidth;
 };
 
 const slideRight = {
