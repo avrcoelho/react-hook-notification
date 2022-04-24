@@ -12,7 +12,7 @@ import {
   NotificationTransition,
   NotificationType,
 } from '../../types/Notification';
-import { animations } from '../../constants/animations';
+import { getAnimation } from '../../utils/getAnimation';
 import { ContainerTheme } from '../../types/ContainerTheme';
 import { useToggle } from '../../hooks/useToggle';
 import { useEventListener } from '../../hooks/useEventListener';
@@ -133,7 +133,7 @@ export const useController: UseControllerHook = ({
 
   const containerAnimations = removedOnDragEnd
     ? {}
-    : animations(amount)[transition][position];
+    : getAnimation(amount)[transition][position];
 
   return {
     showProgressBar,
