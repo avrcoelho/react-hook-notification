@@ -82,7 +82,6 @@ export const useController: UseControllerHook = ({
     'mouseenter',
     () => {
       toggleIsPaused();
-      clearInterval(TIMER);
     },
     eventListenerOptions,
   );
@@ -147,13 +146,11 @@ export const useController: UseControllerHook = ({
     ? {}
     : getAnimation(amount)[transition][position];
 
-  const delayDecrement = useRef(0);
-  useLayoutEffect(() => {
-    delayDecrement.current = delay / DELAY;
-  });
-
+  const delayDecrement = useRef(delay / DELAY);
   useEffect(() => {
-    if (showProgressBar || !autoClose) {
+    const cannotRun = showProgressBar || !autoClose || isPaused;
+    if (cannotRun) {
+      clearInterval(TIMER);
       return () => null;
     }
     TIMER = setInterval(() => {
@@ -164,7 +161,15 @@ export const useController: UseControllerHook = ({
     }, DELAY);
 
     return () => clearInterval(TIMER);
-  }, [autoClose, delay, id, onRemove, showProgressBar, withProgressBar]);
+  }, [
+    autoClose,
+    delay,
+    id,
+    isPaused,
+    onRemove,
+    showProgressBar,
+    withProgressBar,
+  ]);
 
   return {
     showProgressBar,
