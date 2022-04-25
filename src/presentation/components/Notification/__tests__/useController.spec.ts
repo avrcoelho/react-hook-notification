@@ -8,6 +8,8 @@ import {
 } from '../../../types/Notification';
 import { useController } from '../useController';
 
+jest.useFakeTimers();
+
 let mockedIsActive = 0;
 jest.mock('../../../hooks/useEventListener', () => ({
   useEventListener: (_, fn = jest.fn()) => {
@@ -37,6 +39,7 @@ describe('Notification controller hook', () => {
     onRemove: mockOnRemove,
     amount: 1,
     closeOnClick: true,
+    delay: 0,
   };
 
   beforeEach(() => {
@@ -122,9 +125,7 @@ describe('Notification controller hook', () => {
         x: 300,
       },
     } as any;
-    const { result, waitForValueToChange } = renderHook(() =>
-      useController(params),
-    );
+    const { result } = renderHook(() => useController(params));
 
     act(() => {
       result.current.onDragStart();
@@ -132,7 +133,34 @@ describe('Notification controller hook', () => {
     act(() => {
       result.current.onDragEnd({} as any, onDragEndInfoParam);
     });
-    await waitForValueToChange(() => result.current.clickIsAllowed);
+    act(() => {
+      jest.advanceTimersByTime(0);
+    });
+
+    expect(mockOnRemove).toBeCalled();
+  });
+
+  it('should not be able to call onRemove when progress bar is hide', () => {
+    renderHook(() =>
+      useController({ ...params, showProgressBar: false, autoClose: false }),
+    );
+
+    expect(mockOnRemove).not.toBeCalled();
+  });
+
+  it('should not be able to call onRemove when is paused', () => {
+    renderHook(() =>
+      useController({
+        ...params,
+        showProgressBar: false,
+        autoClose: true,
+        delay: 5000,
+      }),
+    );
+
+    act(() => {
+      jest.advanceTimersByTime(5000);
+    });
 
     expect(mockOnRemove).toBeCalled();
   });
