@@ -155,15 +155,7 @@ export const useController: UseControllerHook = ({
     }, DELAY);
 
     return () => clearInterval(TIMER);
-  }, [
-    autoClose,
-    delay,
-    id,
-    isPaused,
-    onRemove,
-    showProgressBar,
-    withProgressBar,
-  ]);
+  }, [autoClose, delay, id, isPaused, onRemove, showProgressBar]);
 
   return {
     showProgressBar,
