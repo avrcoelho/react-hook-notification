@@ -1,4 +1,10 @@
-import { useCallback, useState } from 'react';
+import {
+  useCallback,
+  useEffect,
+  useLayoutEffect,
+  useRef,
+  useState,
+} from 'react';
 import {
   MotionValue,
   PanInfo,
@@ -18,6 +24,9 @@ import { useToggle } from '../../hooks/useToggle';
 import { useEventListener } from '../../hooks/useEventListener';
 import { useIsMounted } from '../../hooks/useIsMounted';
 
+const DELAY = 1000;
+let TIMER: NodeJS.Timeout;
+
 type UseControllerHookParams = {
   autoClose: boolean;
   showProgressBar: boolean;
@@ -30,6 +39,7 @@ type UseControllerHookParams = {
   amount: number;
   transition: NotificationTransition;
   position: NotificationPosition;
+  delay: number;
   onRemove(id: string): void;
 };
 
@@ -62,6 +72,7 @@ export const useController: UseControllerHook = ({
   transition,
   position,
   closeOnClick,
+  delay,
 }) => {
   const [isPaused, toggleIsPaused] = useToggle(false);
   const eventListenerOptions = {
@@ -71,6 +82,7 @@ export const useController: UseControllerHook = ({
     'mouseenter',
     () => {
       toggleIsPaused();
+      clearInterval(TIMER);
     },
     eventListenerOptions,
   );
@@ -134,6 +146,25 @@ export const useController: UseControllerHook = ({
   const containerAnimations = removedOnDragEnd
     ? {}
     : getAnimation(amount)[transition][position];
+
+  const delayDecrement = useRef(0);
+  useLayoutEffect(() => {
+    delayDecrement.current = delay / DELAY;
+  });
+
+  useEffect(() => {
+    if (showProgressBar || !autoClose) {
+      return () => null;
+    }
+    TIMER = setInterval(() => {
+      delayDecrement.current -= 1;
+      if (delayDecrement.current === 0) {
+        onRemove(id);
+      }
+    }, DELAY);
+
+    return () => clearInterval(TIMER);
+  }, [autoClose, delay, id, onRemove, showProgressBar, withProgressBar]);
 
   return {
     showProgressBar,

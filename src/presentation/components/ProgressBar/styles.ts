@@ -73,14 +73,5 @@ export const Container = styled('div', {
         animationPlayState: 'running',
       },
     },
-
-    show: {
-      true: {
-        visibility: 'visible',
-      },
-      false: {
-        visibility: 'hidden',
-      },
-    },
   },
 });

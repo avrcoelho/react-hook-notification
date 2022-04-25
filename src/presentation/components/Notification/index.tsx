@@ -61,6 +61,7 @@ const Component = ({
     position,
     transition,
     closeOnClick,
+    delay,
   });
 
   return (
@@ -103,16 +104,17 @@ const Component = ({
         <Text>{text}</Text>
       </TextContainer>
 
-      <ProgressBar
-        delay={delay}
-        theme={theme}
-        type={type}
-        isPaused={isPaused}
-        id={id}
-        onRemove={onRemove}
-        show={withProgressBar}
-        autoClose={autoClose}
-      />
+      {withProgressBar && (
+        <ProgressBar
+          delay={delay}
+          theme={theme}
+          type={type}
+          isPaused={isPaused}
+          id={id}
+          onRemove={onRemove}
+          autoClose={autoClose}
+        />
+      )}
     </Container>
   );
 };

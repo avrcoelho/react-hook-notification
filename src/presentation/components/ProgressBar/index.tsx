@@ -6,7 +6,6 @@ import { Container } from './styles';
 
 interface ProgressBarProps {
   id: string;
-  show: boolean;
   delay: number;
   theme: NotificationTheme;
   type: NotificationType;
@@ -17,7 +16,6 @@ interface ProgressBarProps {
 
 export const ProgressBar = ({
   id,
-  show,
   onRemove,
   delay,
   theme,
@@ -33,7 +31,6 @@ export const ProgressBar = ({
         animationDuration: `${delay}ms`,
       }}
       theme={parsedTheme}
-      show={show ? 'true' : 'false'}
       animationState={isPaused ? 'paused' : 'running'}
       onAnimationEnd={() => autoClose && onRemove(id)}
       aria-label="Progress bar"

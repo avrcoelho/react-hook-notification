@@ -15,7 +15,6 @@ describe('ProgressBar', () => {
         onRemove={mockOnRemove}
         autoClose
         isPaused={false}
-        show
       />,
     );
 
@@ -35,7 +34,6 @@ describe('ProgressBar', () => {
         onRemove={mockOnRemove}
         autoClose={false}
         isPaused
-        show={false}
       />,
     );
 
