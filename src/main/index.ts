@@ -1,5 +1,4 @@
 import { useCallback, useRef } from 'react';
-import { v4 as uuidv4 } from 'uuid';
 
 import { Notifications } from '../presentation/components/Notifications';
 import { NotificationStore } from '../presentation/store/NotificationStore';
@@ -26,7 +25,7 @@ export const useNotification: UseNotificationHook = (
 ) => {
   const info = useCallback(
     (notificationParams: NotificationParams) => {
-      const id = uuidv4();
+      const id = String(Date.now());
       const notification = {
         ...hookParams,
         ...notificationParams,
@@ -40,7 +39,7 @@ export const useNotification: UseNotificationHook = (
 
   const success = useCallback(
     (notificationParams: NotificationParams) => {
-      const id = uuidv4();
+      const id = String(Date.now());
       const notification = {
         ...hookParams,
         ...notificationParams,
@@ -54,7 +53,7 @@ export const useNotification: UseNotificationHook = (
 
   const error = useCallback(
     (notificationParams: NotificationParams) => {
-      const id = uuidv4();
+      const id = String(Date.now());
       const notification = {
         ...hookParams,
         ...notificationParams,
@@ -68,7 +67,7 @@ export const useNotification: UseNotificationHook = (
 
   const warning = useCallback(
     (notificationParams: NotificationParams) => {
-      const id = uuidv4();
+      const id = String(Date.now());
       const notification = {
         ...hookParams,
         ...notificationParams,
@@ -82,7 +81,7 @@ export const useNotification: UseNotificationHook = (
 
   const defaultNotification = useCallback(
     (notificationParams: NotificationParams) => {
-      const id = uuidv4();
+      const id = String(Date.now());
       const notification = {
         ...hookParams,
         ...notificationParams,

@@ -1,5 +1,4 @@
 import { renderHook } from '@testing-library/react-hooks';
-import { v4 as uuidv4 } from 'uuid';
 
 import { NotificationStore } from '../../../store/NotificationStore';
 import { NotificationType } from '../../../types/Notification';
@@ -12,7 +11,7 @@ const notificationBaseData = {
   text: 'text test',
 };
 
-const idTopRight = uuidv4();
+const idTopRight = String(Date.now());
 
 describe('Notifications controller hook', () => {
   beforeAll(() => {
@@ -23,27 +22,27 @@ describe('Notifications controller hook', () => {
     });
     notificationStore.add({
       ...notificationBaseData,
-      id: uuidv4(),
+      id: String(Date.now()),
       position: 'top-left',
     });
     notificationStore.add({
       ...notificationBaseData,
-      id: uuidv4(),
+      id: String(Date.now()),
       position: 'top-center',
     });
     notificationStore.add({
       ...notificationBaseData,
-      id: uuidv4(),
+      id: String(Date.now()),
       position: 'bottom-right',
     });
     notificationStore.add({
       ...notificationBaseData,
-      id: uuidv4(),
+      id: String(Date.now()),
       position: 'bottom-left',
     });
     notificationStore.add({
       ...notificationBaseData,
-      id: uuidv4(),
+      id: String(Date.now()),
       position: 'bottom-center',
     });
   });
