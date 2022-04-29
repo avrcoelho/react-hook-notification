@@ -141,20 +141,21 @@ export const useController: UseControllerHook = ({
     : getAnimation(amount)[transition][position];
 
   const delayDecrement = useRef(delay / DELAY);
+  const timerRef = useRef<NodeJS.Timeout>();
   useEffect(() => {
-    const cannotRun = showProgressBar || !autoClose || isPaused;
-    if (cannotRun) {
-      clearInterval(TIMER);
-      return () => null;
+    const canExecute = !showProgressBar && !isPaused && autoClose;
+    if (canExecute) {
+      timerRef.current = setInterval(() => {
+        delayDecrement.current -= 1;
+        if (delayDecrement.current === 0) {
+          onRemove(id);
+        }
+      }, DELAY);
+    } else {
+      clearInterval(timerRef.current as NodeJS.Timeout);
     }
-    TIMER = setInterval(() => {
-      delayDecrement.current -= 1;
-      if (delayDecrement.current === 0) {
-        onRemove(id);
-      }
-    }, DELAY);
 
-    return () => clearInterval(TIMER);
+    return () => clearInterval(timerRef.current as NodeJS.Timeout);
   }, [autoClose, delay, id, isPaused, onRemove, showProgressBar]);
 
   return {
