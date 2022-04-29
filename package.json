@@ -1,5 +1,5 @@
 {
-  "version": "3.1.2",
+  "version": "3.1.3",
   "license": "MIT",
   "main": "dist/main/index.js",
   "typings": "dist/main/index.d.ts",
@@ -51,6 +51,7 @@
     "@types/uuid": "8.3.4",
     "@typescript-eslint/eslint-plugin": "^5.8.1",
     "@typescript-eslint/parser": "^5.8.1",
+    "babel-plugin-transform-runtime": "^6.23.0",
     "eslint": "^8.6.0",
     "eslint-config-airbnb": "^19.0.4",
     "eslint-config-prettier": "^8.3.0",
@@ -60,18 +61,17 @@
     "eslint-plugin-prettier": "^4.0.0",
     "eslint-plugin-react": "^7.28.0",
     "eslint-plugin-react-hooks": "^4.3.0",
-    "prettier": "^2.5.1",
-    "babel-plugin-transform-runtime": "^6.23.0",
     "jest": "27.4.7",
     "jsdom": "^19.0.0",
+    "prettier": "^2.5.1",
     "react": "17.0.2",
     "react-dom": "17.0.2",
+    "storybook": "^6.4.22",
     "typescript": "4.5.5"
   },
   "dependencies": {
     "@stitches/react": "1.2.6",
     "framer-motion": "6.2.1",
-    "react-icons": "4.3.1",
-    "storybook": "^6.4.19"
+    "react-icons": "4.3.1"
   }
 }
