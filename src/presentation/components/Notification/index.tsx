@@ -69,13 +69,14 @@ const Component = ({
       ref={setElementRef}
       theme={themeSelected}
       key={id}
-      role="alert"
+      role="status"
       onClick={() => clickIsAllowed && onRemove(id)}
       drag={draggable ? 'x' : false}
       dragSnapToOrigin
       onDragEnd={onDragEnd}
       onDragStart={onDragStart}
       style={{ x, opacity }}
+      tabIndex={0}
       {...containerAnimations}
     >
       {withIcon && (

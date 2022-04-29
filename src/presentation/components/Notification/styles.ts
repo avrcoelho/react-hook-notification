@@ -11,7 +11,7 @@ const themeDark = {
   backgroundColor: 'var(--rhn-color-dark)',
 };
 
-export const Container = styled(motion.div, {
+export const Container = styled(motion.li, {
   padding: '12px 12px',
   backgroundColor: '#ccc',
   borderRadius: '5px',
@@ -22,7 +22,7 @@ export const Container = styled(motion.div, {
   boxShadow: '0 1px 10px 0 rgb(0 0 0 / 10%), 0 2px 15px 0 rgb(0 0 0 / 5%)',
   cursor: 'default',
 
-  '& + div': {
+  '& + li': {
     marginTop: '12px',
   },
 

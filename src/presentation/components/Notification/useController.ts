@@ -48,7 +48,7 @@ type UseControllerHook = (params: UseControllerHookParams) => {
   removedOnDragEnd: boolean;
   containerAnimations: Record<string, unknown>;
   clickIsAllowed: boolean;
-  setElementRef(elementRef: HTMLDivElement): void;
+  setElementRef(elementRef: HTMLLIElement): void;
   onDragEnd(event: MouseEvent | TouchEvent | PointerEvent, info: PanInfo): void;
   onDragStart(): void;
 };
@@ -72,14 +72,14 @@ export const useController: UseControllerHook = ({
   const eventListenerOptions = {
     disabled: !pauseOnHover || !autoClose,
   };
-  const elementEnterRef = useEventListener<HTMLDivElement>(
+  const elementEnterRef = useEventListener<HTMLLIElement>(
     'mouseenter',
     () => {
       toggleIsPaused();
     },
     eventListenerOptions,
   );
-  const elementLeaveRef = useEventListener<HTMLDivElement>(
+  const elementLeaveRef = useEventListener<HTMLLIElement>(
     'mouseleave',
     () => {
       toggleIsPaused();
@@ -88,7 +88,7 @@ export const useController: UseControllerHook = ({
   );
 
   const setElementRef = useCallback(
-    (elementRef: HTMLDivElement) => {
+    (elementRef: HTMLLIElement) => {
       elementEnterRef.current = elementRef;
       elementLeaveRef.current = elementRef;
     },

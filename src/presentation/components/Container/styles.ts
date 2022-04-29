@@ -6,10 +6,11 @@ const { styled } = createStitches({
   },
 });
 
-export const Container = styled('div', {
+export const Container = styled('ol', {
   width: '350px',
   position: 'fixed',
   zIndex: 9999999,
+  listStyle: 'none',
 
   '@bp1': {
     width: 'calc(100% - 32px)',
