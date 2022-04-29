@@ -25,7 +25,7 @@ const Component = ({
   const { show } = useController({ isVisible });
 
   return show ? (
-    <ContainerElement position={position} tabIndex={-1}>
+    <ContainerElement position={position}>
       <AnimatePresence>
         {notifications.map(notification => (
           <Notification

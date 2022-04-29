@@ -76,7 +76,6 @@ const Component = ({
       onDragEnd={onDragEnd}
       onDragStart={onDragStart}
       style={{ x, opacity }}
-      tabIndex={0}
       {...containerAnimations}
     >
       {withIcon && (
