@@ -9,6 +9,7 @@ tsconfig.json
 yarn-error.log
 yarn.lock
 .git
+.github
 .babelrc
 jest.config.js
 .editorconfig
