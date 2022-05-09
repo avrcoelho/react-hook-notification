@@ -68,27 +68,27 @@ export interface NotificationProps {
    */
   transition?: NotificationTransition;
   /**
-   * Show progress bar in the notification (Default: true)
+   * Show or hide progress bar (Default: true)
    */
   showProgressBar?: NotificationShowProgressBar;
   /**
-   * Show button close in the notification (Default: true)
+   * Show button close  (Default: true)
    */
   showButtonClose?: NotificationShowButtonClose;
   /**
-   * Close on click in the notification (Default: true)
+   * Close on click (Default: true)
    */
   closeOnClick?: NotificationCloseOnClick;
   /**
-   * show icon (Default: true)
+   * Show or hide icon (Default: true)
    */
   showIcon?: NotificationShowIcon;
   /**
-   * Auto close notification (Default: true)
+   * Close notification after delay ends (Default: true)
    */
   autoClose?: NotificationAutoClose;
   /**
-   * Notification pause auto close on hover (Default: true)
+   * Pause auto close on hover (Default: true)
    */
   pauseOnHover?: NotificationPauseOnHover;
   /**
