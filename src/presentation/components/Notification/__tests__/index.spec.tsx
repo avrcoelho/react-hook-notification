@@ -37,6 +37,8 @@ describe('Notification component', () => {
   it('should not be able to render button close', () => {
     Object.assign(props, {
       showButtonClose: false,
+      theme: 'light',
+      showProgressBar: false,
     });
     render(<Notification {...props} />);
 

@@ -1,5 +1,6 @@
 import { styled } from '@stitches/react';
 import { motion } from 'framer-motion';
+import { Colors } from '../../constants/Colors';
 
 const themeLight = {
   color: 'var(--rhn-text-color-light)',
@@ -9,6 +10,14 @@ const themeLight = {
 const themeDark = {
   color: 'var(--rhn-color-light)',
   backgroundColor: 'var(--rhn-color-dark)',
+};
+
+const borderNone = {
+  border: 'none',
+};
+
+const borderDefault = {
+  borderLeft: '5px solid',
 };
 
 export const Container = styled(motion.div, {
@@ -58,6 +67,24 @@ export const Container = styled(motion.div, {
       'warning-dark': themeDark,
       'success-dark': themeDark,
       'error-dark': themeDark,
+    },
+    borderColor: {
+      'default-colored': borderNone,
+      'info-colored': borderNone,
+      'warning-colored': borderNone,
+      'success-colored': borderNone,
+      'error-colored': borderNone,
+      'no-border': borderNone,
+      'default-light': { ...borderDefault, borderLeftColor: Colors.Grey },
+      'info-light': { ...borderDefault, borderLeftColor: Colors.Blue },
+      'warning-light': { ...borderDefault, borderLeftColor: Colors.Yellow },
+      'success-light': { ...borderDefault, borderLeftColor: Colors.Green },
+      'error-light': { ...borderDefault, borderLeftColor: Colors.Red },
+      'default-dark': { ...borderDefault, borderLeftColor: Colors.Grey },
+      'info-dark': { ...borderDefault, borderLeftColor: Colors.Blue },
+      'warning-dark': { ...borderDefault, borderLeftColor: Colors.Yellow },
+      'success-dark': { ...borderDefault, borderLeftColor: Colors.Green },
+      'error-dark': { ...borderDefault, borderLeftColor: Colors.Red },
     },
   },
 });

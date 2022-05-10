@@ -68,6 +68,7 @@ const Component = ({
     <Container
       ref={setElementRef}
       theme={themeSelected}
+      borderColor={showProgressBar ? 'no-border' : themeSelected}
       key={id}
       role="status"
       onClick={() => clickIsAllowed && onRemove(id)}
