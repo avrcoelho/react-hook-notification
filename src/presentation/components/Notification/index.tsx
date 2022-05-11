@@ -1,4 +1,4 @@
-import React, { CSSProperties, memo } from 'react';
+import React, { memo } from 'react';
 import { FiX } from 'react-icons/fi';
 
 import { NotificationProps } from '../../types/Notification';
@@ -50,6 +50,7 @@ const Component = ({
     clickIsAllowed,
     onDragEnd,
     onDragStart,
+    onLineCamp,
   } = useController({
     autoClose,
     type,
@@ -66,10 +67,6 @@ const Component = ({
     delay,
     titleMaxLines,
     textMaxLines,
-  });
-  const lineCamp = (value: number): CSSProperties => ({
-    WebkitLineClamp: value,
-    lineClamp: value,
   });
 
   return (
@@ -109,8 +106,10 @@ const Component = ({
       )}
 
       <TextContainer withIcon={withIcon ? 'true' : 'false'}>
-        {title && <Title style={{ ...lineCamp(titleMaxLines) }}>{title}</Title>}
-        <Text style={{ ...lineCamp(textMaxLines) }}>{text}</Text>
+        {title && (
+          <Title style={{ ...onLineCamp(titleMaxLines) }}>{title}</Title>
+        )}
+        <Text style={{ ...onLineCamp(textMaxLines) }}>{text}</Text>
       </TextContainer>
 
       {withProgressBar && (

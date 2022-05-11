@@ -12,6 +12,7 @@ jest.mock('../useController', () => ({
     withProgressBar: mockWithProgressBar,
     onDragEnd: jest.fn(),
     onDragStart: jest.fn(),
+    onLineCamp: jest.fn(),
     clickIsAllowed: true,
   }),
 }));

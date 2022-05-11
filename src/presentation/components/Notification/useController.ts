@@ -1,4 +1,4 @@
-import { useCallback, useEffect, useRef, useState } from 'react';
+import { CSSProperties, useCallback, useEffect, useRef, useState } from 'react';
 import {
   MotionValue,
   PanInfo,
@@ -50,6 +50,7 @@ type UseControllerHook = (params: UseControllerHookParams) => {
   setElementRef(elementRef: HTMLDivElement): void;
   onDragEnd(event: MouseEvent | TouchEvent | PointerEvent, info: PanInfo): void;
   onDragStart(): void;
+  onLineCamp(value: number): CSSProperties;
 };
 
 const DELAY = 1000;
@@ -164,6 +165,11 @@ export const useController: UseControllerHook = ({
     return () => clearInterval(timerRef.current as NodeJS.Timeout);
   }, [autoClose, delay, id, isPaused, onRemove, showProgressBar]);
 
+  const onLineCamp = (value: number): CSSProperties => ({
+    WebkitLineClamp: value,
+    lineClamp: value,
+  });
+
   return {
     showProgressBar,
     withIcon,
@@ -179,5 +185,6 @@ export const useController: UseControllerHook = ({
     containerAnimations,
     onDragStart,
     clickIsAllowed,
+    onLineCamp,
   };
 };

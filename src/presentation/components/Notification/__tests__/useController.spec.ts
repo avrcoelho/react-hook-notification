@@ -40,6 +40,8 @@ describe('Notification controller hook', () => {
     amount: 1,
     closeOnClick: true,
     delay: 0,
+    titleMaxLines: 1,
+    textMaxLines: 2,
   };
 
   beforeEach(() => {
@@ -146,6 +148,14 @@ describe('Notification controller hook', () => {
     );
 
     expect(mockOnRemove).not.toBeCalled();
+  });
+
+  it('should be set line clamp', () => {
+    const { result } = renderHook(() => useController(params));
+
+    const style = result.current.onLineCamp(2);
+
+    expect(style).toEqual({ WebkitLineClamp: 2, lineClamp: 2 });
   });
 
   it('should not be able to call onRemove when is paused', () => {
