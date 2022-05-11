@@ -26,8 +26,8 @@ const Template: ComponentStory<typeof Notification> = (
 
 export const Notificaion = Template.bind({});
 Notificaion.args = {
-  type: 'default',
-  text: 'Notification test',
+  type: 'success',
+  text: "i'm using react-hook-notification ❤️",
   ...NotificationDefaultProps,
 };
 Notificaion.argTypes = {
