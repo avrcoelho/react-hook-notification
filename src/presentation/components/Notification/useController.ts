@@ -18,9 +18,6 @@ import { useToggle } from '../../hooks/useToggle';
 import { useEventListener } from '../../hooks/useEventListener';
 import { useIsMounted } from '../../hooks/useIsMounted';
 
-const DELAY = 1000;
-let TIMER: NodeJS.Timeout;
-
 type UseControllerHookParams = {
   autoClose: boolean;
   showProgressBar: boolean;
@@ -34,6 +31,8 @@ type UseControllerHookParams = {
   transition: NotificationTransition;
   position: NotificationPosition;
   delay: number;
+  titleMaxLines: number;
+  textMaxLines: number;
   onRemove(id: string): void;
 };
 
@@ -53,6 +52,10 @@ type UseControllerHook = (params: UseControllerHookParams) => {
   onDragStart(): void;
 };
 
+const DELAY = 1000;
+const TITLE_SIZE = 16;
+const TEXT_SIZE = 15;
+
 export const useController: UseControllerHook = ({
   autoClose,
   showIcon,
@@ -67,6 +70,8 @@ export const useController: UseControllerHook = ({
   position,
   closeOnClick,
   delay,
+  textMaxLines,
+  titleMaxLines,
 }) => {
   const [isPaused, toggleIsPaused] = useToggle(false);
   const eventListenerOptions = {
@@ -136,9 +141,10 @@ export const useController: UseControllerHook = ({
     setHasDrag(true);
   }, []);
 
+  const sizeToAdd = TEXT_SIZE * textMaxLines + TITLE_SIZE * titleMaxLines;
   const containerAnimations = removedOnDragEnd
     ? {}
-    : getAnimation(amount)[transition][position];
+    : getAnimation({ amount, sizeToAdd })[transition][position];
 
   const delayDecrement = useRef(delay / DELAY);
   const timerRef = useRef<NodeJS.Timeout>();

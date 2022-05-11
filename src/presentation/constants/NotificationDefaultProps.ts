@@ -17,4 +17,6 @@ export const NotificationDefaultProps = {
   autoClose: true,
   pauseOnHover: true,
   draggable: true,
+  titleMaxLines: 1,
+  textMaxLines: 2,
 };

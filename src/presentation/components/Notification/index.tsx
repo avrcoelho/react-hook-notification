@@ -1,4 +1,4 @@
-import React, { memo } from 'react';
+import React, { CSSProperties, memo } from 'react';
 import { FiX } from 'react-icons/fi';
 
 import { NotificationProps } from '../../types/Notification';
@@ -34,6 +34,8 @@ const Component = ({
   autoClose = NotificationDefaultProps.autoClose,
   pauseOnHover = NotificationDefaultProps.pauseOnHover,
   draggable = NotificationDefaultProps.draggable,
+  titleMaxLines = NotificationDefaultProps.titleMaxLines,
+  textMaxLines = NotificationDefaultProps.textMaxLines,
 }: NotificationProps): JSX.Element => {
   const {
     buttonColor,
@@ -62,6 +64,12 @@ const Component = ({
     transition,
     closeOnClick,
     delay,
+    titleMaxLines,
+    textMaxLines,
+  });
+  const lineCamp = (value: number): CSSProperties => ({
+    WebkitLineClamp: value,
+    lineClamp: value,
   });
 
   return (
@@ -101,8 +109,8 @@ const Component = ({
       )}
 
       <TextContainer withIcon={withIcon ? 'true' : 'false'}>
-        {title && <Title>{title}</Title>}
-        <Text>{text}</Text>
+        {title && <Title style={{ ...lineCamp(titleMaxLines) }}>{title}</Title>}
+        <Text style={{ ...lineCamp(textMaxLines) }}>{text}</Text>
       </TextContainer>
 
       {withProgressBar && (

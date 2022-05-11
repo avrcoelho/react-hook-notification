@@ -95,6 +95,14 @@ export interface NotificationProps {
    * Enable or disable drag (Default: true)
    */
   draggable?: NotificationDraggable;
+  /**
+   * Maximum number of lines for notification title. (Default: 1)
+   */
+  titleMaxLines?: number;
+  /**
+   * Maximum number of lines for notification text. (Default: 2)
+   */
+  textMaxLines?: number;
 
   id: string;
   amount: number;

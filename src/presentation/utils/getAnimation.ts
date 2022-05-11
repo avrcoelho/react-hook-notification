@@ -12,21 +12,29 @@ import {
   zoom,
 } from '../constants/animations';
 
-export const getAnimation = (amount: number): Record<string, any> => ({
+type GetAnimationProps = {
+  amount: number;
+  sizeToAdd: number;
+};
+
+export const getAnimation = ({
+  amount,
+  sizeToAdd,
+}: GetAnimationProps): Record<string, any> => ({
   bounce: {
     'top-right': bounceRight,
-    'top-center': bounceTop(amount),
+    'top-center': bounceTop({ amount, sizeToAdd }),
     'top-left': bounceLeft,
     'bottom-right': bounceRight,
-    'bottom-center': bounceBottom(amount),
+    'bottom-center': bounceBottom({ amount, sizeToAdd }),
     'bottom-left': bounceLeft,
   },
   slide: {
     'top-right': slideRight,
-    'top-center': slideTop(amount),
+    'top-center': slideTop({ amount, sizeToAdd }),
     'top-left': slideLeft,
     'bottom-right': slideRight,
-    'bottom-center': slideBottom(amount),
+    'bottom-center': slideBottom({ amount, sizeToAdd }),
     'bottom-left': slideLeft,
   },
   fade: {

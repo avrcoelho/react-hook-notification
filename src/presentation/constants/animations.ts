@@ -1,5 +1,10 @@
 import { defineAnimationSize } from '../utils/defineAnimationSize';
 
+type TopAndBottomProps = {
+  amount: number;
+  sizeToAdd: number;
+};
+
 export const fade = {
   initial: { opacity: 0 },
   animate: { opacity: 1 },
@@ -19,16 +24,22 @@ export const slideLeft = {
   exit: { left: -defineAnimationSize() },
   transition: { type: 'spring', bounce: 0 },
 };
-export const slideBottom = (index: number): Record<string, unknown> => ({
-  initial: { bottom: -110 * index },
+export const slideBottom = ({
+  amount,
+  sizeToAdd,
+}: TopAndBottomProps): Record<string, unknown> => ({
+  initial: { bottom: (-110 - sizeToAdd) * amount },
   animate: { bottom: 0 },
-  exit: { bottom: -110 * index },
+  exit: { bottom: (-110 - sizeToAdd) * amount },
   transition: { type: 'spring', bounce: 0 },
 });
-export const slideTop = (index: number): Record<string, unknown> => ({
-  initial: { top: -110 * index },
+export const slideTop = ({
+  amount,
+  sizeToAdd,
+}: TopAndBottomProps): Record<string, unknown> => ({
+  initial: { top: (-110 - sizeToAdd) * amount },
   animate: { top: 0 },
-  exit: { top: -110 * index },
+  exit: { top: (-110 - sizeToAdd) * amount },
   transition: { type: 'spring', bounce: 0 },
 });
 
@@ -47,16 +58,31 @@ export const bounceLeft = {
   exit: { left: -defineAnimationSize(), transition: bounceTransationOut },
   transition: { type: 'spring', bounce: 0 },
 };
-export const bounceBottom = (index: number): Record<string, unknown> => ({
-  initial: { bottom: -110 * index, transition: bounceTransationOut },
+export const bounceBottom = ({
+  amount,
+  sizeToAdd,
+}: TopAndBottomProps): Record<string, unknown> => ({
+  initial: {
+    bottom: (-110 - sizeToAdd) * amount,
+    transition: bounceTransationOut,
+  },
   animate: { bottom: 0, transition: bounceTransationIn },
-  exit: { bottom: -110 * index, transition: bounceTransationOut },
+  exit: {
+    bottom: (-110 - sizeToAdd) * amount,
+    transition: bounceTransationOut,
+  },
   transition: { type: 'spring', bounce: 0 },
 });
-export const bounceTop = (index: number): Record<string, unknown> => ({
-  initial: { top: -110 * index, transition: bounceTransationOut },
+export const bounceTop = ({
+  amount,
+  sizeToAdd,
+}: TopAndBottomProps): Record<string, unknown> => ({
+  initial: {
+    top: (-110 - sizeToAdd) * amount,
+    transition: bounceTransationOut,
+  },
   animate: { top: 0, transition: bounceTransationIn },
-  exit: { top: -110 * index, transition: bounceTransationOut },
+  exit: { top: (-110 - sizeToAdd) * amount, transition: bounceTransationOut },
   transition: { type: 'spring', bounce: 0 },
 });
 

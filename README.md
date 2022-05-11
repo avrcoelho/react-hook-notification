@@ -61,6 +61,8 @@ export default function Component() {
 | autoClose       | boolean                                                                             | no       | true      | Close notification after delay ends |
 | pauseOnHover    | boolean                                                                             | no       | true      | Auto close pause on hover           |
 | draggable       | boolean                                                                             | no       | true      | Enable or disable drag              |
+| titleMaxLines   | number                                                                              | no       | 1         | Maximum number of lines for title   |
+| textMaxLines    | number                                                                              | no       | 2         | Maximum number of lines for text    |
 
 ## LICENSE
 

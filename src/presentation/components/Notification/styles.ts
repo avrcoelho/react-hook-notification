@@ -117,9 +117,11 @@ export const Title = styled('strong', {
   fontSize: '15px',
   lineHeight: '18px',
   marginBottom: '8px',
-  whiteSpace: 'nowrap',
-  overflow: 'hidden',
   textOverflow: 'ellipsis',
+  overflow: 'hidden',
+  display: '-webkit-box',
+  WebkitBoxOrient: 'vertical',
+  boxOrient: 'vertical',
 });
 
 export const Text = styled('span', {
@@ -128,8 +130,8 @@ export const Text = styled('span', {
   textOverflow: 'ellipsis',
   overflow: 'hidden',
   display: '-webkit-box',
-  WebkitLineClamp: 2,
   WebkitBoxOrient: 'vertical',
+  boxOrient: 'vertical',
 });
 
 export const ButtonClose = styled('button', {
