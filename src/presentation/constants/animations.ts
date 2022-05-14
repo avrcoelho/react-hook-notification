@@ -88,21 +88,21 @@ export const bounceTop = ({
 
 export const flip = {
   initial: {
-    rotateX: -90,
+    rotateX: 90,
+    transformPerspective: 600,
     opacity: 0.2,
-    skewX: -20,
     transition: { bounce: 0, type: 'spring', duration: 0.6 },
   },
   animate: {
     rotateX: 0,
+    transformPerspective: 600,
     opacity: 1,
-    skewX: 0,
     transition: { bounce: 0.6, type: 'spring', duration: 1.5 },
   },
   exit: {
-    rotateX: -90,
+    rotateX: 90,
     opacity: 0.2,
-    skewX: -20,
+    transformPerspective: 600,
     transition: { bounce: 0, type: 'spring', duration: 0.6 },
   },
 };
