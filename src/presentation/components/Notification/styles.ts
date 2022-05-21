@@ -115,7 +115,7 @@ export const TextContainer = styled('div', {
 
 export const Title = styled('strong', {
   fontSize: '15px',
-  lineHeight: '18px',
+  lineHeight: '19px',
   marginBottom: '8px',
   textOverflow: 'ellipsis',
   overflow: 'hidden',
@@ -125,8 +125,8 @@ export const Title = styled('strong', {
 });
 
 export const Text = styled('span', {
-  fontSize: '14px',
-  lineHeight: '20px',
+  fontSize: '15px',
+  lineHeight: '19px',
   textOverflow: 'ellipsis',
   overflow: 'hidden',
   display: '-webkit-box',
