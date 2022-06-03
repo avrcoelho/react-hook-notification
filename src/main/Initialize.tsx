@@ -13,9 +13,9 @@ export class Initialize {
   }
 
   private createElement(): void {
-    const element = document.createElement('div');
+    const element = document?.createElement('div');
     element.setAttribute('id', 'rhn-container');
-    document.body.appendChild(element);
+    document?.body.appendChild(element);
   }
 
   static getInstance(): Initialize {
@@ -30,7 +30,7 @@ export class Initialize {
   }
 
   private removeElementIfExists(): void {
-    document.getElementById('rhn-container')?.remove();
+    document?.getElementById('rhn-container')?.remove();
   }
 
   render(component: () => JSX.Element): void {
@@ -41,7 +41,7 @@ export class Initialize {
       this.createElement();
       ReactDOM.render(
         <StrictMode>{this.Component && <this.Component />}</StrictMode>,
-        document.getElementById('rhn-container'),
+        document?.getElementById('rhn-container'),
       );
     }
   }
