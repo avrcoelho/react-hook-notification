@@ -8,6 +8,7 @@ import {
   UseNotificationHook,
 } from './types/notificationHook';
 import { NotificationType } from '../presentation/types/Notification';
+import { hasDocument } from '../shared/hasDocument';
 
 export {
   NotificationPosition,
@@ -18,7 +19,10 @@ export {
 
 const notificationStore = NotificationStore.getInstance();
 const initialize = Initialize.getInstance();
-initialize.render(Notifications);
+
+if (hasDocument()) {
+  initialize.render(Notifications);
+}
 
 export const useNotification: UseNotificationHook = (
   hookParams = { position: 'top-right' },

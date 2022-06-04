@@ -1,4 +1,5 @@
 import { defineAnimationSize } from '../defineAnimationSize';
+import * as verifyWindow from '../../../shared/hasWindow';
 
 describe('Define animation size', () => {
   it('should be able to screen > 640', () => {
@@ -15,5 +16,12 @@ describe('Define animation size', () => {
     const size = defineAnimationSize();
 
     expect(size).toBe(500);
+  });
+
+  it('should be able to return size equal 0 when not exists window', () => {
+    jest.spyOn(verifyWindow, 'hasWindow').mockReturnValue(null);
+    const size = defineAnimationSize();
+
+    expect(size).toBe(0);
   });
 });

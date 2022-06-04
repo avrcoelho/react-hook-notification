@@ -1,8 +1,6 @@
 import React, { StrictMode } from 'react';
 import ReactDOM from 'react-dom';
 
-const customDocument = typeof document !== 'undefined' ? document : null;
-
 export class Initialize {
   private static instance: Initialize;
 
@@ -15,9 +13,9 @@ export class Initialize {
   }
 
   private createElement(): void {
-    const element = customDocument?.createElement('div');
+    const element = document.createElement('div');
     element?.setAttribute('id', 'rhn-container');
-    customDocument?.body.appendChild(element as HTMLElement);
+    document.body.appendChild(element);
   }
 
   static getInstance(): Initialize {
@@ -32,11 +30,11 @@ export class Initialize {
   }
 
   private removeElementIfExists(): void {
-    customDocument?.getElementById('rhn-container')?.remove();
+    document.getElementById('rhn-container')?.remove();
   }
 
   render(component: () => JSX.Element): void {
-    const canRender = !this.hasComponent && customDocument;
+    const canRender = !this.hasComponent;
     if (canRender) {
       this.hasComponent = true;
       this.setComponent(component);
@@ -44,7 +42,7 @@ export class Initialize {
       this.createElement();
       ReactDOM.render(
         <StrictMode>{this.Component && <this.Component />}</StrictMode>,
-        customDocument.getElementById('rhn-container'),
+        document.getElementById('rhn-container'),
       );
     }
   }
