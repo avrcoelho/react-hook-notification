@@ -93,13 +93,10 @@ export const useController: UseControllerHook = ({
     eventListenerOptions,
   );
 
-  const setElementRef = useCallback(
-    (elementRef: HTMLDivElement) => {
-      elementEnterRef.current = elementRef;
-      elementLeaveRef.current = elementRef;
-    },
-    [elementEnterRef, elementLeaveRef],
-  );
+  const setElementRef = (elementRef: HTMLDivElement): void => {
+    elementEnterRef.current = elementRef;
+    elementLeaveRef.current = elementRef;
+  };
 
   const withIcon = type === 'default' ? false : showIcon;
   const themeSelected = `${type}-${theme}` as ContainerTheme;
@@ -117,30 +114,32 @@ export const useController: UseControllerHook = ({
   const clickIsAllowed = closeOnClick && !hasDrag;
 
   const isMount = useIsMounted();
-  const disableDrag = useCallback((): void => {
+  const disableDrag = (): void => {
     setTimeout(() => {
       if (isMount) {
         setHasDrag(false);
       }
     }, 0);
-  }, [isMount]);
+  };
 
-  const onDragEnd = useCallback(
-    (_: MouseEvent | TouchEvent | PointerEvent, info: PanInfo) => {
-      const maxLeft = info.offset.x < -280;
-      const maxRight = info.offset.x > 280;
-      if (maxLeft || maxRight) {
-        setOnRemovedOnDragEnd(true);
-        onRemove(id);
-      }
-      disableDrag();
-    },
-    [disableDrag, id, onRemove],
-  );
+  console.log(id);
 
-  const onDragStart = useCallback(() => {
+  const onDragEnd = (
+    _: MouseEvent | TouchEvent | PointerEvent,
+    info: PanInfo,
+  ): void => {
+    const maxLeft = info.offset.x < -280;
+    const maxRight = info.offset.x > 280;
+    if (maxLeft || maxRight) {
+      setOnRemovedOnDragEnd(true);
+      onRemove(id);
+    }
+    disableDrag();
+  };
+
+  const onDragStart = (): void => {
     setHasDrag(true);
-  }, []);
+  };
 
   const sizeToAdd = TEXT_SIZE * textMaxLines + TITLE_SIZE * titleMaxLines;
   const containerAnimations = removedOnDragEnd
@@ -149,21 +148,26 @@ export const useController: UseControllerHook = ({
 
   const delayDecrement = useRef(delay / DELAY);
   const timerRef = useRef<NodeJS.Timeout>();
+
+  const onExecuteTimer = useCallback(() => {
+    timerRef.current = setInterval(() => {
+      delayDecrement.current -= 1;
+      if (delayDecrement.current === 0) {
+        onRemove(id);
+      }
+    }, DELAY);
+  }, [id, onRemove]);
+
   useEffect(() => {
     const canExecute = !showProgressBar && !isPaused && autoClose;
     if (canExecute) {
-      timerRef.current = setInterval(() => {
-        delayDecrement.current -= 1;
-        if (delayDecrement.current === 0) {
-          onRemove(id);
-        }
-      }, DELAY);
+      onExecuteTimer();
     } else {
       clearInterval(timerRef.current as NodeJS.Timeout);
     }
 
     return () => clearInterval(timerRef.current as NodeJS.Timeout);
-  }, [autoClose, delay, id, isPaused, onRemove, showProgressBar]);
+  }, [autoClose, isPaused, onExecuteTimer, showProgressBar]);
 
   const onLineCamp = (value: number): CSSProperties => ({
     WebkitLineClamp: value,
