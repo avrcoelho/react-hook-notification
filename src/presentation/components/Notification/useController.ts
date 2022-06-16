@@ -122,8 +122,6 @@ export const useController: UseControllerHook = ({
     }, 0);
   };
 
-  console.log(id);
-
   const onDragEnd = (
     _: MouseEvent | TouchEvent | PointerEvent,
     info: PanInfo,
